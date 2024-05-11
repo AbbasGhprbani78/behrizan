@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../public/font/Inter-Light.eot') format('eot'),
+        url('../public/font/Inter-Light.woff') format('woff'),
+        url('../public/font/Inter-Light.woff2') format('woff2'),
+        url('../public/font/Inter-Light.ttf') format('ttf');
+}
+
+/* 
+@font-face {
+    font-family: '';
+    src: url('../public/font/-Light.eot') format('eot'),
+        url('../public/font/-Light.woff') format('woff'),
+        url('../public/font/-Light.woff2') format('woff2'),
+        url('../public/font/-Light.ttf') format('ttf');
+} */
+
+
+.ltr-font {
+    font-family: 'Inter', sans-serif !important;
+}
+
+/* .rtl-font {
+    font-family: , sans-serif !important;
+} */
+
+.rtl {
+    direction: rtl;
+}

@@ -5,16 +5,36 @@
 }
 
 :root {
-
-    --color-1: #1F211F;
-    --color-2: #404348;
-    --color-3: #F9F9F9;
-    --color-4: #FFCB05;
-    --border-radius-1: 10px;
-    --border-radius-2: 20px;
-    --box-shadow-1: 0px 5px 30px 0px #000000;
-    --box-shadow-2: 0px 4px 4px 0px #00000040;
-    --font-size-1: 1rem;
-    --font-size-2: .9rem;
-    --font-size-3: .8rem;
+    --color-1: #6096BA;
+    --color-2: #A3CEF1;
+    --color-3: #6095b6;
+    --color-4: #457B9D;
+    --color-5: #555B6E;
+    --color-6: #FDF0D5;
+    --color-7: #FDF0D5;
+    --color-8: #FCF6BD;
+    --color-9: #FEF9EF;
+    --color-10: #89B0AE;
+    --color-11: #DAD7CD;
+    --color-12: #8B8C89;
+    --color-13: #E7ECEF;
+    --color-14: #EDF6F9;
+    --color-15: #BEE3DB;
+    --color-16: #003049;
+    --color-17: #274C77;
+    --color-18: #FAF9F9;
+    --color-19: #FFD6BA;
+    --color-20: #C1121F;
+    --color-21: #CAD2C5;
+    --color-22: #D4E09B;
+    --color-23: #780000;
+    --color-24: #52796F;
+    --color-25: #CBDFBD;
+    --color-26: #E8EDDF;
+    --color-btn-hover: #5588a7;
+    --LinearGradient-1: linear-gradient(90deg, #FAF9F9 0%, #FAF9F9 25.09%, #6096BA 100%);
+    --LinearGradient-2: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 68%, rgba(0, 0, 0, 0) 100%);
+    --LinearGradient-3: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.35) 53.5%, rgba(0, 0, 0, 0.35) 100%);
+    --box-shadow-1: 0px 4px 4px 0px #00000040;
+    --border-radius-1: 50px
 }
