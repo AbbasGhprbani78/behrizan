@@ -5,6 +5,7 @@ import Header from './Components/modules/Header/Header'
 import i18n from './i18n'
 import { useMyContext } from './context/langugaeContext';
 import { useEffect } from 'react';
+import './App.css'
 function App() {
 
   const router = useRoutes(routes)
@@ -20,10 +21,13 @@ function App() {
 
   return (
     <>
-      <Header />
-      <div className='conatainer-project'>
-        {router}
+      <div className={`conatainer-project ${language === "en" ? "ltr-font" : ""}`}>
+        <Header />
+        <div>
+          {router}
+        </div>
       </div>
+
     </>
   )
 }

@@ -1,1 +1,55 @@
 @import url('../../../../Styles/Main.css');
+
+/* start sectio1 style */
+.section1-wrapper {
+    height: 80vh;
+    background: url('../../../../../public/images/back-sect1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: space-between;
+}
+
+.crosan-img-wrapper {
+    height: 98%;
+    padding-left: 20px;
+    padding-top: .5rem;
+}
+
+.fade-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.fade-wrapper>img {
+    width: 100%;
+    height: 100%;
+}
+
+.right-section1 {
+    display: flex;
+    align-items: center;
+}
+
+.byword-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    font-size: calc(3vw + 2rem);
+    margin-top: 4vw;
+    color: var(--color-4);
+    font-weight: 100;
+}
+
+.time-section1-wrapper {
+    color: #ffff;
+    font-weight: 800;
+}
+
+.time-section1 {
+    border-bottom: 1px solid #fff;
+}
+
+/* end sectio1 style */

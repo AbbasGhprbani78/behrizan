@@ -10,7 +10,9 @@
     src: url('../public/font/Inter-Light.eot') format('eot'),
         url('../public/font/Inter-Light.woff') format('woff'),
         url('../public/font/Inter-Light.woff2') format('woff2'),
-        url('../public/font/Inter-Light.ttf') format('ttf');
+        url('../public/font/Inter-Light.ttf') format('ttf'),
+        url('../public/font/Inter-Thin.ttf') format('ttf');
+
 }
 
 /* 
@@ -33,4 +35,22 @@
 
 .rtl {
     direction: rtl;
+}
+
+
+
+
+/* Mobile */
+@media only screen and (max-width: 600px) {
+    /* Styles for mobile devices */
+}
+
+/* Tablet */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    /* Styles for tablets */
+}
+
+/* Desktop */
+@media only screen and (min-width: 1025px) {
+    /* Styles for desktops */
 }
