@@ -1,1 +1,34 @@
 @import url("../../../Styles/Main.css");
+
+
+.btn-module {
+    all: unset;
+    color: #fff;
+    background-color: var(--color-17);
+    padding: 1.5vh 5vw;
+    border-radius: var(--border-radius-1);
+    transition: all .3s ease;
+}
+
+.btn-module:hover {
+
+    background-color: var(--color-btn-hover-2);
+}
+
+@media (max-width:992px) {
+    .btn-module {
+        padding: 1.5vh 8vw;
+    }
+}
+
+@media (max-width:600px) {
+    .btn-module {
+        padding: 1.3vh 10vw;
+    }
+}
+
+@media (max-width:400px) {
+    .btn-module {
+        padding: 1.3vh 20vw;
+    }
+}

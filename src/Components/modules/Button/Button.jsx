@@ -1,9 +1,9 @@
 import React from 'react'
 import './Button.css'
-export default function Button() {
+export default function Button({ text }) {
     return (
         <>
-
+            <button className='btn-module'>{text}</button>
         </>
     )
 }

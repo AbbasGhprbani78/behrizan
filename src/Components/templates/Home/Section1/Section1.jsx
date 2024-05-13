@@ -4,6 +4,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Col } from 'react-bootstrap';
 import 'animate.css'
+import { Link } from 'react-router-dom';
 export default function Section1() {
 
     useEffect(() => {
@@ -17,23 +18,27 @@ export default function Section1() {
     return (
         <>
             <div className="section1-wrapper">
-                <Col md={6} className="crosan-img-wrapper">
+                <Col xs={12} sm={5} className="crosan-img-wrapper">
                     <div className='fade-wrapper' data-aos="fade-right" data-aos-once="false">
-                        <img src="../../../../../public/images/crosan.svg" alt="crosan" />
+                        <img src="../../../../../public/images/crosan.png" alt="crosan" />
                     </div>
                 </Col>
-                <Col md={6} className="right-section1">
+                <Col xs={12} sm={7} className="right-section1">
                     <div className="byword-wrapper animate__animated animate__fadeInDown animate__delay-1s">
                         REST<br />
                         DRINK<br />
-                        AND DO MORE !
+                        AND DO MORE
                     </div>
-                    <div className="time-section1-wrapper">
-                        <span className='am-time time-section1'>6:00 AM </span>
-                        -
-                        <span className='pm-time time-section1'> 11:00 PM </span>
+                    <div className="link-nav-wrapper mt-4 link-sec-m">
+                        <Link className='link-nav signin link-nav-sec'>
+                            Sign in
+                        </Link>
+                        <Link className='link-nav join-now link-nav-sec'>
+                            join now
+                        </Link>
                     </div>
                 </Col>
+
             </div>
         </>
     )

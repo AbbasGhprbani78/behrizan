@@ -31,10 +31,38 @@
     --color-24: #52796F;
     --color-25: #CBDFBD;
     --color-26: #E8EDDF;
+    --color-27: #fdfcfc;
     --color-btn-hover: #5588a7;
+    --color-btn-hover-2: #0f4763;
     --LinearGradient-1: linear-gradient(90deg, #FAF9F9 0%, #FAF9F9 25.09%, #6096BA 100%);
     --LinearGradient-2: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 68%, rgba(0, 0, 0, 0) 100%);
     --LinearGradient-3: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.35) 53.5%, rgba(0, 0, 0, 0.35) 100%);
     --box-shadow-1: 0px 4px 4px 0px #00000040;
     --border-radius-1: 50px
+}
+
+p {
+    margin-bottom: 0;
+}
+
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--color-3);
+    border-radius: 5px;
+
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-btn-hover);
 }

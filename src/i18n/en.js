@@ -1,9 +1,10 @@
 
 const en = {
-    Home: "Home",
-    Product: "Product",
-    About: "About",
-    text1: "text test"
+    HOME: "HOME",
+    MENU: "MENU",
+    STORY: "STORY",
+    Signin: "Sign in",
+    joinnow: "join now"
 }
 
 export default en

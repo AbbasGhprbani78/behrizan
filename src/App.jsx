@@ -6,6 +6,7 @@ import i18n from './i18n'
 import { useMyContext } from './context/langugaeContext';
 import { useEffect } from 'react';
 import './App.css'
+import Footer from './Components/modules/Footer/Footer';
 function App() {
 
   const router = useRoutes(routes)
@@ -21,11 +22,10 @@ function App() {
 
   return (
     <>
-      <div className={`conatainer-project ${language === "en" ? "ltr-font" : ""}`}>
+      <div className={`conatainer-project ${language === "en" ? "ltr-font" : "rtl-font"}`}>
         <Header />
-        <div>
-          {router}
-        </div>
+        {router}
+        <Footer />
       </div>
 
     </>

@@ -2,11 +2,11 @@
 
 /* start sectio1 style */
 .section1-wrapper {
-    height: 80vh;
     background: url('../../../../../public/images/back-sect1.png');
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 
@@ -19,16 +19,19 @@
 .fade-wrapper {
     width: 100%;
     height: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .fade-wrapper>img {
-    width: 100%;
+    width: 60%;
     height: 100%;
+    margin-right: 2rem;
 }
 
 .right-section1 {
     display: flex;
-    align-items: center;
+    flex-direction: column;
 }
 
 .byword-wrapper {
@@ -52,4 +55,89 @@
     border-bottom: 1px solid #fff;
 }
 
+
+
 /* end sectio1 style */
+
+@media only screen and (max-width: 600px) {
+
+    .section1-wrapper {
+        height: 100vh;
+    }
+
+    .fade-wrapper {
+        height: 53vh;
+    }
+
+    .fade-wrapper>img {
+        margin-right: 0;
+        height: 70vh;
+    }
+
+    .fade-wrapper>img {
+        width: 80%;
+    }
+
+    .crosan-img-wrapper {
+        padding-left: 0;
+        padding-top: 0;
+        height: 50%
+    }
+
+    .byword-wrapper {
+        margin-top: 0;
+        padding-left: 23px;
+    }
+
+    .link-sec-m {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .link-nav-wrapper {
+        flex-direction: column;
+    }
+
+    .link-nav-sec {
+        width: 100%;
+        text-align: center;
+    }
+
+}
+
+@media (max-width:1025px) {
+    .fade-wrapper>img {
+        width: 80%;
+    }
+
+    .link-nav-wrapper {
+        margin-bottom: 30px;
+    }
+
+    .link-nav-sec {
+        padding: 8px 40px !important;
+    }
+}
+
+@media (max-width:700px) {
+
+    .byword-wrapper {
+        font-size: calc(3vw + 1.5rem);
+    }
+}
+
+/* Tablet */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    /* Styles for tablets */
+}
+
+/* Desktop */
+@media only screen and (min-width: 1025px) {
+
+    .link-sec-m {
+        display: none !important;
+    }
+
+    /* Styles for desktops */
+}

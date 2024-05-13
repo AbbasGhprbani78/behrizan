@@ -1,1 +1,146 @@
 @import url('../../../../Styles/Main.css');
+
+.section2-container {
+    background-color: var(--color-27);
+}
+
+.section2-wrapper {
+    height: 52vh;
+}
+
+.section2-wrapper {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+}
+
+
+/* start style left-section2 */
+.drinking-text-wrapper {
+    display: flex;
+    align-items: center;
+    height: 80px;
+}
+
+.drinking-text {}
+
+.drinking-text-left {
+    background-color: var(--color-17);
+    color: #fff;
+    height: 100%;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    padding: 0 5px;
+}
+
+
+.drinking-text-right {
+    color: var(--color-17);
+    height: 100%;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    padding: 0 5px;
+}
+
+.drinking-text-left-main {}
+
+.drinking-text-right-main {}
+
+.section2-text-1 {
+    margin-left: 3vw;
+}
+
+.section2-text-2 {
+    margin-top: 1rem;
+    margin-left: 20vw;
+}
+
+.text-section2 {
+    color: var(--color-17);
+    font-weight: 500;
+    font-size: calc(1.5vw + 1rem);
+    font-weight: bold;
+    margin-top: 2rem;
+}
+
+.btn-section2 {
+    margin-top: 3.5rem;
+}
+
+
+/* end style left-section2 */
+
+/* start style right-section2 */
+
+.image-section2-wrapper {
+    background-image: url('../../../../../public/images/twoglassCafe.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 50vh;
+    width: 100%;
+}
+
+/* end style right-section2 */
+
+
+
+@media only screen and (max-width: 600px) {}
+
+@media (max-width:1025px) {}
+
+@media (max-width:856px) {
+    .section2-wrapper {
+        width: 95%;
+    }
+
+}
+
+@media (max-width:605px) {
+    .section2-wrapper {
+        flex-wrap: wrap;
+        height: max-content;
+    }
+
+    .text-section2 {
+        text-align: center;
+        margin-top: 0;
+    }
+
+    .fade-wrapper {
+        width: 100%;
+    }
+
+    .btn-section2 {
+        width: 100%;
+        text-align: center;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .section2-text-1 {
+        margin-right: 14vw;
+    }
+
+    .section2-text-2 {
+        margin-left: 25vw;
+    }
+
+}
+
+
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    .section2-wrapper {
+        height: max-content;
+        padding-bottom: 2rem;
+    }
+
+    .image-section2-wrapper {
+        height: auto;
+    }
+}
+
+/* Desktop */
+@media only screen and (min-width: 1025px) {}

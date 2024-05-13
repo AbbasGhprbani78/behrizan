@@ -1,3 +1,5 @@
+@import url('./Styles/Main.css');
+
 * {
     margin: 0;
     padding: 0;
@@ -11,27 +13,30 @@
         url('../public/font/Inter-Light.woff') format('woff'),
         url('../public/font/Inter-Light.woff2') format('woff2'),
         url('../public/font/Inter-Light.ttf') format('ttf'),
-        url('../public/font/Inter-Thin.ttf') format('ttf');
+        url('../public//font/Inter-ExtraLight.ttf') format('ttf'),
+        url('../public//font/Inter-ExtraLight.eot') format('eot'),
+        url('../public//font/Inter-ExtraLight.woff') format('woff'),
+        url('../public//font/Inter-ExtraLight.woff2') format('woff2'),
 
 }
 
-/* 
+
 @font-face {
-    font-family: '';
-    src: url('../public/font/-Light.eot') format('eot'),
-        url('../public/font/-Light.woff') format('woff'),
-        url('../public/font/-Light.woff2') format('woff2'),
-        url('../public/font/-Light.ttf') format('ttf');
-} */
+    font-family: 'iranyekan';
+    src: url('../public/font/iranyekanweblight.eot') format('eot'),
+        url('../public/font/iranyekanweblight.woff') format('woff'),
+        url('../public/font/iranyekanweblight.woff2') format('woff2'),
+        url('../public/font/iranyekanweblight.ttf') format('ttf');
+}
 
 
 .ltr-font {
     font-family: 'Inter', sans-serif !important;
 }
 
-/* .rtl-font {
-    font-family: , sans-serif !important;
-} */
+.rtl-font {
+    font-family: "iranyekan", sans-serif !important;
+}
 
 .rtl {
     direction: rtl;

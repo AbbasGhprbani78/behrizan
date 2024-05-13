@@ -1,8 +1,9 @@
 const fa = {
-    Home: "خانه",
-    Product: "محصولات",
-    About: "درباره",
-    text1: "متن تستی"
+    HOME: "خانه",
+    MENU: "منو",
+    STORY: "درباره ما",
+    Signin: "ورود",
+    joinnow: "عضویت"
 }
 
 export default fa

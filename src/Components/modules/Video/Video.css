@@ -1,0 +1,6 @@
+@import url('../../../Styles/Main.css');
+
+.video {
+    height: 100% !important;
+    width: 100%;
+}
