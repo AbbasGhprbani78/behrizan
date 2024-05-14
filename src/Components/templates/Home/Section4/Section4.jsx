@@ -1,15 +1,19 @@
 import React from 'react'
 import './Section4.css'
 import Button from '../../../modules/Button/Button'
-import { Col } from 'react-bootstrap'
+import { Col } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
+import { useMyContext } from '../../../../context/langugaeContext';
 export default function Section4() {
+    const { language } = useMyContext()
+    const { t } = useTranslation();
     return (
         <>
-            <div className="section4-wrapper">
+            <div className={`section4-wrapper ${language === "fa" && "rtl"}`}>
                 <Col xs={12} md={6} className="section4-left">
-                    <p className="section4-title">Vegan Milk</p>
+                    <p className="section4-title">{t("VeganMilk")}</p>
                     <p className="section4-dec">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis in eu mi bibendum neque egestas. Et sollicitudin ac orci phasellus egestas.
+                        {t("text")}
                     </p>
                     <div className="btn-section4-wrapper">
                         <Button

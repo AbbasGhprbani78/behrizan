@@ -1,0 +1,48 @@
+@import url('../../../Styles/Main.css');
+
+.product-item-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 7vh;
+}
+
+.product-img-wrapper {
+    background-color: var(--color-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.product-img-wrapper:hover {
+    background-color: var(--color-17);
+}
+
+.product-img-wrapper>img {
+    width: calc(4.5vw + 50px);
+    height: calc(4.5vw + 50px);
+}
+
+.product-img-wrapper {
+    perspective: 1000px;
+}
+
+.product-img-wrapper img {
+    transition: transform 0.5s ease;
+
+}
+
+.product-img-wrapper:hover img {
+    transform: scale(1.1);
+}
+
+.product-text {
+    margin-left: calc(.1vw + 15px);
+    margin-right: calc(.1vw + 15px);
+    color: var(--color-17);
+    font-size: calc(.2vw + .9rem);
+}

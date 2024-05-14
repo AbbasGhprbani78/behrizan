@@ -1,1 +1,21 @@
 @import url('../../Styles/Main.css');
+
+.menu-container {
+    width: 90%;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+}
+
+@media (max-width:600px) {
+    .menu-Header {
+        flex-direction: column;
+        align-items: start !important;
+        justify-content: center;
+    }
+
+    .menu-tab-list {
+        margin-top: 1rem;
+        font-size: .8rem;
+        margin-bottom: .5rem;
+    }
+}

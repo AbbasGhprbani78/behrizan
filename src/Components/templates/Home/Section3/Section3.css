@@ -6,29 +6,24 @@
 }
 
 
-@media only screen and (max-width: 600px) {}
-
-@media (max-width:1024px) {
-    .section3-wrapper {
-        height: max-content;
-    }
-
-    .video-wrapper {
-        height: 25vh;
-    }
-}
-
-@media only screen and (min-width: 601px) and (max-width: 1024px) {}
-
-/* Desktop */
-@media only screen and (min-width: 1025px) {
+@media only screen and (min-width:600px) {
     .section3-wrapper {
         display: flex;
         flex-wrap: wrap;
-        height: 40vh;
+        height: 50vh;
     }
 
     .video-wrapper {
         height: 100%;
     }
 }
+
+
+
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    .section3-wrapper {
+        height: max-content;
+    }
+}
+
+/* Desktop */

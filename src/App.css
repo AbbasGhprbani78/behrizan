@@ -29,6 +29,10 @@
         url('../public/font/iranyekanweblight.ttf') format('ttf');
 }
 
+.body {
+    background-color: var(--color-18);
+}
+
 
 .ltr-font {
     font-family: 'Inter', sans-serif !important;
@@ -40,6 +44,11 @@
 
 .rtl {
     direction: rtl;
+}
+
+
+.link {
+    all: unset;
 }
 
 

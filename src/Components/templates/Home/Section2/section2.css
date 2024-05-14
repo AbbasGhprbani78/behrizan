@@ -34,6 +34,11 @@
     padding: 0 5px;
 }
 
+.feauter {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
 
 .drinking-text-right {
     color: var(--color-17);
@@ -52,9 +57,20 @@
     margin-left: 3vw;
 }
 
+.rtl .section2-text-1 {
+    margin-left: 0vw;
+    margin-right: 3vw;
+}
+
+
 .section2-text-2 {
     margin-top: 1rem;
     margin-left: 20vw;
+}
+
+.rtl .section2-text-2 {
+    margin-left: 0;
+    margin-right: 20vw;
 }
 
 .text-section2 {
@@ -86,6 +102,11 @@
 /* end style right-section2 */
 
 
+@media (max-width:576px) {
+    .rtl .byword-wrapper {
+        margin-right: 2rem;
+    }
+}
 
 @media only screen and (max-width: 600px) {}
 

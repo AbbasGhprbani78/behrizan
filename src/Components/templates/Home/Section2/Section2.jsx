@@ -4,8 +4,12 @@ import Button from '../../../modules/Button/Button'
 import { Col } from 'react-bootstrap'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { useTranslation } from 'react-i18next';
+import { useMyContext } from '../../../../context/langugaeContext';
 export default function Section2() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const { language } = useMyContext()
+    const { t } = useTranslation();
 
     useEffect(() => {
         const handleWindowResize = () => {
@@ -33,22 +37,22 @@ export default function Section2() {
                 windowWidth < 605 ?
                     <>
                         <div className='section2-wrapper'>
-                            <Col xs={2} className="drinking-text-wrapper">
+                            <Col xs={2} className={`drinking-text-wrapper ${language === "fa" && "feauter"}`}>
                                 <div className="drinking-text drinking-text-left">
-                                    <p className='drinking-text-left-main'>Cold</p>
+                                    <p className='drinking-text-left-main'>{t("Cold")}</p>
                                 </div>
                                 <div className="drinking-text drinking-text-right">
-                                    <p className='drinking-text-right-main'>Drink</p>
+                                    <p className='drinking-text-right-main'>{t("Drink")}</p>
                                 </div>
                             </Col>
-                            <Col xs={10} data-aos="fade-right" data-aos-once="false">
+                            <Col xs={10} data-aos={`fade-top`} data-aos-once="false">
                                 <div className='image-section2-wrapper'>
                                 </div>
                             </Col>
                         </div>
                         <div className="text-section2">
-                            <span className='section2-text-1'>SUMMER IS HERE</span><br />
-                            <span className='section2-text-2'> BEST OFFER</span>
+                            <span className='section2-text-1'>{t("firstsec")}</span><br />
+                            <span className='section2-text-2'>{t("twosec")}</span>
                         </div>
                         <div className="btn-section2">
                             <Button
@@ -57,20 +61,20 @@ export default function Section2() {
                         </div>
                     </> :
                     <>
-                        <div className='section2-container'>
+                        <div className={`section2-container ${language === "fa" && "rtl"}`}>
                             <div className="section2-wrapper">
-                                <Col sm={6} md={7} className="left-section2">
-                                    <div className="drinking-text-wrapper">
-                                        <div className="drinking-text drinking-text-left">
-                                            <p className='drinking-text-left-main'>Cold</p>
+                                <Col sm={7} className="left-section2">
+                                    <div className={`drinking-text-wrapper ${language === "fa" && "feauter"}`}>
+                                        <div className={`drinking-text drinking-text-left`}>
+                                            <p className='drinking-text-left-main'>{t("Cold")}</p>
                                         </div>
-                                        <div className="drinking-text drinking-text-right">
-                                            <p className='drinking-text-right-main'>Drink</p>
+                                        <div className={`drinking-text drinking-text-right`}>
+                                            <p className='drinking-text-right-main'>{t("Drink")}</p>
                                         </div>
                                     </div>
                                     <div className="text-section2">
-                                        <span className='section2-text-1'>SUMMER IS HERE</span><br />
-                                        <span className='section2-text-2'> BEST OFFER</span>
+                                        <span className='section2-text-1'>{t("firstsec")}</span><br />
+                                        <span className='section2-text-2'>{t("twosec")}</span>
                                     </div>
                                     <div className="btn-section2">
                                         <Button
@@ -78,11 +82,13 @@ export default function Section2() {
                                         />
                                     </div>
                                 </Col>
-                                <Col sm={6} md={5} className="right-section2">
-                                    <div className='fade-wrapper fade-wrapper-m' data-aos="fade-right" data-aos-once="false">
-                                        <div className='image-section2-wrapper'>
+                                <Col sm={5} className="right-section2">
+                                    <>
+                                        <div className='fade-wrapper fade-wrapper-m' data-aos="fade-top" data-aos-once="false">
+                                            <div className='image-section2-wrapper'>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </>
                                 </Col>
                             </div>
                         </div>

@@ -21,6 +21,11 @@
     padding-left: 1.7rem;
 }
 
+.rtl .section6-right {
+    padding-left: 0;
+    padding-right: 1.7rem;
+}
+
 .Qcafe-title {
     color: var(--color-3);
     font-weight: 500;
@@ -72,5 +77,20 @@
 
     .qcafe-phone {
         font-size: .8rem;
+    }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    .section6-wrapper {
+        height: max-content;
+    }
+
+    .section6-right {
+        height: auto;
+        padding-bottom: 1.3rem;
+    }
+
+    .section6-left {
+        height: 60vh;
     }
 }

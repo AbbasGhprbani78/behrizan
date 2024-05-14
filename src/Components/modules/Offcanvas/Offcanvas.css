@@ -4,3 +4,8 @@
 .offcanvas {
     width: 65% !important;
 }
+
+.menu-sidebar {
+    display: flex;
+    flex-direction: column;
+}

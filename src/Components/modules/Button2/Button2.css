@@ -1,0 +1,18 @@
+@import url('../../../Styles/Main.css');
+
+.order-btn {
+    all: unset;
+    border-radius: var(--border-radius-1);
+    background-color: var(--color-3);
+    color: #fff;
+    padding: 6px 20px;
+    transition: all .3s ease;
+}
+
+.order-btn:hover {
+    background-color: var(--color-btn-hover-2);
+}
+
+.addIcon {
+    margin-left: 10px;
+}

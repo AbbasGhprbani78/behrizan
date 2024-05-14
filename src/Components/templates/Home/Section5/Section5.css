@@ -26,6 +26,7 @@
 .section5-right {
     padding-right: 10%;
     font-size: calc(.4vw + .9rem);
+    text-align: center;
 }
 
 .text-section5 {
@@ -40,34 +41,37 @@
 
 
 
-@media only screen and (max-width: 555px) {
+@media(max-width:555px) {
+
     .section5-right {
         padding-right: 10px;
     }
 
     .section5-right {
         display: flex;
-    }
-
-    .text-section5 {
-        display: flex;
-        flex-direction: column;
         font-size: .8rem;
     }
+
 }
 
-@media (max-width:1025px) {
-
-    .section5-wrappper {
-        height: 20vh;
+@media (max-width:600px) {
+    .section5-left>img {
+        width: 100%;
     }
 
-
+    .section5-wrappper {
+        height: 30vh;
+    }
 }
 
+@media (max-width:720px) {}
 
 
-@media only screen and (min-width: 601px) and (max-width: 1024px) {}
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    .section5-wrappper {
+        height: 50vh;
+    }
+}
 
 /* Desktop */
 @media only screen and (min-width: 1025px) {}
