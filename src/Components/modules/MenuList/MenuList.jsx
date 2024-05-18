@@ -10,12 +10,12 @@ export default function MenuList({ titleProducts }) {
                     <span className='title-products-header'>{titleProducts}</span>
                 </div>
                 <div className="menu-product">
-                    <Col xs={12} sm={6}> <ProductItem /></Col>
-                    <Col xs={12} sm={6}> <ProductItem /></Col>
-                    <Col xs={12} sm={6}> <ProductItem /></Col>
-                    <Col xs={12} sm={6}> <ProductItem /></Col>
-                    <Col xs={12} sm={6}> <ProductItem /></Col>
-                    <Col xs={12} sm={6}> <ProductItem /></Col>
+                    <Col xs={12} sm={6}> <ProductItem link={"/menu/icecoffee"} /></Col>
+                    <Col xs={12} sm={6}> <ProductItem link={"/menu/icecoffee"} /></Col>
+                    <Col xs={12} sm={6}> <ProductItem link={"/menu/icecoffee"} /></Col>
+                    <Col xs={12} sm={6}> <ProductItem link={"/menu/icecoffee"} /></Col>
+                    <Col xs={12} sm={6}> <ProductItem link={"/menu/icecoffee"} /></Col>
+                    <Col xs={12} sm={6}> <ProductItem link={"/menu/icecoffee"} /></Col>
                 </div>
             </div>
         </>

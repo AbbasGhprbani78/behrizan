@@ -15,11 +15,11 @@ export default function Section4() {
                     <p className="section4-dec">
                         {t("text")}
                     </p>
-                    <div className="btn-section4-wrapper">
+                    {/* <div className="btn-section4-wrapper">
                         <Button
                             text="Order"
                         />
-                    </div>
+                    </div> */}
                 </Col>
                 <Col xs={12} md={6} className="section4-right"></Col>
             </div>

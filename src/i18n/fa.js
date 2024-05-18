@@ -17,7 +17,22 @@ const fa = {
     phoneOrders: "تلفن سفارشات",
     Menu: "منو",
     Previous: "تاریخچه",
-    Favorites: "مورد علاقه"
+    Favorites: "مورد علاقه",
+    Cart: "سبدخرید",
+    Items: "اقلام",
+    Number: "تعداد",
+    Price: "قیمت",
+    t: "ت",
+    Cancel: "لغو",
+    Name: "نام",
+    LastName: "نام خانوادگی",
+    PhoneNumber: "تلفن",
+    Email: "ایمیل",
+    Address: 'آدرس ...',
+    TryWith: "امتحان کن با",
+    Small: "کوچک",
+    Medium: "متوسط",
+    Large: "بزرگ"
 }
 
 export default fa

@@ -18,8 +18,22 @@ const en = {
     phoneOrders: "Telephone Orders",
     Menu: "Menu",
     Previous: "Previous",
-    Favorites: "Favorites"
-
+    Favorites: "Favorites",
+    Cart: "Cart",
+    Items: "Items",
+    Number: "Number",
+    Price: "Price",
+    t: "t",
+    Cancel: "Cancel",
+    Name: "Name",
+    lastName: "Last Name",
+    PhoneNumber: "Phone Number",
+    Email: "Email",
+    Address: 'Address...',
+    TryWith: "Try With",
+    Small: "Samll",
+    Medium: "Medium",
+    Large: "Large"
 }
 
 export default en

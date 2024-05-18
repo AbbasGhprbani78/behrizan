@@ -1,0 +1,32 @@
+@import url('../../../../Styles/Main.css');
+
+.section4-product-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: calc(.8vw + 1.2rem) calc(4vw + 3rem);
+    background-color: var(--color-17);
+    color: #fff;
+}
+
+.show-price-products {
+    font-weight: 700;
+}
+
+.btn-page-product {
+    all: unset;
+    border-radius: var(--border-radius-1);
+    background-color: #fff;
+    color: var(--color-17);
+    padding: 5px 30px;
+    display: flex;
+    align-items: center;
+}
+
+
+@media (max-width:600px) {
+    .section4-product-wrapper {
+        padding: calc(.8vw + 1.2rem) calc(1vw + 2rem);
+    }
+
+}

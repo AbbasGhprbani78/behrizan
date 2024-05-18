@@ -1,0 +1,121 @@
+@import url('../../../../Styles/Main.css');
+
+.section1-product-wrapper {
+    background: var(--LinearGradient-1);
+    padding: 1rem 2rem;
+}
+
+.rtl .section1-product-wrapper {
+    /* background: linear-gradient(90deg, #FAF9F9 0%, #FAF9F9 25.09%, #6096BA 100%); */
+    background: linear-gradient(270deg, #FAF9F9 0%, #FAF9F9 25.09%, #6096BA 100%);
+    ;
+}
+
+.section1-product-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 88%;
+    margin: 0 auto;
+}
+
+.left-section1-product {
+    display: flex;
+    align-items: center;
+}
+
+.main-product-img-wrapper {
+    height: 30vh;
+}
+
+.main-product-img-wrapper>img {
+    height: 100%;
+}
+
+
+.clippath-product {
+    clip-path: polygon(0% 0%, 100% 0, 83% 50%, 100% 100%, 0% 100%);
+    background-color: var(--color-17);
+    color: #fff;
+}
+
+.rtl .clippath-product {
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%, 32% 49%);
+}
+
+.clippath-py-text {
+    padding: 7px 47px 7px 12px;
+}
+
+.rtl .clippath-py-text {
+    padding: 7px 12px 7px 95px;
+}
+
+.icon-size-wrapper {
+    display: flex;
+    align-items: end;
+}
+
+
+.icon-size-order {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.icon-oder-size-1 {}
+
+.icon-oder-size-2 {
+    font-size: 1.8rem !important;
+}
+
+.icon-oder-size-3 {
+    font-size: 2.2rem !important;
+}
+
+.icon-size-order>span {
+    color: #fff;
+}
+
+.icon-order-container {
+    padding: 7px;
+    border-radius: 50%;
+    transition: all .3s ease;
+    cursor: pointer;
+}
+
+.icon-order-container:hover {
+    background-color: #fff;
+}
+
+.icon-order {
+    color: var(--color-17);
+}
+
+.size-order-text {
+    margin-top: 10px;
+    font-size: .8rem;
+}
+
+.meduiem-wrapper {
+    margin: 0 3rem;
+}
+
+@media only screen and (max-width:949px) {
+    .section1-product-container {
+        flex-direction: column;
+    }
+}
+
+@media (max-width:600px) {
+    .section1-product-wrapper {
+        padding: 1rem 0;
+    }
+
+    .section1-product-container {
+        width: 100%;
+    }
+}
+
+@media (max-width:341px) {}

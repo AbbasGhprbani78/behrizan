@@ -17,6 +17,7 @@ export default function Header() {
     const [showOffCanvas, setShowOffCanvas] = useState(false);
     const [showMenuTab, SetShowMenuTab] = useState(false)
     const { t } = useTranslation()
+    const [scrollY, setScrollY] = useState(0);
 
     const changeLanguage = (value) => {
         if (value) {
@@ -52,6 +53,19 @@ export default function Header() {
         };
     }, []);
 
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrollY(window.scrollY);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+
     return (
         <>
 
@@ -62,7 +76,7 @@ export default function Header() {
             {
                 windowWidth < 1025 ?
                     <>
-                        <header className={`header-container-m ${language === "fa" && "rtl"}`}>
+                        <header className={`header-container-m ${language === "fa" && "rtl"} ${scrollY > 50 ? "fixed-header" : ""}`}>
                             <nav className='header-nav-m'>
                                 <div className="menu-icon-wrapper" onClick={windowWidth > 600 ? handleTogglemenuTab : handleToggleOffCanvas} >
                                     {
@@ -124,7 +138,7 @@ export default function Header() {
                         </header>
                     </> :
                     <>
-                        <header className={`header-container ${language === "fa" && "rtl"}`}>
+                        <header className={`header-container ${language === "fa" && "rtl"} ${scrollY > 50 ? "fixed-header" : ""}`}>
                             <nav className='header-nav'>
                                 <div className="left-nav">
                                     <div className="logo-nav">
@@ -161,11 +175,13 @@ export default function Header() {
                                     </ul>
                                 </div>
                                 <div className="right-nav">
-                                    <div className="cart-icon-wrapper">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-basket2-fill cart-icon" viewBox="0 0 16 16">
-                                            <path d="M5.929 1.757a.5.5 0 1 0-.858-.514L2.217 6H.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h.623l1.844 6.456A.75.75 0 0 0 3.69 15h8.622a.75.75 0 0 0 .722-.544L14.877 8h.623a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1.717L10.93 1.243a.5.5 0 1 0-.858.514L12.617 6H3.383zM4 10a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0zm3 0a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0zm4-1a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1" />
-                                        </svg>
-                                    </div>
+                                    <Link className='link' to={"/cart"}>
+                                        <div className="cart-icon-wrapper">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-basket2-fill cart-icon" viewBox="0 0 16 16">
+                                                <path d="M5.929 1.757a.5.5 0 1 0-.858-.514L2.217 6H.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h.623l1.844 6.456A.75.75 0 0 0 3.69 15h8.622a.75.75 0 0 0 .722-.544L14.877 8h.623a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1.717L10.93 1.243a.5.5 0 1 0-.858.514L12.617 6H3.383zM4 10a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0zm3 0a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0zm4-1a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1" />
+                                            </svg>
+                                        </div>
+                                    </Link>
 
                                     <div className="link-nav-wrapper">
                                         <Link className='link-nav signin'>

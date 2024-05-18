@@ -1,0 +1,16 @@
+@import url('../../../Styles/Main.css');
+
+
+.CacheProvider {
+    width: 100% !important;
+}
+
+@media (max-width:600px) {
+    .inputModal {
+        width: 100%;
+    }
+
+    .input-modal-order .css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+        width: 100% !important;
+    }
+}

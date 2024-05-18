@@ -1,0 +1,46 @@
+@import url('../../../Styles/Main.css');
+
+.productItem2-container {
+    text-align: center;
+}
+
+.productItem2-wrapper {
+    border-radius: 50%;
+    background-color: var(--color-7);
+    position: relative;
+    padding: 20px;
+
+}
+
+.productItem2-wrapper>img {
+    width: calc(2vw + 100px);
+    height: calc(2vw + 100px);
+    transition: all .3s ease;
+}
+
+.productItem2-wrapper:hover.productItem2-wrapper>img {
+    transform: rotate(-20deg);
+}
+
+
+.addIcon {
+    background-color: var(--color-25);
+    color: #fff;
+    position: absolute;
+    right: 12px;
+    top: 3px;
+    border-radius: 50%;
+    padding: 3px;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.addIcon:hover {
+    background-color: #abc697;
+}
+
+.productItem2-text {
+    margin-top: .5rem;
+    color: var(--color-17);
+    font-weight: bold;
+}
