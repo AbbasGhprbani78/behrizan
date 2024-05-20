@@ -32,7 +32,11 @@ const fa = {
     TryWith: "امتحان کن با",
     Small: "کوچک",
     Medium: "متوسط",
-    Large: "بزرگ"
+    Large: "بزرگ",
+    empty: "موردی جهت نمایش وجود ندارد",
+    Additives: "مواد افزودنی",
+    None: "هیچکدام"
+
 }
 
 export default fa

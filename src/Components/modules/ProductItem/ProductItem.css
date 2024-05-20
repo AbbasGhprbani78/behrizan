@@ -5,6 +5,7 @@
     align-items: center;
     justify-content: center;
     margin-top: 7vh;
+
 }
 
 .product-img-wrapper {
@@ -16,6 +17,7 @@
     border-radius: 50%;
     cursor: pointer;
     transition: all .3s ease;
+    overflow: hidden;
 }
 
 .product-img-wrapper:hover {
@@ -25,6 +27,7 @@
 .product-img-wrapper>img {
     width: calc(4.5vw + 50px);
     height: calc(4.5vw + 50px);
+    border-radius: 50%;
 }
 
 .product-img-wrapper {
@@ -45,4 +48,13 @@
     margin-right: calc(.1vw + 15px);
     color: var(--color-17);
     font-size: calc(.2vw + .9rem);
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+@media (max-width:600px) {
+    .product-item-wrapper {
+        justify-content: start;
+    }
 }

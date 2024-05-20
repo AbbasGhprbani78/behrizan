@@ -2,6 +2,7 @@
 
 .productItem2-container {
     text-align: center;
+    cursor: pointer;
 }
 
 .productItem2-wrapper {
@@ -16,6 +17,8 @@
     width: calc(2vw + 100px);
     height: calc(2vw + 100px);
     transition: all .3s ease;
+    border-radius: 50%;
+    overflow: hidden;
 }
 
 .productItem2-wrapper:hover.productItem2-wrapper>img {
@@ -35,11 +38,29 @@
     transition: all .3s ease;
 }
 
+.min-icon {
+    background-color: var(--color-25);
+    color: #fff;
+    position: absolute;
+    left: 12px;
+    top: 3px;
+    border-radius: 50%;
+    padding: 3px;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+
 .addIcon:hover {
     background-color: #abc697;
 }
 
-.productItem2-text {
+.min:hover {
+    background-color: #abc697;
+}
+
+.productItem2-text,
+.productItem2-price {
     margin-top: .5rem;
     color: var(--color-17);
     font-weight: bold;

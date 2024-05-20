@@ -149,7 +149,7 @@ export default function Header() {
                                             <NavLink className="navlink-nav" to={'/'}>{t("HOME")}</NavLink>
                                         </li>
                                         <li className='nav-list-item'>
-                                            <NavLink className="navlink-nav" to={'/menu'}>{t("MENU")}</NavLink>
+                                            <NavLink className="navlink-nav" to={'/categorymenus'}>{t("MENU")}</NavLink>
                                         </li>
                                         <li className='nav-list-item'>
                                             <NavLink className="navlink-nav" to={'/story'}>{t("STORY")}</NavLink>
@@ -184,10 +184,10 @@ export default function Header() {
                                     </Link>
 
                                     <div className="link-nav-wrapper">
-                                        <Link className='link-nav signin'>
+                                        <Link className='link-nav signin' to={"#"}>
                                             {t("Signin")}
                                         </Link>
-                                        <Link className='link-nav join-now'>
+                                        <Link className='link-nav join-now' to={"#"}>
                                             {t("joinnow")}
                                         </Link>
                                     </div>

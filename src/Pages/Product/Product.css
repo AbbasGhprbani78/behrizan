@@ -1,1 +1,5 @@
 @import url('../../Styles/Main.css');
+
+.backIconfa {
+    transform: rotate(180deg) !important;
+}

@@ -34,10 +34,10 @@ export default function Section1() {
                         {t("ANDDOMORE")}
                     </div>
                     <div className="link-nav-wrapper mt-4 link-sec-m">
-                        <Link className='link-nav signin link-nav-sec'>
+                        <Link className='link-nav signin link-nav-sec' to={'#'}>
                             {t("Signin")}
                         </Link>
-                        <Link className='link-nav join-now link-nav-sec'>
+                        <Link className='link-nav join-now link-nav-sec' to={"#"}>
                             {t("joinnow")}
                         </Link>
                     </div>

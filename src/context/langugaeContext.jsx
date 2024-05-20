@@ -6,6 +6,7 @@ export const LanguageProvider = ({ children }) => {
 
     const [language, setLanguage] = useState("en")
 
+
     return (
         <ChangeLanContext.Provider value={{ language, setLanguage }}>
             {children}

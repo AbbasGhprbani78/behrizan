@@ -1,20 +1,28 @@
 import React from 'react'
 import './ProductItem2.css'
-import AddIcon from '@mui/icons-material/Add';
-export default function ProductItem2() {
+import { IP } from '../../../App';
+import { Link } from 'react-router-dom';
+export default function ProductItem2({
+    img,
+    name,
+    id
+}) {
     return (
         <>
-            <div className="productItem2-container">
-                <div className='productItem2-wrapper'>
-                    <span className='addIcon'>
-                        <AddIcon />
-                    </span>
-                    <img src="../../../../public/images/cookie.png" alt="product-img" />
+            <Link className='link' to={`/product/${name}/${id}`}>
+                <div className="productItem2-container">
+                    <div className='productItem2-wrapper'>
+                        <img src={`${IP}${img}`} />
+                    </div>
+                    <p className='productItem2-text'>
+                        {name}
+                    </p>
+                    {/* <p className="productItem2-price">
+                    {price}
+                </p> */}
                 </div>
-                <p className='productItem2-text'>
-                    chocolatecookie
-                </p>
-            </div>
+            </Link>
+
         </>
 
     )

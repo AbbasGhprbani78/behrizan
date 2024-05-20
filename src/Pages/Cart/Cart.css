@@ -154,6 +154,7 @@
     width: 100%;
     height: calc(1vw + 100px);
     resize: none;
+    border: 1px solid var(--color-17);
 }
 
 .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root {
@@ -182,6 +183,25 @@
 
     .modal-input-wrapper {
         flex-direction: column;
+    }
+
+    .cart-content-m {
+        max-height: 500px;
+        overflow-y: scroll;
+        padding-bottom: 10px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    }
+
+    .cart-content-m::-webkit-scrollbar {
+        display: none;
+    }
+
+    .css-i4bv87-MuiSvgIcon-root {
+        font-size: 1.2rem !important;
+    }
+
+    .cart-container {
+        margin-top: 5rem;
     }
 }
 

@@ -17,6 +17,10 @@
     gap: 40px;
 }
 
+.offcanvas-body::-webkit-scrollbar {
+    display: none;
+}
+
 .sidebar-item {
     text-decoration: none;
     display: flex;
@@ -134,4 +138,11 @@
     margin-right: 0;
 }
 
-.phone-sidebar {}
+.phone-sidebar {
+    margin-left: 20px;
+}
+
+.rtl .phone-sidebar {
+    margin-right: 20px;
+    margin-left: 0;
+}

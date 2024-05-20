@@ -7,11 +7,12 @@ import 'aos/dist/aos.css';
 import { useTranslation } from 'react-i18next';
 import { useMyContext } from '../../../../context/langugaeContext';
 
-
 export default function Section2() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const { language } = useMyContext()
     const { t } = useTranslation();
+
+
 
     useEffect(() => {
         const handleWindowResize = () => {
@@ -32,6 +33,7 @@ export default function Section2() {
             easing: 'ease',
         });
     }, []);
+
 
     return (
         <>

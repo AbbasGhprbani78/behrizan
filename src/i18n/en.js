@@ -33,7 +33,10 @@ const en = {
     TryWith: "Try With",
     Small: "Samll",
     Medium: "Medium",
-    Large: "Large"
+    Large: "Large",
+    empty: "There are no items to display",
+    Additives: "Additives",
+    None: "None"
 }
 
 export default en

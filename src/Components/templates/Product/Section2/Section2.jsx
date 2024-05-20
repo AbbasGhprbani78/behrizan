@@ -9,13 +9,27 @@ import createCache from '@emotion/cache';
 import rtlPlugin from 'stylis-plugin-rtl';
 import { prefixer } from 'stylis';
 import './Section2.css';
+import LocalDrinkIcon from '@mui/icons-material/LocalDrink';
 import { useMyContext } from '../../../../context/langugaeContext'
-export default function Section2() {
-    const [age, setAge] = useState("");
-    const { language } = useMyContext()
+import { useTranslation } from 'react-i18next';
+import CheckIcon from '@mui/icons-material/Check';
 
+export default function Section2({ mainProduct, selectorder, setTotalPrice, }) {
+    const [cProperties, setCProperties] = useState("");
+    const { language } = useMyContext()
+    const [oldprice, setoldPrice] = useState(0)
+    const { t } = useTranslation()
     const handleChange = (event) => {
-        setAge(event.target.value);
+        setCProperties(event.target.value);
+        if (event.target.value) {
+            setTotalPrice(prevPrice => prevPrice - oldprice)
+            const selectProduct = mainProduct?.category_properties.filter(product => product.name === event.target.value);
+            setoldPrice(selectProduct[0]?.price)
+            setTotalPrice(prevPrice => prevPrice + selectProduct[0]?.price)
+        }
+        // else {
+        //     setTotalPrice(prevPrice => prevPrice - selectProduct[0]?.price)
+        // }
     };
     const cacheRtl = createCache({
         key: 'muirtl',
@@ -23,80 +37,111 @@ export default function Section2() {
     });
 
 
+    // const calcTotalPrice = (value) => {
+
+    //     setTotalPrice(prevPrice=>prevPrice+)
+    // }
+
+    // console.log(mainProduct.category_properties)
+
     return (
         <>
             <div className="section2-product-wrapper">
-                <Col xs={12} md={6} className="section2-product-left">
-                    <p className="Additives-text">Additives</p>
-                    {
-                        language === "fa" ?
-                            <>
-                                <CacheProvider value={cacheRtl}>
+                {
+                    mainProduct?.product?.syrup &&
+                    <Col xs={12} md={6} className="section2-product-left">
+                        <p className="Additives-text">{t("Additives")}</p>
+                        {
+                            language === "fa" ?
+                                <>
+                                    <CacheProvider value={cacheRtl}>
+                                        <FormControl className='drop-product'>
+                                            <InputLabel id="demo-simple-select-helper-label">اضافه کردن سیروپ</InputLabel>
+                                            <Select
+                                                labelId="demo-simple-select-helper-label"
+                                                id="demo-simple-select-helper"
+                                                value={cProperties}
+                                                label="اضافه کردن سیروپ"
+                                                onChange={handleChange}
+                                            >
+                                                <MenuItem style={language === "fa" && { direction: "rtl" }} value={""}>{t("None")}</MenuItem>
+                                                {
+                                                    mainProduct?.category_properties?.length > 0 && mainProduct.category_properties.map((item, i) => (
+                                                        <MenuItem style={language === "fa" && { direction: "rtl" }} key={i} value={item.name}>{item.name}</MenuItem>
+                                                    ))
+                                                }
+
+                                            </Select>
+                                        </FormControl>
+                                    </CacheProvider>
+                                </> :
+                                <>
                                     <FormControl className='drop-product'>
                                         <InputLabel id="demo-simple-select-helper-label">Add Syrop</InputLabel>
                                         <Select
                                             labelId="demo-simple-select-helper-label"
                                             id="demo-simple-select-helper"
-                                            value={age}
-                                            label="Add Syrop"
+                                            value={cProperties}
+                                            label={`language`}
                                             onChange={handleChange}
                                         >
-                                            <MenuItem value="">
-                                                <em>None</em>
-                                            </MenuItem>
-                                            <MenuItem value={10}>Ten</MenuItem>
-                                            <MenuItem value={20}>Twenty</MenuItem>
-                                            <MenuItem value={30}>Thirty</MenuItem>
+                                            <MenuItem value={""}>{t("None")}</MenuItem>
+                                            {
+                                                mainProduct?.category_properties?.length > 0 && mainProduct?.category_properties.map((item, i) => (
+                                                    <MenuItem key={i} value={item.name}>{item.name}</MenuItem>
+                                                ))
+                                            }
                                         </Select>
                                     </FormControl>
-                                </CacheProvider>
-                            </> :
-                            <>
-                                <FormControl sx={{ m: 1, minWidth: 120 }}>
-                                    <InputLabel id="demo-simple-select-helper-label">Add Syrop</InputLabel>
-                                    <Select
-                                        labelId="demo-simple-select-helper-label"
-                                        id="demo-simple-select-helper"
-                                        value={age}
-                                        label="Add Syrop"
-                                        onChange={handleChange}
-                                    >
-                                        <MenuItem value="">
-                                            <em>None</em>
-                                        </MenuItem>
-                                        <MenuItem value={10}>Ten</MenuItem>
-                                        <MenuItem value={20}>Twenty</MenuItem>
-                                        <MenuItem value={30}>Thirty</MenuItem>
-                                    </Select>
-                                </FormControl>
-                            </>
-                    }
+                                </>
+                        }
 
-                    <div className="prodcut-radio-wrapper">
-                        <label className='label'>
-                            <input type="radio" name="radio" />
-                            <span className='item-radio-product mx-3'>Regular Milk</span>
-                        </label>
-                        <label className='label'>
-                            <input type="radio" name="radio" />
-                            <span className='item-radio-product mx-3'>Almond Milk</span>
-                        </label>
-                        <label className='label'>
-                            <input type="radio" name="radio" />
-                            <span className='item-radio-product mx-3'>Coconut Milk</span>
-                        </label>
-                    </div>
-                </Col>
-                <Col xs={12} md={6} className="section2-product-right">
-                    <img src="../../../../../public/images/milk.png" alt="" />
-                    <div className="section2-product-right-content">
-                        <div className="section2-product-right-title">try vegan milk</div>
-                        <p className="section2-product-right-text">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis in eu mi bibendum neque egestas. Et sollicitudin ac orci phasellus egestas.
-                        </p>
+                    </Col>
+                }
+
+                <Col xs={12} md={6} className={`section2-product-right ${mainProduct?.product?.syrup === false && "content-start"}`}>
+                    <div className="price-product-show-container">
+                        <div className="size-price-item">
+                            <LocalDrinkIcon className='icon-order icon-oder-size-1' />
+                            <span className='size-price-item-price'>
+                                {language === "fa" ?
+                                    mainProduct?.product?.small_glass_price.toLocaleString("fa") :
+                                    mainProduct?.product?.small_glass_price.toLocaleString()
+                                } <span> {t("t")}</span>
+                            </span>
+                            <span className={`select_order ${selectorder === "small" && "active-select-order"}`}>
+                                <CheckIcon />
+                            </span>
+                        </div>
+                        <div className="size-price-item">
+                            <LocalDrinkIcon className='icon-order icon-oder-size-2' />
+                            <span className='size-price-item-price'>
+                                {language === "fa" ?
+                                    mainProduct?.product?.medium_glass_price.toLocaleString("fa") :
+                                    mainProduct?.product?.medium_glass_price.toLocaleString()
+                                } <span> {t("t")}</span>
+                            </span>
+                            <span className={`select_order ${selectorder === "medium" && "active-select-order"}`}>
+                                <CheckIcon />
+                            </span>
+                        </div>
+                        <div className="size-price-item">
+                            <LocalDrinkIcon className='icon-order icon-oder-size-3' />
+                            <span className='size-price-item-price'>
+                                {language === "fa" ?
+                                    mainProduct?.product?.big_glass_price.toLocaleString("fa") :
+                                    mainProduct?.product?.big_glass_price.toLocaleString()
+                                } <span> {t("t")}</span>
+                            </span>
+                            <span className={`select_order ${selectorder === "large" && "active-select-order"}`}>
+                                <CheckIcon />
+                            </span>
+                        </div>
                     </div>
                 </Col>
             </div>
         </>
     )
 }
+
+

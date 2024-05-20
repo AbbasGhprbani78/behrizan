@@ -1,40 +1,84 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Product.css'
 import MenuHeader from '../../Components/modules/MenuHeader/MenuHeader'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useMyContext } from '../../context/langugaeContext'
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 import Section1 from '../../Components/templates/Product/Section1/Section1'
 import Section2 from '../../Components/templates/Product/Section2/Section2'
 import Section3 from '../../Components/templates/Product/Section3/Section3'
 import Section4 from '../../Components/templates/Product/Section4/Section4'
-export default function Product() {
+import { useParams } from 'react-router-dom'
+import { IP } from '../../App'
+import axios from 'axios'
+import Lodaing from '../../Components/modules/Loading/Lodaing'
 
+
+export default function Product() {
     const { language } = useMyContext()
+    const [loading, setLoading] = useState(false)
+    const [openModal, setOpenModal] = useState(false)
+    const { id } = useParams()
+    const navigate = useNavigate()
+    const [mainProduct, setMainProduct] = useState("")
+    const [selectorder, setSelectOrder] = useState("medium");
+    const [totalPrice, setTotalPrice] = useState(0)
+    const [prevPrice, setPrevPrice] = useState(0)
+
+    useEffect(() => {
+        const getMainProduct = async () => {
+            setLoading(true)
+            const headers = {
+                'Accept-Language': language
+            }
+            try {
+                const response = await axios.get(`${IP}/app/product/${id}`, { headers })
+                if (response.status === 200) {
+                    setMainProduct(response.data)
+                    setLoading(false)
+                }
+            } catch (e) {
+                console.log(e)
+                setLoading(false)
+            }
+        }
+        getMainProduct()
+    }, [language, id])
+
     return (
         <>
-            <div className={`productpage-container ${language === "fa" && "rtl"}`}>
-                <div className="menu-container">
-                    <MenuHeader isborder={true} />
-                    <Link className='link' to={'/menu/icecoffee'}>
-                        <div className='main-menu-title-wrapper'>
-                            {
-                                language === "fa" ?
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" className="bi bi-arrow-return-right" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M1.5 1.5A.5.5 0 0 0 1 2v4.8a2.5 2.5 0 0 0 2.5 2.5h9.793l-3.347 3.346a.5.5 0 0 0 .708.708l4.2-4.2a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 8.3H3.5A1.5 1.5 0 0 1 2 6.8V2a.5.5 0 0 0-.5-.5" />
-                                    </svg> :
+            {loading ? (
+                <Lodaing />
+            ) : (
+                <div className={`productpage-container ${language === "fa" && "rtl"}`}>
+                    <div className="menu-container">
+                        <MenuHeader isborder={true} />
+                        <div className='link' onClick={() => navigate(-1)}>
+                            <div className='main-menu-title-wrapper'>
+                                {language === "fa" ? (
+                                    <KeyboardReturnIcon className='backIconfa' />
+                                ) : (
                                     <KeyboardReturnIcon />
-                            }
-
-                            <p className="main-menu-title">Iced Coffee</p>
+                                )}
+                                <p className="main-menu-title">{mainProduct?.product?.name}</p>
+                            </div>
                         </div>
-                    </Link>
+                    </div>
+                    <Section1
+                        mainProduct={mainProduct}
+                        setSelectOrder={setSelectOrder}
+                        setTotalPrice={setTotalPrice}
+                    />
+                    <Section2
+                        mainProduct={mainProduct} selectorder={selectorder}
+                        setTotalPrice={setTotalPrice}
+                        totalPrice={totalPrice}
+
+                    />
+                    <Section3 tryProduct={mainProduct.suggested_products} />
+                    <Section4 setOpenModal={setOpenModal} totalPrice={totalPrice} />
                 </div>
-                <Section1 />
-                <Section2 />
-                <Section3 />
-                <Section4 />
-            </div>
+            )}
         </>
     )
 }
