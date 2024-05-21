@@ -36,7 +36,11 @@ const en = {
     Large: "Large",
     empty: "There are no items to display",
     Additives: "Additives",
-    None: "None"
+    None: "None",
+    homedec: "In order to complete our team, Q Cafe announces cooperation in the job position of the workforce in all sections",
+    contactw: "Those interested can send their resume via WhatsApp to",
+    QCafe: "Q Cafe",
+
 }
 
 export default en

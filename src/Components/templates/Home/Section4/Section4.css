@@ -4,7 +4,6 @@
     display: flex;
     align-items: start;
     justify-content: space-between;
-    height: 42vh;
     flex-wrap: wrap;
 }
 
@@ -13,10 +12,7 @@
     display: flex;
     flex-direction: column;
     padding: 2rem 1rem 2rem 3rem;
-    height: 42vh;
-    overflow-y: scroll;
 }
-
 
 .section4-title {
     font-weight: 600;
@@ -42,11 +38,12 @@
 
 /* start style section4-right */
 .section4-right {
-    background-image: url('../../../../../public/images/milk.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 42vh;
+    height: 100%;
+}
+
+.section4-right>img {
+    width: 100%;
+    height: 100%;
 }
 
 /*end style section4-right */
@@ -60,22 +57,9 @@
 
 }
 
-@media (max-width:1025px) {
-    .section4-left {
-        height: auto;
-        overflow-y: auto;
-    }
+@media (max-width:1025px) {}
 
-
-}
-
-
-
-@media only screen and (min-width: 601px) and (max-width: 1024px) {
-    .section4-right {
-        height: 75vh;
-    }
-}
+@media only screen and (min-width: 601px) and (max-width: 1024px) {}
 
 @media (max-width:768px) {
     .section4-wrapper {

@@ -2,16 +2,11 @@
 
 .section6-wrapper {
     display: flex;
-    align-items: center;
-    height: 40vh;
     flex-wrap: wrap;
 }
 
-.section6-left {
-    background-image: url('../../../../../public/images/Frame\ 36.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+.section6-left>img {
+    width: 100%;
     height: 100%;
 }
 
@@ -55,13 +50,10 @@
         height: max-content;
     }
 
-    .section6-left {
-        height: 40vh;
-    }
 
     .section6-right {
-        height: 24vh;
         margin-top: 1rem;
+        padding-bottom: 20px;
     }
 }
 
@@ -71,26 +63,17 @@
         font-size: .8rem;
     }
 
-    .section6-left {
-        height: 30vh;
-    }
-
     .qcafe-phone {
         font-size: .8rem;
     }
 }
 
 @media only screen and (min-width: 601px) and (max-width: 1024px) {
-    .section6-wrapper {
-        height: max-content;
-    }
 
     .section6-right {
         height: auto;
         padding-bottom: 1.3rem;
     }
 
-    .section6-left {
-        height: 60vh;
-    }
+
 }

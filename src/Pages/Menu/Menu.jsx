@@ -31,6 +31,7 @@ export default function Menu() {
 
             } catch (e) {
                 console.log(e)
+                setLoading(false)
             }
         }
 

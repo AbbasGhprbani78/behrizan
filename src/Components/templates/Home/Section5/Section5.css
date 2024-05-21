@@ -1,14 +1,12 @@
 @import url('../../../../Styles/Main.css');
 
 .section5-wrappper {
-    height: 40vh;
     background: var(--LinearGradient-1);
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
 }
-
 
 .section5-left {
     height: 100%;
@@ -20,7 +18,7 @@
 
 .section5-left>img {
     margin-top: 1.2rem;
-    height: 90%;
+    height: 25vh;
 }
 
 .section5-right {
@@ -58,18 +56,15 @@
     .section5-left>img {
         width: 100%;
     }
-
-    .section5-wrappper {
-        height: 30vh;
-    }
 }
 
-@media (max-width:720px) {}
+@media (max-width:768px) {}
 
 
 @media only screen and (min-width: 601px) and (max-width: 1024px) {
-    .section5-wrappper {
-        height: 50vh;
+    .section5-left>img {
+        margin-top: 1.2rem;
+        height: 20vh;
     }
 }
 

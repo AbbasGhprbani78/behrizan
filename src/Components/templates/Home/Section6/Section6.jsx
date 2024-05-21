@@ -9,17 +9,19 @@ export default function Section6() {
     return (
         <>
             <div className={`section6-wrapper ${language === "fa" && "rtl"}`}>
-                <Col xs={12} md={6} className="section6-left"></Col>
+                <Col xs={12} md={6} className="section6-left">
+                    <img src="../../../../../public/images/Frame 36.png" alt="" />
+                </Col>
                 <Col xs={12} md={6} className="section6-right">
-                    <p className="Qcafe-title">Q Cafe</p>
-                    <p className="Qcafe-text1">
-                        In order to complete our team, Q Cafe announces cooperation in the job position of the workforce in all sections
+                    <p className="Qcafe-title">{t("QCafe")}</p>
+                    <p className="Qcafe-text1 mt-2">
+                        {t("homedec")}
                     </p>
                     <p className="Qcafe-text2">
-                        Those interested can send their resume via WhatsApp to
+                        {t("contactw")}
                     </p>
-                    <span className="qcafe-phone">
-                        09367959455
+                    <span className="qcafe-phone mt-2">
+                        09363498950
                     </span>
                 </Col>
             </div>

@@ -3,7 +3,7 @@ import './Section1.css'
 import LocalDrinkIcon from '@mui/icons-material/LocalDrink';
 import { useTranslation } from 'react-i18next';
 import { IP } from '../../../../App';
-export default function Section1({ mainProduct, setSelectOrder, setTotalPrice, }) {
+export default function Section1({ mainProduct, setSelectOrder, setTotalPrice, setProductPrice }) {
 
     const { t } = useTranslation()
     const [selectSize, setSelectSize] = useState('medium')
@@ -11,10 +11,12 @@ export default function Section1({ mainProduct, setSelectOrder, setTotalPrice, }
     useEffect(() => {
         setSelectOrder("medium")
         setTotalPrice(mainProduct?.product?.medium_glass_price)
+        setProductPrice(mainProduct?.product?.medium_glass_price)
     }, [])
 
 
     const calcTotalPrice = (value) => {
+        setProductPrice(value)
         setTotalPrice(value)
     }
     return (

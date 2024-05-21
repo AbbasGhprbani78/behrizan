@@ -16,8 +16,6 @@ export default function MainMenu() {
     const [Products, setProducts] = useState("")
     const [loading, setLoading] = useState(false)
 
-
-
     useEffect(() => {
         const getProducts = async () => {
             const headers = {
@@ -31,12 +29,12 @@ export default function MainMenu() {
 
                 if (response.status === 200) {
                     setProducts(response.data.products)
-                    console.log(response.data.products)
                     setLoading(false)
                 }
 
             } catch (e) {
                 console.log(e)
+                setLoading(false)
             }
         }
         getProducts()

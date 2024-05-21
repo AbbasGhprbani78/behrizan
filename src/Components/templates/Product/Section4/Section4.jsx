@@ -8,10 +8,6 @@ export default function Section4({ setOpenModal, totalPrice }) {
     return (
         <>
             <div className='section4-product-wrapper'>
-                <div className="show-price-products">
-                    {totalPrice} {t("t")}
-                </div>
-                <button className='btn-page-product' onClick={() => setOpenModal(true)}>{t("Order")} <AddIcon /> </button>
             </div>
         </>
 

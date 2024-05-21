@@ -23,7 +23,7 @@ export default function Product() {
     const [mainProduct, setMainProduct] = useState("")
     const [selectorder, setSelectOrder] = useState("medium");
     const [totalPrice, setTotalPrice] = useState(0)
-    const [prevPrice, setPrevPrice] = useState(0)
+    const [productPrice, setProductPrice] = useState(0)
 
     useEffect(() => {
         const getMainProduct = async () => {
@@ -67,16 +67,19 @@ export default function Product() {
                     <Section1
                         mainProduct={mainProduct}
                         setSelectOrder={setSelectOrder}
+                        setProductPrice={setProductPrice}
                         setTotalPrice={setTotalPrice}
                     />
                     <Section2
-                        mainProduct={mainProduct} selectorder={selectorder}
+                        mainProduct={mainProduct}
+                        selectorder={selectorder}
                         setTotalPrice={setTotalPrice}
+                        productPrice={productPrice}
                         totalPrice={totalPrice}
 
                     />
                     <Section3 tryProduct={mainProduct.suggested_products} />
-                    <Section4 setOpenModal={setOpenModal} totalPrice={totalPrice} />
+                    <Section4 setOpenModal={setOpenModal} />
                 </div>
             )}
         </>

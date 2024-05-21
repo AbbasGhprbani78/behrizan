@@ -41,13 +41,13 @@ export default function CartItem() {
                             <Col xs={6} className="cart-item-m-right">
                                 <div className="number-item-m">
                                     <span className='min-product'>
-                                        <RemoveIcon />
+                                        <RemoveIcon className='icon-cart' />
                                     </span>
                                     <span className="number-porduct-order">
                                         100 X
                                     </span>
                                     <span className='plus-product'>
-                                        <AddIcon />
+                                        <AddIcon className='icon-cart' />
                                     </span>
                                 </div>
                                 <div className="price-product">

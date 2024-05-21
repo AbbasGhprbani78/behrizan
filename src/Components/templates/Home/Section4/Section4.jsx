@@ -1,6 +1,5 @@
 import React from 'react'
 import './Section4.css'
-import Button from '../../../modules/Button/Button'
 import { Col } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { useMyContext } from '../../../../context/langugaeContext';
@@ -15,13 +14,10 @@ export default function Section4() {
                     <p className="section4-dec">
                         {t("text")}
                     </p>
-                    {/* <div className="btn-section4-wrapper">
-                        <Button
-                            text="Order"
-                        />
-                    </div> */}
                 </Col>
-                <Col xs={12} md={6} className="section4-right"></Col>
+                <Col xs={12} md={6} className="section4-right">
+                    <img src="../../../../../public/images/milk.png" alt="" />
+                </Col>
             </div>
         </>
     )
