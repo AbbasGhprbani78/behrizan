@@ -116,7 +116,7 @@ export default function Header() {
                                                     </li>
                                                     <li className='nav-list-item'>
                                                         <LocalCafeOutlinedIcon className='icon-tab mx-2' />
-                                                        <NavLink className="navlink-nav" to={'/menu'}>{t("MENU")}</NavLink>
+                                                        <NavLink className="navlink-nav" to={'/categorymenus'}>{t("MENU")}</NavLink>
                                                     </li>
                                                     <li className='nav-list-item'>
                                                         <PhotoAlbumOutlinedIcon className='icon-tab mx-2' />

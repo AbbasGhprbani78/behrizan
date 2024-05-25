@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, Fragment, useState } from 'react'
 import './section2.css'
 import Button from '../../../modules/Button/Button'
 import { Col } from 'react-bootstrap'
@@ -9,7 +9,7 @@ import { useMyContext } from '../../../../context/langugaeContext';
 import axios from 'axios';
 import { IP } from '../../../../App'
 import Lodaing from '../../../modules/Loading/Lodaing';
-export default function Section2() {
+export default function Section2({ dataHome }) {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const { language } = useMyContext()
     const { t } = useTranslation();
@@ -61,6 +61,15 @@ export default function Section2() {
         });
     }, []);
 
+    const headerText = language === 'fa' ? dataHome?.text_two_farsi : dataHome?.text_two;
+
+    const formattedHeaderText = headerText?.split(',').map((text, index, arr) => (
+        <Fragment key={index}>
+            {text}
+            {index < arr.length - 1 && <br />}
+        </Fragment>
+    ));
+
 
 
     return (
@@ -87,8 +96,7 @@ export default function Section2() {
                                 </Col>
                             </div>
                             <div className="text-section2">
-                                <span className={`section2-text-1 ${language === "fa" && "rtl-section2-text-1"}`}>{t("firstsec")}</span><br />
-                                <span className={`section2-text-2 ${language === "fa" && "rtl-section2-text-2"}`}>{t("twosec")}</span>
+                                {formattedHeaderText}
                             </div>
                             <div className="btn-section2">
                                 <Button
@@ -111,8 +119,7 @@ export default function Section2() {
                                             </div>
                                         </div>
                                         <div className="text-section2">
-                                            <span className='section2-text-1'>{t("firstsec")}</span><br />
-                                            <span className='section2-text-2'>{t("twosec")}</span>
+                                            {formattedHeaderText}
                                         </div>
                                         <div className="btn-section2">
                                             <Button

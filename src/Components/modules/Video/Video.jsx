@@ -1,7 +1,8 @@
 import React, { useState, useRef } from 'react';
 import PlayCircleOutlinedIcon from '@mui/icons-material/PlayCircleOutlined';
 import './Video.css'
-export default function Video() {
+import { IP } from '../../../App';
+export default function Video({ Video }) {
 
     const videoRef = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
@@ -22,7 +23,9 @@ export default function Video() {
                 height={"100%"}
                 ref={videoRef}
             >
-                <source src="../../../../public/video/video .mp4" type="video/mp4" />
+                <source src={`${IP}${Video}`} type="video/mp4" />
+                <source src={`${IP}${Video}`} type="video/webm" />
+                <source src={`${IP}${Video}`} type="video/ogg" />
             </video>
             {
                 !isPlaying &&

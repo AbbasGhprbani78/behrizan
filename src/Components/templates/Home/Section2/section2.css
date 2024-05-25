@@ -40,6 +40,10 @@
     padding: 0 10px;
 }
 
+.rtl .drinking-text-left {
+    order: 1;
+}
+
 
 
 

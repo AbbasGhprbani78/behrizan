@@ -6,9 +6,7 @@
 }
 
 .rtl .section1-product-wrapper {
-    /* background: linear-gradient(90deg, #FAF9F9 0%, #FAF9F9 25.09%, #6096BA 100%); */
     background: linear-gradient(270deg, #FAF9F9 0%, #FAF9F9 25.09%, #6096BA 100%);
-    ;
 }
 
 .section1-product-container {
@@ -24,9 +22,7 @@
     align-items: center;
 }
 
-/* .main-product-img-wrapper {
-    height: 30vh;
-} */
+
 
 .main-product-img-wrapper>img {
     height: calc(3vw + 80px);
