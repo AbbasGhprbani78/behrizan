@@ -13,18 +13,19 @@
 .section6-right {
     display: flex;
     flex-direction: column;
-    padding-left: 1.7rem;
+    padding-left: 3rem;
 }
 
 .rtl .section6-right {
     padding-left: 0;
-    padding-right: 1.7rem;
+    padding-right: 3rem;
 }
 
 .Qcafe-title {
     color: var(--color-3);
-    font-weight: 500;
-    font-size: calc(.5vw + 25px)
+    font-size: calc(.5vw + 25px);
+    margin-top: 2rem;
+    font-weight: bold;
 }
 
 .Qcafe-text1 {
@@ -42,12 +43,14 @@
     color: var(--color-3);
     border-bottom: 1px solid var(--color-3);
     width: max-content;
+    font-size: 1.2rem;
 }
 
 
 @media (max-width:768px) {
     .section6-wrapper {
         height: max-content;
+        flex-wrap: wrap-reverse;
     }
 
 
@@ -64,7 +67,7 @@
     }
 
     .qcafe-phone {
-        font-size: .8rem;
+        font-size: 1rem;
     }
 }
 

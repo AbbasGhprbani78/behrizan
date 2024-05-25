@@ -19,6 +19,10 @@ export default function Section1({ mainProduct, setSelectOrder, setTotalPrice, s
         setProductPrice(value)
         setTotalPrice(value)
     }
+
+
+
+
     return (
         <>
             <div className="section1-product-wrapper">
@@ -39,7 +43,6 @@ export default function Section1({ mainProduct, setSelectOrder, setTotalPrice, s
                                         setSelectSize("small")
                                         setSelectOrder("small")
                                         calcTotalPrice(mainProduct?.product?.small_glass_price)
-
                                     }}>
                                     <LocalDrinkIcon className='icon-order icon-oder-size-1' />
                                 </div>
@@ -51,7 +54,6 @@ export default function Section1({ mainProduct, setSelectOrder, setTotalPrice, s
                                         setSelectSize("medium")
                                         setSelectOrder("medium")
                                         calcTotalPrice(mainProduct?.product?.medium_glass_price)
-
                                     }}
                                 >
                                     <LocalDrinkIcon className='icon-order icon-oder-size-2' />
@@ -64,7 +66,6 @@ export default function Section1({ mainProduct, setSelectOrder, setTotalPrice, s
                                         setSelectSize("large")
                                         setSelectOrder("large")
                                         calcTotalPrice(mainProduct?.product?.big_glass_price)
-
                                     }}
                                 >
                                     <LocalDrinkIcon className='icon-order icon-oder-size-3' />

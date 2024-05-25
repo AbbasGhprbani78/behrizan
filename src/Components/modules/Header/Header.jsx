@@ -16,21 +16,10 @@ export default function Header() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const [showOffCanvas, setShowOffCanvas] = useState(false);
     const [showMenuTab, SetShowMenuTab] = useState(false)
+    const [isEn, setIsEn] = useState(false)
+    const [isFa, setIsFa] = useState(false)
     const { t } = useTranslation()
     const [scrollY, setScrollY] = useState(0);
-
-    const changeLanguage = (value) => {
-        if (value) {
-            i18n.changeLanguage("en")
-            setLanguage("en")
-            localStorage.setItem("language", "en")
-        } else {
-            i18n.changeLanguage("fa")
-            setLanguage("fa")
-            localStorage.setItem("language", "fa")
-        }
-
-    }
 
     const handleToggleOffCanvas = () => {
         setShowOffCanvas(!showOffCanvas);
@@ -65,6 +54,32 @@ export default function Header() {
         };
     }, []);
 
+    const changeLanguageToEn = () => {
+        i18n.changeLanguage("en")
+        setLanguage("en")
+        localStorage.setItem("language", "en")
+        setIsEn(true)
+        setIsFa(false)
+    }
+
+    const changeLanguageToFa = () => {
+        i18n.changeLanguage("fa")
+        setLanguage("fa")
+        localStorage.setItem("language", "fa")
+        setIsEn(false)
+        setIsFa(true)
+    }
+
+    useEffect(() => {
+        const langweb = localStorage.getItem("language")
+        if (langweb === "fa") {
+            setIsEn(false)
+            setIsFa(true)
+        } else {
+            setIsEn(true)
+            setIsFa(false)
+        }
+    }, [])
 
     return (
         <>
@@ -110,24 +125,18 @@ export default function Header() {
                                                 </ul>
                                             </div>
                                             <div className="right-menu-tab">
-                                                <div className="cart-icon-wrapper">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-basket2-fill cart-icon" viewBox="0 0 16 16">
-                                                        <path d="M5.929 1.757a.5.5 0 1 0-.858-.514L2.217 6H.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h.623l1.844 6.456A.75.75 0 0 0 3.69 15h8.622a.75.75 0 0 0 .722-.544L14.877 8h.623a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1.717L10.93 1.243a.5.5 0 1 0-.858.514L12.617 6H3.383zM4 10a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0zm3 0a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0zm4-1a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1" />
-                                                    </svg>
-                                                </div>
+                                                <Link className='link' to={"/cart"}>
+                                                    <div className="cart-icon-wrapper">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" className="bi bi-basket2-fill cart-icon" viewBox="0 0 16 16">
+                                                            <path d="M5.929 1.757a.5.5 0 1 0-.858-.514L2.217 6H.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h.623l1.844 6.456A.75.75 0 0 0 3.69 15h8.622a.75.75 0 0 0 .722-.544L14.877 8h.623a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1.717L10.93 1.243a.5.5 0 1 0-.858.514L12.617 6H3.383zM4 10a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0zm3 0a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0zm4-1a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1" />
+                                                        </svg>
+                                                    </div>
+                                                </Link>
                                                 <div className="switch mx-4">
-                                                    <input
-                                                        id="language-toggle"
-                                                        className="check-toggle check-toggle-round-flat"
-                                                        type="checkbox"
-                                                        onChange={(e) => changeLanguage(e.target.checked)}
-                                                        checked={
-                                                            localStorage.getItem("language") === "fa" ? false : true
-                                                        }
-                                                    />
-                                                    <label htmlFor="language-toggle"></label>
-                                                    <span className="on">FA</span>
-                                                    <span className="off">EN</span>
+                                                    <div className="change-languge d-flex align-items-center">
+                                                        <p className={`btn-change-la change-en ${isEn && "lang-active"}`} onClick={changeLanguageToEn}>EN</p>
+                                                        <p className={`btn-change-la change-fa mx-2 ${isFa && "lang-active"}`} onClick={changeLanguageToFa}>FA</p>
+                                                    </div>
                                                 </div>
 
                                             </div>
@@ -157,18 +166,10 @@ export default function Header() {
                                         <li className='nav-list-item'>
                                             <div className="change-lan-nav">
                                                 <div className="switch">
-                                                    <input
-                                                        id="language-toggle"
-                                                        className="check-toggle check-toggle-round-flat"
-                                                        type="checkbox"
-                                                        onChange={(e) => changeLanguage(e.target.checked)}
-                                                        checked={
-                                                            localStorage.getItem("language") === "fa" ? false : true
-                                                        }
-                                                    />
-                                                    <label htmlFor="language-toggle"></label>
-                                                    <span className="on">FA</span>
-                                                    <span className="off">EN</span>
+                                                    <div className="change-languge d-flex align-items-center">
+                                                        <p className={`btn-change-la change-en ${isEn && "lang-active"}`} onClick={changeLanguageToEn}>EN</p>
+                                                        <p className={`btn-change-la change-fa mx-2 ${isFa && "lang-active"}`} onClick={changeLanguageToFa}>FA</p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </li>
@@ -177,7 +178,7 @@ export default function Header() {
                                 <div className="right-nav">
                                     <Link className='link' to={"/cart"}>
                                         <div className="cart-icon-wrapper">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-basket2-fill cart-icon" viewBox="0 0 16 16">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" className="bi bi-basket2-fill cart-icon" viewBox="0 0 16 16">
                                                 <path d="M5.929 1.757a.5.5 0 1 0-.858-.514L2.217 6H.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h.623l1.844 6.456A.75.75 0 0 0 3.69 15h8.622a.75.75 0 0 0 .722-.544L14.877 8h.623a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1.717L10.93 1.243a.5.5 0 1 0-.858.514L12.617 6H3.383zM4 10a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0zm3 0a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0zm4-1a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1" />
                                             </svg>
                                         </div>

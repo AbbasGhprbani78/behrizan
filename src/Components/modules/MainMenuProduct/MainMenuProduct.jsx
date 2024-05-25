@@ -11,7 +11,7 @@ export default function MainMenuProduct({ image,
 
     return (
         <div className='mainMenuproduct-wrapper'>
-            <ProductItem img={image} name={name} price={price} />
+            <ProductItem img={image} name={name} price={price} link={`/product/${name}/${id}`} />
             <Button2 name={name} id={id} />
         </div>
     )

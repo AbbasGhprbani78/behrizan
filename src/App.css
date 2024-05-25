@@ -29,9 +29,6 @@
         url('../public/font/iranyekanweblight.ttf') format('ttf');
 }
 
-.body {
-    background-color: var(--color-18);
-}
 
 
 .ltr-font {
@@ -64,9 +61,6 @@
 .main-content {
     flex: 1;
 }
-
-
-
 
 /* Mobile */
 @media only screen and (max-width: 600px) {

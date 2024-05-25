@@ -15,7 +15,7 @@ export default function ProductItem({ link, name, img, price }) {
                     <div className="product-img-wrapper">
                         <img src={`${IP}${img}`} alt="product-img" />
                     </div>
-                    <div className='d-flex flex-column justify-content-center align-items-center'>
+                    <div className='d-flex flex-column justify-content-start align-items-start mx-3'>
                         <p className="product-text">
                             {name}
                         </p>

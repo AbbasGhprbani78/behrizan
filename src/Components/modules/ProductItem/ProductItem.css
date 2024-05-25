@@ -44,14 +44,15 @@
 }
 
 .product-text {
-    margin-left: calc(.1vw + 15px);
-    margin-right: calc(.1vw + 15px);
     color: var(--color-17);
     font-size: calc(.2vw + .9rem);
     cursor: pointer;
     font-weight: bold;
 }
 
+.product-price {
+    font-weight: bold;
+}
 
 @media (max-width:600px) {
     .product-item-wrapper {

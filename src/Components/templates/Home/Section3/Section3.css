@@ -10,7 +10,6 @@
     .section3-wrapper {
         display: flex;
         flex-wrap: wrap;
-        height: 50vh;
     }
 
     .video-wrapper {

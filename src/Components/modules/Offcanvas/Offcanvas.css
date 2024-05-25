@@ -82,14 +82,15 @@
 }
 
 .btn-change-la {
-
     width: 30px;
     height: 30px;
     line-height: 30px;
     text-align: center;
     border-radius: 50%;
     cursor: pointer;
-    color: #979797;
+    color: var(--color-17);
+    padding: 2px 2px 0 2px;
+
 }
 
 .lang-active {

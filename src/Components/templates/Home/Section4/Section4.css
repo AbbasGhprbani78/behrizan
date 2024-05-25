@@ -2,71 +2,44 @@
 
 .section4-wrapper {
     display: flex;
-    align-items: start;
-    justify-content: space-between;
     flex-wrap: wrap;
 }
 
-/* start style section4-left */
 .section4-left {
-    display: flex;
-    flex-direction: column;
-    padding: 2rem 1rem 2rem 3rem;
-}
-
-.section4-title {
-    font-weight: 600;
-    font-size: calc(.5vw + 25px)
-}
-
-.section4-title,
-.section4-dec {
+    padding: 2rem 0 0 2rem;
     color: var(--color-3);
 }
 
+.rtl .section4-left {
+    padding: 2rem 2rem 0 0;
+}
+
+.section4-title {
+    font-size: calc(1vw + 1.2rem);
+    font-weight: bold;
+}
+
 .section4-dec {
-    margin: 2rem 0;
+    font-size: calc(.4vw + .9rem);
+    margin-top: 2rem;
+    padding-bottom: 15px;
 }
 
-.btn-section4-wrapper {
-    display: flex;
-    justify-content: start;
-}
-
-
-/* end style section4-left */
-
-/* start style section4-right */
-.section4-right {
-    height: 100%;
-}
+.section4-right {}
 
 .section4-right>img {
     width: 100%;
     height: 100%;
 }
 
-/*end style section4-right */
 
-
-
-@media only screen and (max-width: 600px) {
-    .telephone-text {
-        font-size: .8rem;
-    }
-
-}
+@media only screen and (max-width: 600px) {}
 
 @media (max-width:1025px) {}
 
 @media only screen and (min-width: 601px) and (max-width: 1024px) {}
 
-@media (max-width:768px) {
-    .section4-wrapper {
-        height: max-content;
-    }
-
-}
+@media (max-width:768px) {}
 
 /* Desktop */
 @media only screen and (min-width: 1025px) {}

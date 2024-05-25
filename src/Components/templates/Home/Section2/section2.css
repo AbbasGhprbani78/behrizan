@@ -1,8 +1,6 @@
 @import url('../../../../Styles/Main.css');
 
-.section2-container {
-    background-color: var(--color-27);
-}
+
 
 .section2-wrapper {
     height: 52vh;
@@ -16,10 +14,18 @@
 
 
 /* start style left-section2 */
+.left-section2 {
+    padding-bottom: 20px;
+}
+
 .drinking-text-wrapper {
     display: flex;
     align-items: center;
     height: 80px;
+}
+
+.rtl .drinking-text-wrapper {
+    flex-wrap: wrap-reverse;
 }
 
 .drinking-text {}
@@ -31,13 +37,10 @@
     display: flex;
     align-items: end;
     justify-content: center;
-    padding: 0 5px;
+    padding: 0 10px;
 }
 
-.feauter {
-    flex-direction: row-reverse;
-    justify-content: flex-end;
-}
+
 
 
 .drinking-text-right {
@@ -81,6 +84,8 @@
     margin-top: 2rem;
 }
 
+
+
 .btn-section2 {
     margin-top: 3.5rem;
 }
@@ -91,13 +96,25 @@
 /* start style right-section2 */
 
 .image-section2-wrapper {
-
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 50vh;
     width: 100%;
 }
+
+.image-section2-wrapper-m {
+    height: 30vh;
+
+}
+
+.image-section2-wrapper-m>img {
+    width: 100%;
+    height: 100%;
+}
+
+/* .image-section2-wrapper-m {
+    height: 30vh;
+} */
 
 /* end style right-section2 */
 
@@ -105,7 +122,10 @@
 @media (max-width:576px) {
     .rtl .byword-wrapper {
         margin-right: 2rem;
+        margin-top: 10px;
     }
+
+
 }
 
 @media only screen and (max-width: 600px) {}
@@ -127,7 +147,6 @@
 
     .text-section2 {
         text-align: center;
-        margin-top: 0;
     }
 
     .fade-wrapper {
@@ -145,8 +164,18 @@
         margin-right: 14vw;
     }
 
+    .rtl-section2-text-1 {
+        margin-right: 0;
+        margin-left: 14vw;
+    }
+
     .section2-text-2 {
         margin-left: 25vw;
+    }
+
+    .rtl-section2-text-2 {
+        margin-left: 0;
+        margin-right: 30vw;
     }
 
 }
@@ -155,7 +184,6 @@
 @media only screen and (min-width: 601px) and (max-width: 1024px) {
     .section2-wrapper {
         height: max-content;
-        padding-bottom: 2rem;
     }
 
     .image-section2-wrapper {

@@ -5,7 +5,7 @@
     border-radius: var(--border-radius-1);
     background-color: var(--color-3);
     color: #fff;
-    padding: 6px 40px;
+    padding: 6px 30px;
     transition: all .3s ease;
 }
 

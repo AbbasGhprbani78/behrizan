@@ -6,7 +6,7 @@ export default function Button({ name, id }) {
     const { t } = useTranslation();
     return (
         <>
-            <Link className='link' to={`/product/${name}/${id}`}><button className='btn-module'>{t("Order")}</button></Link>
+            <Link className='link' to={`/product/${name}/${id}`}><button className='btn-module'>{t("viewMore")}</button></Link>
         </>
     )
 }

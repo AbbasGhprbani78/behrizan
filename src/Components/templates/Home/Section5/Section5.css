@@ -10,6 +10,7 @@
 
 .section5-left {
     height: 100%;
+    padding: 10px 0;
 }
 
 .motor-fade {
@@ -17,8 +18,7 @@
 }
 
 .section5-left>img {
-    margin-top: 1.2rem;
-    height: 25vh;
+    max-height: 200px;
 }
 
 .section5-right {

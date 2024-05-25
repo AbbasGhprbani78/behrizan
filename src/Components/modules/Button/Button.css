@@ -5,9 +5,11 @@
     all: unset;
     color: #fff;
     background-color: var(--color-17);
-    padding: 1.5vh 5vw;
     border-radius: var(--border-radius-1);
     transition: all .3s ease;
+    padding: 8px 0;
+    width: 140px;
+    text-align: center;
 }
 
 .btn-module:hover {
@@ -15,19 +17,9 @@
 }
 
 @media (max-width:992px) {
-    .btn-module {
-        padding: 1.5vh 8vw;
-    }
+    .btn-module {}
 }
 
-@media (max-width:600px) {
-    .btn-module {
-        padding: 1.3vh 10vw;
-    }
-}
+@media (max-width:600px) {}
 
-@media (max-width:400px) {
-    .btn-module {
-        padding: 1.3vh 20vw;
-    }
-}
+@media (max-width:400px) {}

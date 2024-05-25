@@ -43,7 +43,9 @@ export default function Product() {
             }
         }
         getMainProduct()
-    }, [language, id])
+    }, [language])
+
+
 
     return (
         <>

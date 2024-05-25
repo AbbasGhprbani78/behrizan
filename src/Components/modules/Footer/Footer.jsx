@@ -52,7 +52,7 @@ export default function Footer() {
                         <WhatsAppIcon className="icon-socal" />
                     </div>
                     <div className="icon-socal-wrapper second-icon" onClick={handleGoToInstagram}>
-                        <TelegramIcon className="icon-socal" />
+                        <TelegramIcon className="icon-socal" style={{ padding: " 0 3px 0 0" }} />
                     </div>
                     <div className="icon-socal-wrapper" onClick={handleGoToTelegram}>
                         <InstagramIcon className="icon-socal" />

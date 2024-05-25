@@ -8,7 +8,7 @@ export default function Button2({ name, id }) {
     return (
 
         <Link className='link' to={`/product/${name}/${id}`}>
-            <button className='order-btn'>{t("Order")}
+            <button className='order-btn'>{t("viewMore")}
             </button>
         </Link>
     )

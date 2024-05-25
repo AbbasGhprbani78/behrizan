@@ -29,7 +29,6 @@ export default function Section2() {
                 })
 
                 if (response.status === 200) {
-                    console.log(response.data)
                     setProduct(response.data)
                     setLoading(false)
                 }
@@ -62,7 +61,6 @@ export default function Section2() {
         });
     }, []);
 
-    console.log(product[0]?.image)
 
 
     return (
@@ -73,8 +71,8 @@ export default function Section2() {
 
                     windowWidth < 605 ?
                         <>
-                            <div className='section2-wrapper'>
-                                <Col xs={2} className={`drinking-text-wrapper ${language === "fa" && "feauter"}`}>
+                            <div className={`section2-wrapper ${language === "fa" && "rtl"}`}>
+                                <Col xs={4} className={`drinking-text-wrapper `}>
                                     <div className="drinking-text drinking-text-left">
                                         <p className='drinking-text-left-main'>{t("Cold")}</p>
                                     </div>
@@ -82,14 +80,15 @@ export default function Section2() {
                                         <p className='drinking-text-right-main'>{t("Drink")}</p>
                                     </div>
                                 </Col>
-                                <Col xs={10} data-aos={`fade-top`} data-aos-once="false">
-                                    <div className='image-section2-wrapper'>
+                                <Col xs={8} data-aos={`fade-top`} data-aos-once="false">
+                                    <div className='image-section2-wrapper-m '  >
+                                        <img src={`${IP}${product[0]?.image}`} alt="" />
                                     </div>
                                 </Col>
                             </div>
                             <div className="text-section2">
-                                <span className='section2-text-1'>{t("firstsec")}</span><br />
-                                <span className='section2-text-2'>{t("twosec")}</span>
+                                <span className={`section2-text-1 ${language === "fa" && "rtl-section2-text-1"}`}>{t("firstsec")}</span><br />
+                                <span className={`section2-text-2 ${language === "fa" && "rtl-section2-text-2"}`}>{t("twosec")}</span>
                             </div>
                             <div className="btn-section2">
                                 <Button
@@ -119,14 +118,14 @@ export default function Section2() {
                                             <Button
                                                 name={product[0]?.name}
                                                 id={product[0]?.id}
-                                                text={"Order"}
+
                                             />
                                         </div>
                                     </Col>
                                     <Col sm={5} className="right-section2">
                                         <>
                                             <div className='fade-wrapper fade-wrapper-m' data-aos="fade-top" data-aos-once="false">
-                                                <div className='image-section2-wrapper mt-2' style={{ backgroundImage: `url(${IP}${product[0]?.image})` }} >
+                                                <div className='image-section2-wrapper' style={{ backgroundImage: `url(${IP}${product[0]?.image})` }} >
                                                 </div>
                                             </div>
                                         </>

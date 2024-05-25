@@ -29,6 +29,7 @@ export default function Section2({ mainProduct, setTotalPrice, productPrice, tot
         }
     };
 
+
     useEffect(() => {
         setCProperties("")
     }, [productPrice])
@@ -77,7 +78,7 @@ export default function Section2({ mainProduct, setTotalPrice, productPrice, tot
                                             labelId="demo-simple-select-helper-label"
                                             id="demo-simple-select-helper"
                                             value={cProperties}
-                                            label={`language`}
+                                            label={`Add Syrop`}
                                             onChange={handleChange}
                                         >
                                             <MenuItem value={""}>{t("None")}</MenuItem>
@@ -93,8 +94,8 @@ export default function Section2({ mainProduct, setTotalPrice, productPrice, tot
                     </Col>
                 }
 
-                <Col xs={12} md={6} className={`section2-product-right ${mainProduct?.product?.syrup === false && "content-start"}`}>
-                    <p className="price-main-product-title">
+                <Col xs={12} md={mainProduct?.product?.syrup ? 6 : 12} className={`section2-product-right ${mainProduct?.product?.syrup === false && "content-start"}`}>
+                    <p className={`price-main-product-title ${mainProduct?.product?.syrup === false && "nopadding"}`}>
                         {t("Price")}
                     </p>
                     <p className='price-main-product'>

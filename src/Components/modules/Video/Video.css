@@ -1,5 +1,28 @@
 @import url('../../../Styles/Main.css');
 
+.video-conatiner {
+    position: relative;
+}
+
+.play-wrapper {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+}
+
+.iconPlay {
+    color: #fff;
+    background-color: #8b8b88;
+    padding: 7px;
+    font-size: 3.5rem !important;
+    border-radius: 50%;
+}
+
 .video {
     height: 100% !important;
     width: 100%;
