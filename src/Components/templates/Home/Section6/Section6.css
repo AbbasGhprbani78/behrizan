@@ -30,7 +30,7 @@
 
 .Qcafe-text1 {
     font-weight: bold;
-    font-size: calc(.5vw + 10px);
+    font-size: calc(.9rem + .2vw);
     width: 91%;
 }
 
@@ -46,6 +46,13 @@
     font-size: 1.2rem;
 }
 
+.address-wrapper {
+    font-weight: bold;
+}
+
+.address-text {
+    color: gray;
+}
 
 @media (max-width:768px) {
     .section6-wrapper {
@@ -63,7 +70,13 @@
 
 @media (max-width:600px) {
     .Qcafe-text2 {
-        font-size: .8rem;
+        font-size: .9rem;
+        padding-right: 10px;
+    }
+
+    .rtl .Qcafe-text2 {
+        padding-left: 10px;
+        padding-right: 0 !important;
     }
 
     .qcafe-phone {

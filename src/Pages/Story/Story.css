@@ -1,0 +1,98 @@
+@import url('../../Styles/Main.css');
+
+
+
+.about-us-title {
+    color: #669bbc;
+}
+
+.story-container {}
+
+.story-header {
+    display: flex;
+    align-items: center;
+}
+
+.background-story {
+    background-image: url('../../../public/images/storyback.png');
+    height: 35vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.rtl .background-story {
+    background-image: url('../../../public/images/fabac.png');
+}
+
+.about-us-title {
+    position: absolute;
+    left: 5%;
+    bottom: 10%;
+    font-size: calc(1.8rem + .2vw);
+    font-weight: bold;
+}
+
+.rtl .about-us-title {
+    right: 5%;
+    left: auto;
+}
+
+.story-title {
+    margin-left: 10px;
+    color: #669bbc;
+    font-size: calc(1.3rem + .5vw);
+    font-weight: bold;
+}
+
+.rtl .story-title {
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+.story-contents {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 4rem;
+}
+
+.story-content {}
+
+.story-text {
+    width: 80%;
+    margin-top: 2rem;
+    color: #979797;
+    font-size: calc(.9rem + .1vw);
+}
+
+.media-item {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.story-media {}
+
+.media-item-text {
+    margin-left: 15px;
+}
+
+.rtl .media-item-text {
+    margin-left: 0;
+    margin-right: 15px;
+}
+
+
+
+@media (max-width:600px) {
+    .story-text {
+        width: 100%;
+    }
+
+    .story-contents {
+        padding: 2rem;
+    }
+}

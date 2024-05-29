@@ -1,0 +1,34 @@
+@import url('../../Styles/Main.css');
+
+
+.notfound-container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('../../../public/images/404back.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex-direction: column;
+}
+
+.notfound-title {
+    font-size: calc(6rem + 5vw);
+    color: var(--color-3);
+
+}
+
+.notfound-text {
+    font-size: calc(1rem + 1vw);
+    font-weight: bold;
+    color: var(--color-3);
+}
+
+.link-not {
+    font-size: calc(1rem + 1vw) !important;
+    margin-top: 2rem !important;
+    cursor: pointer !important;
+    border-bottom: 1px solid !important;
+}

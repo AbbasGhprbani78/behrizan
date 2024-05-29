@@ -1,33 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './Footer.css';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import { Col } from 'react-bootstrap';
-import axios from 'axios';
-import { IP } from '../../../App'
+import { useMyContext } from '../../../context/langugaeContext';
 
 export default function Footer() {
-    //home/footer/
-    const [socaial, setSocaial] = useState("");
 
-    useEffect(() => {
-
-        const getSocial = async () => {
-            try {
-                const response = await axios.get(`${IP}/home/footer/`)
-
-                if (response.status === 200) {
-                    setSocaial(response.data)
-                }
-
-            } catch (e) {
-                console.log(e)
-            }
-        }
-        getSocial()
-    }, [])
-
+    const { socaial } = useMyContext()
 
     const handleGoToInstagram = () => {
         const instagramUrl = `https://www.instagram.com/${socaial.instagram}`;
@@ -48,13 +29,13 @@ export default function Footer() {
         <>
             <footer className='footer'>
                 <Col md={6} className="socal-media">
-                    <div className="icon-socal-wrapper" onClick={handleGoToWhatsUp}>
+                    <div className="icon-socal-wrapper" onClick={handleGoToWhatsUp} >
                         <WhatsAppIcon className="icon-socal" />
                     </div>
-                    <div className="icon-socal-wrapper second-icon" onClick={handleGoToInstagram}>
+                    <div className="icon-socal-wrapper second-icon" onClick={handleGoToTelegram} >
                         <TelegramIcon className="icon-socal" style={{ padding: " 0 3px 0 0" }} />
                     </div>
-                    <div className="icon-socal-wrapper" onClick={handleGoToTelegram}>
+                    <div className="icon-socal-wrapper" onClick={handleGoToInstagram} >
                         <InstagramIcon className="icon-socal" />
                     </div>
                 </Col>

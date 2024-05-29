@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 import './App.css'
 import Footer from './Components/modules/Footer/Footer';
 
-export const IP = "https://qmancafe.ariisco.com"
+export const IP = "https://apiqmancafe.ariisco.com"
 function App() {
 
   const router = useRoutes(routes)
@@ -27,11 +27,11 @@ function App() {
   return (
     <>
       <div className={`conatainer-project ${language === "en" ? "ltr-font" : "rtl-font"}`}>
-        <Header />
+        {/* <Header /> */}
         <div className='main-content'>
           {router}
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </>
   )

@@ -31,7 +31,7 @@ export default function CartItem() {
                         <div className="cartItem-m">
                             <Col xs={6} className="cart-item-m-left">
                                 <div className='img-cart-item-m'>
-                                    <img src="../../../../public/images/cappuccino-coffee-cup-isolated-illustration-ai-generativexa_115919-24822 1.png" alt="" />
+                                    <img src="../../../../public/images/crosan.png" alt="" />
                                 </div>
                                 <p className="delete-item-m">
                                     <span className='remove-icon-wrapper'><CloseIcon className='closeIcon-m' /></span>

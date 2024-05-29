@@ -11,7 +11,7 @@ import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined';
 import CallOutlinedIcon from '@mui/icons-material/CallOutlined';
 export default function OffcanvasSideBar({ show, onHide }) {
     const { t } = useTranslation()
-    const { setLanguage, language } = useMyContext();
+    const { setLanguage, language, socaial } = useMyContext();
 
     const [isEn, setIsEn] = useState(false)
     const [isFa, setIsFa] = useState(false)
@@ -44,6 +44,15 @@ export default function OffcanvasSideBar({ show, onHide }) {
         }
     }, [])
 
+    const persianNumbers = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+
+    const toPersianDigits = (num) => {
+        return num?.toString()?.replace(/\d/g, (x) => persianNumbers[parseInt(x)]);
+    };
+
+
+    const phoneNumber = language === 'fa' ? toPersianDigits(socaial?.phone_number) : socaial?.phone_number;
+
     return (
         <>
             <Offcanvas show={show} onHide={onHide} className={`offcanvas ${language === "fa" && "rtl"}`} placement={language === "fa" ? "end" : "start"}>
@@ -64,11 +73,17 @@ export default function OffcanvasSideBar({ show, onHide }) {
                                     {t("MENU")}
                                 </span>
                             </NavLink>
-                            <NavLink className="sidebar-item" onClick={onHide} to={"/story"}>
+                            <NavLink className="sidebar-item" onClick={onHide} to={"/aboutus"}>
                                 <PhotoAlbumOutlinedIcon className='icon-menu-sidebar' />
                                 <span>{t("STORY")}</span>
                             </NavLink>
-                            <NavLink className="sidebar-item" onClick={onHide} to={"/cart"}>
+                            <NavLink className="sidebar-item" onClick={
+                                (e) => {
+                                    onHide()
+                                    e.preventDefault()
+                                }}
+                                to={"/cart"}
+                            >
                                 <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" fill="currentColor" className="bi bi-basket2-fill cart-icon icon-menu-sidebar" viewBox="0 0 16 16">
                                     <path d="M5.929 1.757a.5.5 0 1 0-.858-.514L2.217 6H.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h.623l1.844 6.456A.75.75 0 0 0 3.69 15h8.622a.75.75 0 0 0 .722-.544L14.877 8h.623a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1.717L10.93 1.243a.5.5 0 1 0-.858.514L12.617 6H3.383zM4 10a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0zm3 0a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0zm4-1a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1" />
                                 </svg>
@@ -80,16 +95,22 @@ export default function OffcanvasSideBar({ show, onHide }) {
                             </div>
                             <div className="location-wrapper">
                                 <span><FmdGoodOutlinedIcon className='locicon-sidebar' /></span >
-                                <p className="text-loction">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                </p>
+                                {
+                                    language === "fa" ?
+                                        <p p className="text-loction">
+                                            {socaial?.address_farsi}
+                                        </p> :
+                                        <p className="text-loction">
+                                            {socaial?.address}
+                                        </p>
+                                }
+
                             </div>
                         </ul>
                     </div>
                     <div className="phone-sidebar-wrapper">
                         <CallOutlinedIcon className='phone-sidebar-icon' />
-                        <p className='phone-sidebar'>09263498950</p>
+                        <p className='phone-sidebar'>{phoneNumber}</p>
                     </div>
                 </Offcanvas.Body>
             </Offcanvas>

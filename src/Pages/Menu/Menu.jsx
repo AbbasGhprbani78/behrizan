@@ -6,12 +6,14 @@ import MenuHeader from '../../Components/modules/MenuHeader/MenuHeader'
 import { IP } from '../../App'
 import axios from 'axios';
 import Lodaing from '../../Components/modules/Loading/Lodaing'
+import { useLocation } from 'react-router-dom'
 
 export default function Menu() {
 
     const { language } = useMyContext()
     const [category, setCategory] = useState("")
     const [loading, setLoading] = useState(false)
+    const { pathname } = useLocation();
 
     useEffect(() => {
         const getCategory = async () => {
@@ -39,8 +41,9 @@ export default function Menu() {
 
     }, [language])
 
-
-
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
 
     return (
         <>

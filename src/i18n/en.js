@@ -2,7 +2,7 @@
 const en = {
     HOME: "HOME",
     MENU: "MENU",
-    STORY: "STORY",
+    STORY: "About Us",
     Signin: "Sign in",
     joinnow: "join now",
     REST: "REST",
@@ -40,7 +40,9 @@ const en = {
     homedec: "In order to complete our team, Q Cafe announces cooperation in the job position of the workforce in all sections",
     contactw: "Those interested can send their resume via WhatsApp to",
     QCafe: "Q Cafe",
-    viewMore: "view More"
+    viewMore: "view More",
+    Address: 'Address',
+    about: "About Us"
 
 }
 

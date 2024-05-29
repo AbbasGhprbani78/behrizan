@@ -9,8 +9,11 @@ export default function MenuHeader({ isborder }) {
             <p className="menu-title">{t("MENU")}</p>
             <div className="menu-tab-list">
                 <NavLink to={'/categorymenus'} className='menu-tab-list-item'>{t("Menu")}</NavLink>
-                <NavLink to={'/Previous'} className='menu-tab-list-item'>{t("Previous")}</NavLink>
-                <NavLink to={'/Favorites'} className='menu-tab-list-item'>{t("Favorites")}</NavLink>
+                <NavLink
+                    to={'/Favorites'}
+                    className='menu-tab-list-item'
+                    onClick={e => e.preventDefault()}
+                >{t("Favorites")}</NavLink>
             </div>
         </div>
     )

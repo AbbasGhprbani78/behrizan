@@ -5,9 +5,9 @@
     display: flex;
     flex-wrap: wrap;
     width: 85%;
-    margin: 0 auto;
+    margin: 1rem auto;
     align-items: center;
-    margin-top: 1rem;
+
 }
 
 .section2-product-left {
@@ -144,6 +144,12 @@
     }
 }
 
+
+@media (min-width:600px) {
+    .content-start {
+        padding: 2rem;
+    }
+}
 
 @media (max-width:600px) {
     .section2-product-right-text {

@@ -30,6 +30,19 @@ export default function Section1({ dataHome }) {
         </Fragment>
     ));
 
+    const persianNumbers = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+
+    const toPersianDigits = (num) => {
+        return num?.toString()?.replace(/\d/g, (x) => persianNumbers[parseInt(x)]);
+    };
+
+
+    const startText = language === 'fa' ? toPersianDigits(dataHome?.start?.replace('AM', 'صبح')) : dataHome.start;
+    const endText = language === 'fa' ? toPersianDigits(dataHome?.end?.replace('PM', 'عصر')) : dataHome.end;
+
+
+
+
     return (
         <>
             <div className={`section1-wrapper ${language === "fa" && "rtl"}`}>
@@ -42,8 +55,12 @@ export default function Section1({ dataHome }) {
                     <div className="byword-wrapper animate__animated animate__fadeInDown animate__delay-1s">
                         {formattedHeaderText}
                     </div>
-                    <div className='time-work-wrapper mb-5'>
-                        <span className='time-work fw-bold'>{dataHome.start} _ {dataHome.end}</span>
+                    <div className='time-work-wrapper'>
+                        {
+                            language === "fa" ?
+                                <span className='time-work fw-bold'>{`${startText} تا ${endText}`}</span> :
+                                <span className='time-work fw-bold'>{`${dataHome.start} - ${dataHome.end}`}</span>
+                        }
                     </div>
                     <div className="link-nav-wrapper mt-4 link-sec-m">
                         <Link className='link-nav signin link-nav-sec' to={'#'}>

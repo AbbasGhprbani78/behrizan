@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './Product.css'
 import MenuHeader from '../../Components/modules/MenuHeader/MenuHeader'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { useMyContext } from '../../context/langugaeContext'
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 import Section1 from '../../Components/templates/Product/Section1/Section1'
@@ -19,6 +19,7 @@ export default function Product() {
     const [loading, setLoading] = useState(false)
     const [openModal, setOpenModal] = useState(false)
     const { id } = useParams()
+    const { pathname } = useLocation();
     const navigate = useNavigate()
     const [mainProduct, setMainProduct] = useState("")
     const [selectorder, setSelectOrder] = useState("medium");
@@ -43,9 +44,11 @@ export default function Product() {
             }
         }
         getMainProduct()
-    }, [language])
+    }, [language, id])
 
-
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
 
     return (
         <>
@@ -80,7 +83,12 @@ export default function Product() {
                         totalPrice={totalPrice}
 
                     />
-                    <Section3 tryProduct={mainProduct.suggested_products} />
+
+                    {
+                        mainProduct?.suggested_products?.length > 0 &&
+                        <Section3 tryProduct={mainProduct.suggested_products} />
+                    }
+
                     <Section4 setOpenModal={setOpenModal} />
                 </div>
             )}

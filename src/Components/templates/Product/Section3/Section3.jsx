@@ -8,13 +8,15 @@ export default function Section3({ tryProduct }) {
     return (
         <>
             <div className="section3-product-wrapper">
-                <div className="menu-container">
-                    <p className="header-section3-product-wrapper">
-                        {t("TryWith")}
-                    </p>
-                    <div className="product-try-container">
-                        {
-                            tryProduct?.length > 0 ?
+                {
+                    tryProduct?.length > 0 &&
+                    <div className="menu-container">
+                        <p className="header-section3-product-wrapper">
+                            {t("TryWith")}
+                        </p>
+                        <div className="product-try-container">
+                            {
+                                tryProduct?.length > 0 &&
                                 tryProduct?.map(product => (
                                     <ProductItem2
                                         img={product.image}
@@ -22,15 +24,14 @@ export default function Section3({ tryProduct }) {
                                         id={product.id}
                                         price={""}
                                     />
-                                )) :
-                                <p className='empty-text'>{t("empty")}</p>
-                        }
+                                ))
 
-
-
+                            }
+                        </div>
                     </div>
-                </div>
+                }
             </div>
         </>
     )
 }
+

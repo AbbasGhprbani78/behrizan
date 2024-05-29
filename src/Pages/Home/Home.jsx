@@ -27,7 +27,7 @@ export default function Home() {
 
                 if (response.status === 200) {
                     setDataHome(response.data[0])
-
+                    console.log(response.data)
                 }
 
             } catch (e) {
@@ -46,7 +46,7 @@ export default function Home() {
             <Section2 dataHome={dataHome} />
             <Section3 dataHome={dataHome} />
             <Section4 dataHome={dataHome} />
-            <Section5 />
+            <Section5 dataHome={dataHome} />
             <Section6 dataHome={dataHome} />
         </>
     )

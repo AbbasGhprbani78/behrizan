@@ -3,7 +3,7 @@ import './Lodaing.css'
 export default function Lodaing() {
     return (
         <div className='lodaing-container'>
-            <span class="loader"></span>
+            <span className="loader"></span>
         </div>
     )
 }

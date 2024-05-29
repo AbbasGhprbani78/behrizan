@@ -16,3 +16,10 @@
 .addIcon {
     margin-left: 10px;
 }
+
+
+@media (max-width:600px) {
+    .order-btn {
+        padding: 6px 25px;
+    }
+}

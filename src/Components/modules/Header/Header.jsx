@@ -10,9 +10,11 @@ import WindowOutlinedIcon from '@mui/icons-material/WindowOutlined';
 import LocalCafeOutlinedIcon from '@mui/icons-material/LocalCafeOutlined';
 import PhotoAlbumOutlinedIcon from '@mui/icons-material/PhotoAlbumOutlined';
 import i18n from '../../../i18n'
+import logo from '../../../../public/images/logo.svg'
+import { IP } from '../../../App';
 export default function Header() {
 
-    const { setLanguage, language } = useMyContext()
+    const { setLanguage, language, socaial } = useMyContext()
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const [showOffCanvas, setShowOffCanvas] = useState(false);
     const [showMenuTab, SetShowMenuTab] = useState(false)
@@ -81,6 +83,8 @@ export default function Header() {
         }
     }, [])
 
+
+
     return (
         <>
 
@@ -99,7 +103,7 @@ export default function Header() {
                                     }
                                 </div>
                                 <div className="logo-nav">
-                                    <img src='../../../../public/images/logo.svg' alt="" />
+                                    <img src={`${IP}${socaial?.logo}`} alt="" />
                                 </div>
                             </nav>
                             {
@@ -120,12 +124,12 @@ export default function Header() {
                                                     </li>
                                                     <li className='nav-list-item'>
                                                         <PhotoAlbumOutlinedIcon className='icon-tab mx-2' />
-                                                        <NavLink className="navlink-nav" to={'/story'}>{t("STORY")}</NavLink>
+                                                        <NavLink className="navlink-nav" to={'/aboutus'}>{t("STORY")}</NavLink>
                                                     </li>
                                                 </ul>
                                             </div>
                                             <div className="right-menu-tab">
-                                                <Link className='link' to={"/cart"}>
+                                                <Link className='link' to={"/cart"} onClick={e => e.preventDefault()}>
                                                     <div className="cart-icon-wrapper">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" className="bi bi-basket2-fill cart-icon" viewBox="0 0 16 16">
                                                             <path d="M5.929 1.757a.5.5 0 1 0-.858-.514L2.217 6H.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h.623l1.844 6.456A.75.75 0 0 0 3.69 15h8.622a.75.75 0 0 0 .722-.544L14.877 8h.623a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1.717L10.93 1.243a.5.5 0 1 0-.858.514L12.617 6H3.383zM4 10a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0zm3 0a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0zm4-1a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1" />
@@ -151,7 +155,7 @@ export default function Header() {
                             <nav className='header-nav'>
                                 <div className="left-nav">
                                     <div className="logo-nav">
-                                        <img src='../../../../public/images/logo.svg' alt="" />
+                                        <img src={`${IP}${socaial?.logo}`} alt="" />
                                     </div>
                                     <ul className='nav-list'>
                                         <li className='nav-list-item'>
@@ -161,7 +165,7 @@ export default function Header() {
                                             <NavLink className="navlink-nav" to={'/categorymenus'}>{t("MENU")}</NavLink>
                                         </li>
                                         <li className='nav-list-item'>
-                                            <NavLink className="navlink-nav" to={'/story'}>{t("STORY")}</NavLink>
+                                            <NavLink className="navlink-nav" to={'/aboutus'}>{t("STORY")}</NavLink>
                                         </li>
                                         <li className='nav-list-item'>
                                             <div className="change-lan-nav">
@@ -176,7 +180,7 @@ export default function Header() {
                                     </ul>
                                 </div>
                                 <div className="right-nav">
-                                    <Link className='link' to={"/cart"}>
+                                    <Link className='link' to={"/cart"} onClick={e => e.preventDefault()}>
                                         <div className="cart-icon-wrapper">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" className="bi bi-basket2-fill cart-icon" viewBox="0 0 16 16">
                                                 <path d="M5.929 1.757a.5.5 0 1 0-.858-.514L2.217 6H.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h.623l1.844 6.456A.75.75 0 0 0 3.69 15h8.622a.75.75 0 0 0 .722-.544L14.877 8h.623a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1.717L10.93 1.243a.5.5 0 1 0-.858.514L12.617 6H3.383zM4 10a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0zm3 0a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0zm4-1a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1" />

@@ -1,32 +1,22 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import './Section6.css'
 import { Col } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next';
 import { useMyContext } from '../../../../context/langugaeContext';
 import { IP } from '../../../../App';
-import axios from 'axios';
+
 export default function Section6({ dataHome }) {
-    const { language } = useMyContext()
+    const { language, socaial } = useMyContext()
     const { t } = useTranslation();
-    const [socaial, setSocaial] = useState("");
 
-    useEffect(() => {
+    const persianNumbers = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
 
-        const getSocial = async () => {
-            try {
-                const response = await axios.get(`${IP}/home/footer/`)
+    const toPersianDigits = (num) => {
+        return num?.toString()?.replace(/\d/g, (x) => persianNumbers[parseInt(x)]);
+    };
 
-                if (response.status === 200) {
-                    setSocaial(response.data)
-                }
 
-            } catch (e) {
-                console.log(e)
-            }
-        }
-        getSocial()
-    }, [])
-
+    const phoneNumber = language === 'fa' ? toPersianDigits(socaial.whatsapp) : socaial.whatsapp;
     return (
         <>
             <div className={`section6-wrapper ${language === "fa" && "rtl"}`}>
@@ -37,23 +27,33 @@ export default function Section6({ dataHome }) {
                     <p className="Qcafe-title">
                         {
                             language === "fa" ?
-                                dataHome.header_text_four_farsi :
+                                dataHome?.header_text_four_farsi :
                                 dataHome?.header_text_four}
                     </p>
                     <p className="Qcafe-text1 mt-2">
                         {
                             language === "fa" ?
-                                dataHome.text_four_farsi :
+                                dataHome?.text_four_farsi :
                                 dataHome?.text_four}
                     </p>
                     <p className="Qcafe-text2">
                         {language === "fa" ?
-                            dataHome.last_text_farsi :
+                            dataHome?.last_text_farsi :
                             dataHome?.last_text}
+
                     </p>
                     <span className="qcafe-phone mt-2">
-                        {socaial.whatsapp}
+                        {phoneNumber}
                     </span>
+                    <div className="address-wrapper d-flex align-items-center mt-4">
+                        <p className="address-lable">{t("Address")} : </p>
+                        {
+                            language === "fa" ?
+                                <p className="address-text mx-2"> {socaial?.address_farsi}</p> :
+                                <p className="address-text mx-2"> {socaial?.address}</p>
+                        }
+                    </div>
+
                 </Col>
             </div>
         </>
