@@ -19,7 +19,6 @@ export const LanguageProvider = ({ children }) => {
 
                 if (response.status === 200) {
                     setSocaial(response.data)
-                    console.log(response.data)
                 }
 
             } catch (e) {

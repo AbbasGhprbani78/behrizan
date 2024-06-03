@@ -2,12 +2,20 @@
 
 /* start sectio1 style */
 .section1-wrapper {
-    background: url('../../../../../public/images/back-sect1.png');
+    background: url('/public/images/back-sect1.png');
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    background-position: center;
+}
+
+.rtl-back {
+    background: url('/public/images/home.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .crosan-img-wrapper {

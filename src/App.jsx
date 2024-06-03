@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useRoutes } from 'react-router-dom';
+import { useLocation, useRoutes } from 'react-router-dom';
 import routes from './router';
 import Header from './Components/modules/Header/Header'
 import i18n from './i18n'
@@ -13,7 +13,7 @@ function App() {
 
   const router = useRoutes(routes)
   const { language, setLanguage } = useMyContext();
-
+  const location = useLocation();
 
   useEffect(() => {
     const mainLanguage = localStorage.getItem("language");
@@ -24,14 +24,12 @@ function App() {
   }, [language])
 
 
+  const isNotFoundRoute = routes.some(route => route.path === location.pathname) ? false : true;
+  console.log(routes)
   return (
     <>
       <div className={`conatainer-project ${language === "en" ? "ltr-font" : "rtl-font"}`}>
-        {/* <Header /> */}
-        <div className='main-content'>
-          {router}
-        </div>
-        {/* <Footer /> */}
+        {router}
       </div>
     </>
   )

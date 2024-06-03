@@ -42,7 +42,9 @@ const en = {
     QCafe: "Q Cafe",
     viewMore: "view More",
     Address: 'Address',
-    about: "About Us"
+    about: "About Us",
+    notFound: "Page Not Found",
+    goback: "Go To Home"
 
 }
 

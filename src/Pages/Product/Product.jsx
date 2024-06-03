@@ -12,6 +12,8 @@ import { useParams } from 'react-router-dom'
 import { IP } from '../../App'
 import axios from 'axios'
 import Lodaing from '../../Components/modules/Loading/Lodaing'
+import Header from '../../Components/modules/Header/Header'
+import Footer from '../../Components/modules/Footer/Footer'
 
 
 export default function Product() {
@@ -55,42 +57,48 @@ export default function Product() {
             {loading ? (
                 <Lodaing />
             ) : (
-                <div className={`productpage-container ${language === "fa" && "rtl"}`}>
-                    <div className="menu-container">
-                        <MenuHeader isborder={true} />
-                        <div className='link' onClick={() => navigate(-1)}>
-                            <div className='main-menu-title-wrapper'>
-                                {language === "fa" ? (
-                                    <KeyboardReturnIcon className='backIconfa' />
-                                ) : (
-                                    <KeyboardReturnIcon />
-                                )}
-                                <p className="main-menu-title">{mainProduct?.product?.name}</p>
+                <>
+                    <Header />
+                    <div className="main-content">
+                        <div className={`productpage-container ${language === "fa" && "rtl"}`}>
+                            <div className="menu-container">
+                                <MenuHeader isborder={true} />
+                                <div className='link' onClick={() => navigate(-1)}>
+                                    <div className='main-menu-title-wrapper'>
+                                        {language === "fa" ? (
+                                            <KeyboardReturnIcon className='backIconfa' />
+                                        ) : (
+                                            <KeyboardReturnIcon />
+                                        )}
+                                        <p className="main-menu-title">{mainProduct?.product?.name}</p>
+                                    </div>
+                                </div>
                             </div>
+                            <Section1
+                                mainProduct={mainProduct}
+                                setSelectOrder={setSelectOrder}
+                                setProductPrice={setProductPrice}
+                                setTotalPrice={setTotalPrice}
+                            />
+                            <Section2
+                                mainProduct={mainProduct}
+                                selectorder={selectorder}
+                                setTotalPrice={setTotalPrice}
+                                productPrice={productPrice}
+                                totalPrice={totalPrice}
+
+                            />
+
+                            {
+                                mainProduct?.suggested_products?.length > 0 &&
+                                <Section3 tryProduct={mainProduct.suggested_products} />
+                            }
+
+                            <Section4 setOpenModal={setOpenModal} />
                         </div>
                     </div>
-                    <Section1
-                        mainProduct={mainProduct}
-                        setSelectOrder={setSelectOrder}
-                        setProductPrice={setProductPrice}
-                        setTotalPrice={setTotalPrice}
-                    />
-                    <Section2
-                        mainProduct={mainProduct}
-                        selectorder={selectorder}
-                        setTotalPrice={setTotalPrice}
-                        productPrice={productPrice}
-                        totalPrice={totalPrice}
-
-                    />
-
-                    {
-                        mainProduct?.suggested_products?.length > 0 &&
-                        <Section3 tryProduct={mainProduct.suggested_products} />
-                    }
-
-                    <Section4 setOpenModal={setOpenModal} />
-                </div>
+                    <Footer />
+                </>
             )}
         </>
     )

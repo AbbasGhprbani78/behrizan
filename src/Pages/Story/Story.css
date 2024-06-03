@@ -1,7 +1,5 @@
 @import url('../../Styles/Main.css');
 
-
-
 .about-us-title {
     color: #669bbc;
 }
@@ -14,7 +12,7 @@
 }
 
 .background-story {
-    background-image: url('../../../public/images/storyback.png');
+    background-image: url('/public/images/storyback.png');
     height: 35vh;
     background-size: cover;
     background-position: center;
@@ -23,7 +21,7 @@
 }
 
 .rtl .background-story {
-    background-image: url('../../../public/images/fabac.png');
+    background-image: url('/public/images/fabac.png');
 }
 
 .about-us-title {

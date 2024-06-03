@@ -45,7 +45,7 @@ export default function Section1({ dataHome }) {
 
     return (
         <>
-            <div className={`section1-wrapper ${language === "fa" && "rtl"}`}>
+            <div className={`section1-wrapper ${language === "fa" && "rtl rtl-back"}`}>
                 <Col xs={12} sm={6} md={5} className="crosan-img-wrapper">
                     <div className='fade-wrapper' data-aos={`${language === "fa" ? "fade-left" : "fade-right"}`} data-aos-once="false">
                         <img src={`${IP}${dataHome?.image_one}`} alt="image-1" />

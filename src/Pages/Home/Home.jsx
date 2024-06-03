@@ -9,6 +9,8 @@ import Section6 from '../../Components/templates/Home/Section6/Section6'
 import axios from 'axios'
 import { IP } from '../../App'
 import { useMyContext } from '../../context/langugaeContext'
+import Header from '../../Components/modules/Header/Header'
+import Footer from '../../Components/modules/Footer/Footer'
 
 export default function Home() {
     const [dataHome, setDataHome] = useState("")
@@ -27,7 +29,7 @@ export default function Home() {
 
                 if (response.status === 200) {
                     setDataHome(response.data[0])
-                    console.log(response.data)
+                    console.log(`${IP}${dataHome.video_one}`)
                 }
 
             } catch (e) {
@@ -42,13 +44,18 @@ export default function Home() {
 
     return (
         <>
-            <Section1 dataHome={dataHome} />
-            <Section2 dataHome={dataHome} />
-            <Section3 dataHome={dataHome} />
-            <Section4 dataHome={dataHome} />
-            <Section5 dataHome={dataHome} />
-            <Section6 dataHome={dataHome} />
+            <Header />
+            <div className="main-content">
+                <Section1 dataHome={dataHome} />
+                <Section2 dataHome={dataHome} />
+                <Section3 dataHome={dataHome} />
+                <Section4 dataHome={dataHome} />
+                <Section5 dataHome={dataHome} />
+                <Section6 dataHome={dataHome} />
+            </div>
+            <Footer />
         </>
     )
 }
 
+// user/signup

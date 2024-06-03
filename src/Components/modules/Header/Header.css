@@ -252,8 +252,8 @@ input.check-toggle-round-flat:checked+label:after {
 }
 
 .signin {
-    border: 1px solid #fff;
-    color: #fff;
+    border: 1px solid var(--color-17);
+    color: var(--color-17);
     padding: 4px 18px;
     transition: all .3s ease;
 }

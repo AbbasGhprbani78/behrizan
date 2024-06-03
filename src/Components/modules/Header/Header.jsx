@@ -10,7 +10,6 @@ import WindowOutlinedIcon from '@mui/icons-material/WindowOutlined';
 import LocalCafeOutlinedIcon from '@mui/icons-material/LocalCafeOutlined';
 import PhotoAlbumOutlinedIcon from '@mui/icons-material/PhotoAlbumOutlined';
 import i18n from '../../../i18n'
-import logo from '../../../../public/images/logo.svg'
 import { IP } from '../../../App';
 export default function Header() {
 

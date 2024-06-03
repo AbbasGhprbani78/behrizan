@@ -9,6 +9,8 @@ import { useParams } from 'react-router-dom';
 import { IP } from '../../App';
 import axios from 'axios';
 import Lodaing from '../../Components/modules/Loading/Lodaing';
+import Header from '../../Components/modules/Header/Header';
+import Footer from '../../Components/modules/Footer/Footer';
 export default function MainMenu() {
 
     const { language } = useMyContext()
@@ -46,37 +48,43 @@ export default function MainMenu() {
             {
                 loading ?
                     <Lodaing /> :
-                    <div className={`menu-container ${language === "fa" && "rtl"}`}>
-                        <MenuHeader
-                            isborder={true}
-                        />
-                        <Link className='link' to={'/categorymenus'}>
-                            <div className='main-menu-title-wrapper'>
-                                {
-                                    language === "fa" ?
-                                        <KeyboardReturnIcon className='backIconfa' />
-                                        :
-                                        <KeyboardReturnIcon />
-                                }
+                    <>
+                        <Header />
+                        <div className="main-content">
+                            <div className={`menu-container ${language === "fa" && "rtl"}`}>
+                                <MenuHeader
+                                    isborder={true}
+                                />
+                                <Link className='link' to={'/categorymenus'}>
+                                    <div className='main-menu-title-wrapper'>
+                                        {
+                                            language === "fa" ?
+                                                <KeyboardReturnIcon className='backIconfa' />
+                                                :
+                                                <KeyboardReturnIcon />
+                                        }
 
-                                <p className="main-menu-title">{Products[0]?.category?.name}</p>
+                                        <p className="main-menu-title">{Products[0]?.category?.name}</p>
+                                    </div>
+                                </Link>
+                                <div className="main-products-wrapper">
+                                    {
+                                        Products.length > 0 && Products.map((product) => (
+                                            <MainMenuProduct
+                                                key={product.id}
+                                                image={product.image}
+                                                dec={product.descriptions}
+                                                name={product.name}
+                                                price={product.small_glass_price}
+                                                id={product.id}
+                                            />
+                                        ))
+                                    }
+                                </div>
                             </div>
-                        </Link>
-                        <div className="main-products-wrapper">
-                            {
-                                Products.length > 0 && Products.map((product) => (
-                                    <MainMenuProduct
-                                        key={product.id}
-                                        image={product.image}
-                                        dec={product.descriptions}
-                                        name={product.name}
-                                        price={product.small_glass_price}
-                                        id={product.id}
-                                    />
-                                ))
-                            }
                         </div>
-                    </div>
+                        <Footer />
+                    </>
             }
 
         </>

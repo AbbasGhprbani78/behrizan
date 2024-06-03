@@ -41,8 +41,9 @@ const fa = {
     QCafe: "کافه Q",
     viewMore: " دیدن بیشتر",
     Address: "آدرس",
-    about: "درباره ما"
-
+    about: "درباره ما",
+    notFound: "صفحه مورد نظر یافت نشد",
+    goback: "بازگشت به خانه"
 
 }
 

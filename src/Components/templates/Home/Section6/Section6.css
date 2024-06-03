@@ -50,9 +50,7 @@
     font-weight: bold;
 }
 
-.address-text {
-    color: gray;
-}
+
 
 @media (max-width:768px) {
     .section6-wrapper {

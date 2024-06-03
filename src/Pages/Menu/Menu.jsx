@@ -7,6 +7,8 @@ import { IP } from '../../App'
 import axios from 'axios';
 import Lodaing from '../../Components/modules/Loading/Lodaing'
 import { useLocation } from 'react-router-dom'
+import Header from '../../Components/modules/Header/Header'
+import Footer from '../../Components/modules/Footer/Footer'
 
 export default function Menu() {
 
@@ -51,21 +53,26 @@ export default function Menu() {
                 loading ?
                     <Lodaing /> :
                     <>
-                        <div className={`menu-container ${language === "fa" && "rtl"}`}>
-                            <MenuHeader />
-                            <div className="menu-content">
-                                {
-                                    category.length > 0 && category.map((item) => (
-                                        <MenuList
-                                            key={item.id}
-                                            titleProducts={item.name}
-                                            menuItem={item.children}
+                        <Header />
+                        <div className="main-content">
+                            <div className={`menu-container ${language === "fa" && "rtl"}`}>
+                                <MenuHeader />
+                                <div className="menu-content">
+                                    {
+                                        category &&
+                                        category.length > 0 && category.map((item) => (
+                                            <MenuList
+                                                key={item.id}
+                                                titleProducts={item.name}
+                                                menuItem={item.children}
 
-                                        />
-                                    ))
-                                }
+                                            />
+                                        ))
+                                    }
+                                </div>
                             </div>
                         </div>
+                        <Footer />
                     </>
             }
 
