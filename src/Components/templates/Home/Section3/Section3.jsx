@@ -6,9 +6,15 @@ export default function Section3({ dataHome }) {
     return (
         <>
             <div className='section3-wrapper'>
-                <Col className='video-wrapper' xs={12} md={4}><Video Video={dataHome?.video_one} /></Col>
-                <Col className='video-wrapper' xs={12} md={4}><Video Video={dataHome?.video_two} /></Col>
-                <Col className='video-wrapper' xs={12} md={4}><Video Video={dataHome?.video_three} /></Col>
+                <Col className='video-wrapper' xs={12} md={4}>
+                    <Video Video={dataHome?.video_one} image={dataHome?.image_for_one_video} />
+                </Col>
+                <Col className='video-wrapper' xs={12} md={4}>
+                    <Video Video={dataHome?.video_two} image={dataHome?.image_for_two_video} />
+                </Col>
+                <Col className='video-wrapper' xs={12} md={4}>
+                    <Video Video={dataHome?.video_three} image={dataHome?.image_for_three_video} />
+                </Col>
             </div>
         </>
     )

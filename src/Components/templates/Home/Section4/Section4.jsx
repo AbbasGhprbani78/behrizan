@@ -13,13 +13,13 @@ export default function Section4({ dataHome }) {
             <div className={`section4-wrapper ${language === "fa" && "rtl"}`}>
                 <Col xs={12} md={6} className="section4-left">
                     <p className="section4-title">
-                        {language === "fa" ? dataHome.header_text_three_farsi :
+                        {language === "fa" ? dataHome?.header_text_three_farsi :
                             dataHome?.header_text_three
                         }
                     </p>
                     <p className="section4-dec">
                         {
-                            language === "fa" ? dataHome.text_three_farsi : dataHome?.text_three}
+                            language === "fa" ? dataHome?.text_three_farsi : dataHome?.text_three}
                     </p>
                 </Col>
                 <Col xs={12} md={6} className="section4-right">

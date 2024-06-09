@@ -16,7 +16,7 @@ export default function Section6({ dataHome }) {
     };
 
 
-    const phoneNumber = language === 'fa' ? toPersianDigits(socaial.whatsapp) : socaial.whatsapp;
+    const phoneNumber = language === 'fa' ? toPersianDigits(socaial?.whatsapp) : socaial?.whatsapp;
     return (
         <>
             <div className={`section6-wrapper ${language === "fa" && "rtl"}`}>

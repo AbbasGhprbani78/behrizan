@@ -24,8 +24,8 @@ function App() {
   }, [language])
 
 
-  const isNotFoundRoute = routes.some(route => route.path === location.pathname) ? false : true;
-  console.log(routes)
+
+
   return (
     <>
       <div className={`conatainer-project ${language === "en" ? "ltr-font" : "rtl-font"}`}>

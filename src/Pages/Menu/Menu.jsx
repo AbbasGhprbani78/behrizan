@@ -38,7 +38,6 @@ export default function Menu() {
                 setLoading(false)
             }
         }
-
         getCategory()
 
     }, [language])

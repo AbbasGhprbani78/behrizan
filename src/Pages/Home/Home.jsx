@@ -29,7 +29,7 @@ export default function Home() {
 
                 if (response.status === 200) {
                     setDataHome(response.data[0])
-                    console.log(`${IP}${dataHome.video_one}`)
+
                 }
 
             } catch (e) {
