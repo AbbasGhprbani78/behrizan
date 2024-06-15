@@ -15,13 +15,12 @@ export default function MenuList({ titleProducts, menuItem }) {
                             <Col key={item.id}
                                 xs={12}
                                 sm={6}
-
                             >
                                 <ProductItem
                                     link={`/menu/${item.name}/${item.id}`}
                                     name={item.name}
                                     img={item.image}
-
+                                    stylediv={"stylecontent"}
                                 />
                             </Col>
                         ))

@@ -27,7 +27,6 @@ export default function Video({ Video, image }) {
                                 image &&
                                 <img src={`${IP}${image}`} alt="" className='poster-image' />
                             }
-
                         </>
 
                     }

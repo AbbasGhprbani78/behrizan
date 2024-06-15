@@ -5,9 +5,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { useMyContext } from '../../context/langugaeContext'
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 import Section1 from '../../Components/templates/Product/Section1/Section1'
-import Section2 from '../../Components/templates/Product/Section2/Section2'
 import Section3 from '../../Components/templates/Product/Section3/Section3'
-import Section4 from '../../Components/templates/Product/Section4/Section4'
 import { useParams } from 'react-router-dom'
 import { IP } from '../../App'
 import axios from 'axios'
@@ -79,22 +77,16 @@ export default function Product() {
                                 setSelectOrder={setSelectOrder}
                                 setProductPrice={setProductPrice}
                                 setTotalPrice={setTotalPrice}
-                            />
-                            <Section2
-                                mainProduct={mainProduct}
-                                selectorder={selectorder}
-                                setTotalPrice={setTotalPrice}
-                                productPrice={productPrice}
                                 totalPrice={totalPrice}
-
+                                productPrice={productPrice}
+                                selectorder={selectorder}
                             />
-
                             {
                                 mainProduct?.suggested_products?.length > 0 &&
                                 <Section3 tryProduct={mainProduct.suggested_products} />
                             }
 
-                            <Section4 setOpenModal={setOpenModal} />
+                            {/* <Section4 setOpenModal={setOpenModal} /> */}
                         </div>
                     </div>
                     <Footer />

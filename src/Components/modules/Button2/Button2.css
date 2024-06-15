@@ -5,8 +5,10 @@
     border-radius: var(--border-radius-1);
     background-color: var(--color-3);
     color: #fff;
-    padding: 6px 30px;
+    text-align: center;
+    width: 110px;
     transition: all .3s ease;
+    padding: 5px 0;
 }
 
 .order-btn:hover {
