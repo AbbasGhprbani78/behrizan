@@ -32,7 +32,7 @@ export default function MainMenuProduct({ image,
             {
                 windowWidth < 600 ?
                     <>
-                        <div className="mainMenuproduct-wrapper-small mt-5">
+                        <div className="mainMenuproduct-wrapper-small my-5">
                             <ProductItem
                                 img={image}
                                 name={name}

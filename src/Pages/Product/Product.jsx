@@ -14,6 +14,7 @@ import Header from '../../Components/modules/Header/Header'
 import Footer from '../../Components/modules/Footer/Footer'
 
 
+
 export default function Product() {
     const { language } = useMyContext()
     const [loading, setLoading] = useState(false)
@@ -86,7 +87,6 @@ export default function Product() {
                                 <Section3 tryProduct={mainProduct.suggested_products} />
                             }
 
-                            {/* <Section4 setOpenModal={setOpenModal} /> */}
                         </div>
                     </div>
                     <Footer />

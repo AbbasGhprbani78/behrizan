@@ -43,8 +43,8 @@ const fa = {
     Address: "آدرس",
     about: "درباره ما",
     notFound: "صفحه مورد نظر یافت نشد",
-    goback: "بازگشت به خانه"
-
+    goback: "بازگشت به خانه",
+    Size: "اندازه"
 }
 
 export default fa

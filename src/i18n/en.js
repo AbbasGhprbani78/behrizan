@@ -44,8 +44,8 @@ const en = {
     Address: 'Address',
     about: "About Us",
     notFound: "Page Not Found",
-    goback: "Go To Home"
-
+    goback: "Go To Home",
+    Size: "Size",
 }
 
 export default en

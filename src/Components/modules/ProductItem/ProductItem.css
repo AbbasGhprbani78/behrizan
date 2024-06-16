@@ -3,6 +3,7 @@
 .product-item-wrapper {
     display: flex;
     align-items: center;
+    justify-content: normal;
 }
 
 .product-img-wrapper {

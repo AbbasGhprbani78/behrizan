@@ -91,14 +91,10 @@
     }
 
     .menu-Header {
-        margin-top: 60px;
+        margin-top: 40px;
     }
-}
 
-@media (max-width:1025px) {
-    /* .menu-Header {
-        position: fixed;
-        width: 90%;
-        top: 30px
-    } */
+    .menu-title {
+        display: none;
+    }
 }
