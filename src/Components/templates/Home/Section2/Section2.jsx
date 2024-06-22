@@ -92,7 +92,7 @@ export default function Section2({ dataHome }) {
                                     <p className='drinking-text-right-main'>{t("Drink")}</p>
                                 </div>
                             </Col>
-                            <Col xs={8} data-aos={`fade-top`} data-aos-once="false">
+                            <Col xs={8} data-aos={`fade-top`} data-aos-once="false" className='mainproductperfect'>
                                 <div className='image-section2-wrapper-m '>
                                     <img src={`${IP}${product[0]?.image}`} alt="" />
                                 </div>
@@ -134,7 +134,8 @@ export default function Section2({ dataHome }) {
                                 <Col sm={5} className="right-section2">
                                     <>
                                         <div className='fade-wrapper fade-wrapper-m' data-aos="fade-top" data-aos-once="false">
-                                            <div className='image-section2-wrapper' style={{ backgroundImage: `url(${IP}${product[0]?.image})` }} >
+                                            <div className='image-section2-wrapper' >
+                                                <img src={`${IP}${product[0]?.image}`} alt="" />
                                             </div>
                                         </div>
                                     </>
