@@ -71,7 +71,6 @@ export default function Section1({ mainProduct, setSelectOrder, setTotalPrice, s
         const handleWindowResize = () => {
             setWindowWidth(window.innerWidth);
         };
-
         window.addEventListener('resize', handleWindowResize);
 
         return () => {

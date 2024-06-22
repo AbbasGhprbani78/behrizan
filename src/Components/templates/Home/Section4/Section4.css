@@ -20,9 +20,10 @@
 }
 
 .section4-dec {
-    font-size: calc(.4vw + .9rem);
-    margin-top: 2rem;
+    font-size: calc(.2vw + .9rem);
+    margin-top: 1.5rem;
     padding-bottom: 15px;
+    width: 95%;
 }
 
 .section4-right {}
@@ -33,7 +34,16 @@
 }
 
 
-@media only screen and (max-width: 600px) {}
+@media only screen and (max-width: 600px) {
+    .section4-left {
+        padding: 2rem 1rem 0 2rem;
+        color: var(--color-3);
+    }
+
+    .rtl .section4-left {
+        padding: 2rem 2rem 0 1rem;
+    }
+}
 
 @media (max-width:1025px) {}
 

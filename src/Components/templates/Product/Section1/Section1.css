@@ -184,10 +184,7 @@
 }
 
 
-.image-main-product {
-    filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.4));
-    border-radius: 0 0 5px 5px;
-}
+.image-main-product {}
 
 @media (max-width:1025px) {
     .section1-product-container {

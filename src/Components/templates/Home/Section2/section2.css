@@ -101,11 +101,12 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    width: 100%;
+    width: 50%;
 }
 
 .image-section2-wrapper-m {
-    height: 30vh;
+    height: auto;
+    width: 80%;
 
 }
 
@@ -180,13 +181,14 @@
 }
 
 
-@media only screen and (min-width: 601px) and (max-width: 1024px) {
+@media only screen and (min-width: 601px) and (max-width: 1023px) {
     .section2-wrapper {
         height: max-content;
     }
 
     .image-section2-wrapper {
         height: auto;
+        width: 65%;
     }
 }
 

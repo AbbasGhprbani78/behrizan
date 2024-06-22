@@ -13,12 +13,12 @@
 .section6-right {
     display: flex;
     flex-direction: column;
-    padding-left: 3rem;
+    padding-left: 2rem;
 }
 
 .rtl .section6-right {
     padding-left: 0;
-    padding-right: 3rem;
+    padding-right: 2rem;
 }
 
 .Qcafe-title {
@@ -62,6 +62,12 @@
     .section6-right {
         margin-top: 1rem;
         padding-bottom: 20px;
+        padding-left: 1.5rem;
+    }
+
+    .rtl .section6-right {
+        padding-left: 15px;
+        padding-right: 1.5rem;
     }
 }
 
@@ -69,11 +75,11 @@
 @media (max-width:600px) {
     .Qcafe-text2 {
         font-size: .9rem;
-        padding-right: 10px;
+        padding-right: 15px;
     }
 
     .rtl .Qcafe-text2 {
-        padding-left: 10px;
+        padding-left: 15px;
         padding-right: 0 !important;
     }
 

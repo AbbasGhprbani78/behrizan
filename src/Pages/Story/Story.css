@@ -14,7 +14,7 @@
 .background-story {
     background-image: url('/public/images/storyback.png');
     height: 35vh;
-    background-size: cover;
+    background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
@@ -26,14 +26,14 @@
 
 .about-us-title {
     position: absolute;
-    left: 5%;
+    left: 2rem;
     bottom: 10%;
     font-size: calc(1.8rem + .2vw);
     font-weight: bold;
 }
 
 .rtl .about-us-title {
-    right: 5%;
+    right: 2rem;
     left: auto;
 }
 
@@ -54,7 +54,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem 4rem;
+    padding: 2rem;
 }
 
 .story-content {}
@@ -86,6 +86,14 @@
 
 
 @media (max-width:600px) {
+    .background-story {
+        background-image: url('/public/images/Frame 60.png')
+    }
+
+    .rtl .background-story {
+        background-image: url('/public/images/Frame 62.png');
+    }
+
     .story-text {
         width: 100%;
     }

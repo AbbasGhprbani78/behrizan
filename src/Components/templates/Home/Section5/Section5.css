@@ -28,7 +28,7 @@
 }
 
 .text-section5 {
-    color: #fff;
+    color: var(--color-3);
 }
 
 .telephone-text {
@@ -47,7 +47,7 @@
 
     .section5-right {
         display: flex;
-        font-size: .8rem;
+        font-size: 1rem;
     }
 
 }
