@@ -69,7 +69,7 @@ export default function MainMenu() {
                                 </Link>
                                 <div className="main-products-wrapper">
                                     {
-                                        Products.length > 0 && Products.map((product) => (
+                                        Products.length > 0 && Products?.map((product) => (
                                             <MainMenuProduct
                                                 key={product.id}
                                                 image={product.image}

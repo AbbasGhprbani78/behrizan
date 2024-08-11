@@ -15,7 +15,6 @@
     border-radius: 50%;
     cursor: pointer;
     transition: all .3s ease;
-    overflow: hidden;
 }
 
 .product-img-wrapper:hover {

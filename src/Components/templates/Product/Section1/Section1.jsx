@@ -97,6 +97,8 @@ export default function Section1({ mainProduct, setSelectOrder, setTotalPrice, s
                                     centeredSlides={true}
                                 >
                                     {
+                                        filteredArray&&
+                                        filteredArray.length > 0 &&
                                         filteredArray?.map((item, index) => (
                                             <SwiperSlide key={index}>
                                                 <img className='image-main-product' src={`${IP}${item}`} alt="image-product" />

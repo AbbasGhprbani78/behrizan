@@ -241,7 +241,7 @@ input.check-toggle-round-flat:checked+label:after {
 
 .join-now {
     color: #fff;
-    background-color: var(--color-3);
+    background-color: var(--color-17);
     transition: all .3s ease;
     padding: 4px 18px 5px 18px;
 }

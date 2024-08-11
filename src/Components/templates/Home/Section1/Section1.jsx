@@ -59,7 +59,7 @@ export default function Section1({ dataHome }) {
                         {
                             language === "fa" ?
                                 <span className='time-work fw-bold'>{`${startText} تا ${endText}`}</span> :
-                                <span className='time-work fw-bold'>{`${dataHome.start} - ${dataHome.end}`}</span>
+                                <span className='time-work fw-bold'>{`${dataHome?.start} - ${dataHome?.end}`}</span>
                         }
                     </div>
                     <div className="link-nav-wrapper mt-4 link-sec-m">

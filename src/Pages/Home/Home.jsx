@@ -23,7 +23,7 @@ export default function Home() {
             };
 
             try {
-                const response = await axios.get(`${IP}/home/get-home-media`, {
+                const response = await axios.get(`${IP}/home/get-home-media/`, {
                     headers,
                 })
 
