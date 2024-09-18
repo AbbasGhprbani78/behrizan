@@ -35,9 +35,10 @@
     font-weight: 600;
 }
 
-.telephone-number {}
-
-
+.telephone-number {
+    direction: ltr;
+    unicode-bidi: bidi-override;
+}
 
 @media(max-width:555px) {
 

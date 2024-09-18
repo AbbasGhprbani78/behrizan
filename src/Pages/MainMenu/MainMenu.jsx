@@ -19,6 +19,7 @@ export default function MainMenu() {
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
+
         const getProducts = async () => {
             const headers = {
                 'Accept-Language': language
@@ -30,6 +31,7 @@ export default function MainMenu() {
                 })
 
                 if (response.status === 200) {
+                    console.log(response.data)
                     setProducts(response.data.products)
                     setLoading(false)
                 }

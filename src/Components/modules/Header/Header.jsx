@@ -188,11 +188,8 @@ export default function Header() {
                                     </Link>
 
                                     <div className="link-nav-wrapper">
-                                        <Link className='link-nav signin' to={"#"}>
-                                            {t("Signin")}
-                                        </Link>
-                                        <Link className='link-nav join-now' to={"#"}>
-                                            {t("joinnow")}
+                                        <Link className='link-nav join-now' to={"https://order.qmancafe.com/order"}>
+                                            {t("orderonline")}
                                         </Link>
                                     </div>
                                 </div>
@@ -204,3 +201,10 @@ export default function Header() {
         </>
     )
 }
+
+
+
+{/* <Link className='link-nav signin' to={"#"}>
+                                            {t("Signin")}
+                                        </Link>
+                                         */}

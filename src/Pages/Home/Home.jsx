@@ -39,9 +39,6 @@ export default function Home() {
         getInfoPage()
     }, [language])
 
-
-
-
     return (
         <>
             <Header />

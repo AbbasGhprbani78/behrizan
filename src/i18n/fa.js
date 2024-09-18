@@ -44,7 +44,8 @@ const fa = {
     about: "درباره ما",
     notFound: "صفحه مورد نظر یافت نشد",
     goback: "بازگشت به خانه",
-    Size: "اندازه"
+    Size: "اندازه",
+    orderonline: "سفارش آنلاین"
 }
 
 export default fa

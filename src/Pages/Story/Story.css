@@ -76,6 +76,8 @@
 
 .media-item-text {
     margin-left: 15px;
+    direction: ltr;
+    unicode-bidi: bidi-override;
 }
 
 .rtl .media-item-text {
