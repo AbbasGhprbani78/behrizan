@@ -6,9 +6,14 @@ export default function MenuHeader({ isborder }) {
     const { t } = useTranslation();
     return (
         <div className={`menu-Header ${isborder && "border-menu"}`}>
-            <p className="menu-title">{t("MENU")}</p>
+            {/* <p className="menu-title">{t("MENU")}</p> */}
             <div className="menu-tab-list">
-                <NavLink to={'/categorymenus'} className='menu-tab-list-item'>{t("Menu")}</NavLink>
+                <NavLink
+                    to={'/categorymenus'}
+                    className='menu-tab-list-item'>
+                    {t("Menu")}
+                </NavLink>
+                
                 <NavLink
                     to={'/Favorites'}
                     className='menu-tab-list-item'

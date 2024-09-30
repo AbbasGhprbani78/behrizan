@@ -35,12 +35,13 @@
     font-family: 'Inter', sans-serif !important;
 }
 
-.rtl-font {
+/* .rtl-font {
     font-family: "iranyekan", sans-serif !important;
-}
+} */
 
 .rtl {
     direction: rtl;
+    font-family: "iranyekan", sans-serif !important;
 }
 
 

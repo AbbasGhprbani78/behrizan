@@ -24,42 +24,15 @@
 .sidebar-item {
     text-decoration: none;
     display: flex;
-    align-items: center;
     color: #979797;
     justify-content: start;
     font-size: 1.2rem;
     transition: all .3s;
     position: relative;
-    width: max-content;
+    padding-bottom: 3px;
 }
 
-.sidebar-item::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--color-3);
-    transition: width 0.3s ease;
-    padding-top: 2px;
-}
 
-.sidebar-item:hover::after {
-    width: 100%;
-}
-
-.menu-sidebar-list a.active::after {
-    width: 100%;
-}
-
-.menu-sidebar-list a.active {
-    color: var(--color-3);
-}
-
-.sidebar-item:hover {
-    color: var(--color-3);
-}
 
 .icon-menu-sidebar {
     width: 25px !important;
@@ -82,19 +55,20 @@
 }
 
 .btn-change-la {
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 31px;
+    height: 31px;
     border-radius: 50%;
     cursor: pointer;
     color: var(--color-17);
-    padding: 2px 2px 0 2px;
-
+    font-size: .9rem;
 }
 
+
 .lang-active {
-    background-color: var(--color-2);
+    background-color: #5f95bb;
     color: #fff;
 }
 
@@ -148,4 +122,29 @@
 .rtl .phone-sidebar {
     margin-right: 20px;
     margin-left: 0;
+}
+
+
+.sidebar-text {
+    position: relative;
+    padding-bottom: 2.5px;
+}
+
+.sidebar-text::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-3);
+    transition: width 0.3s ease;
+}
+
+.sidebar-item:hover .sidebar-text::after {
+    width: 100%;
+}
+
+.menu-sidebar-list a.active .sidebar-text::after {
+    width: 100%;
 }

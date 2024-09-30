@@ -94,7 +94,7 @@ export default function Header() {
             {
                 windowWidth < 1025 ?
                     <>
-                        <header className={`header-container-m ${language === "fa" && "rtl"} ${scrollY > 50 ? "fixed-header" : ""}`}>
+                        <header className={`header-container-m ${language === "fa" && "rtl"} ${scrollY > 0 ? "fixed-header" : ""}`}>
                             <nav className='header-nav-m'>
                                 <div className="menu-icon-wrapper" onClick={windowWidth > 600 ? handleTogglemenuTab : handleToggleOffCanvas} >
                                     {
@@ -150,7 +150,7 @@ export default function Header() {
                         </header>
                     </> :
                     <>
-                        <header className={`header-container ${language === "fa" && "rtl"} ${scrollY > 50 ? "fixed-header" : ""}`}>
+                        <header className={`header-container ${language === "fa" && "rtl"} ${scrollY > 0 ? "fixed-header" : ""}`}>
                             <nav className='header-nav'>
                                 <div className="left-nav">
                                     <div className="logo-nav">
@@ -170,8 +170,8 @@ export default function Header() {
                                             <div className="change-lan-nav">
                                                 <div className="switch">
                                                     <div className="change-languge d-flex align-items-center">
-                                                        <p className={`btn-change-la change-en ${isEn && "lang-active"}`} onClick={changeLanguageToEn}>EN</p>
-                                                        <p className={`btn-change-la change-fa mx-2 ${isFa && "lang-active"}`} onClick={changeLanguageToFa}>FA</p>
+                                                        <div className={`btn-change-la change-en ${isEn && "lang-active"}`} onClick={changeLanguageToEn}>EN</div>
+                                                        <div className={`btn-change-la change-fa mx-2 ${isFa && "lang-active"}`} onClick={changeLanguageToFa}>FA</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -202,9 +202,3 @@ export default function Header() {
     )
 }
 
-
-
-{/* <Link className='link-nav signin' to={"#"}>
-                                            {t("Signin")}
-                                        </Link>
-                                         */}

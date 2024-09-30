@@ -71,6 +71,11 @@
 }
 
 @media (max-width:600px) {
+    .product-img-wrapper>img {
+        width: calc(90px + .1vw);
+        height: calc(90px + .1vh);
+    }
+
     .product-item-wrapper {
         justify-content: start;
     }
