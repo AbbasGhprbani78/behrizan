@@ -1,0 +1,42 @@
+.chat-wrapper {
+    padding: 0 15px;
+    margin-top: 1.2rem;
+}
+
+
+.message_wrapper_ai {
+    align-self: flex-start;
+    max-width: 70%;
+    padding: 0 15px;
+    margin-top: 1.2rem;
+}
+
+.message_wrapper_user {
+    align-self: flex-end;
+    max-width: 70%;
+    padding: 0 15px;
+    margin-top: 1.2rem;
+}
+
+.chat-contant-ai {
+    background-color: #669bbc;
+    color: #fff;
+    height: auto;
+    word-wrap: break-word;
+    width: fit-content;
+    max-width: 100%;
+    padding: 10px 15px;
+    overflow: hidden;
+    border-radius: 20px 20px 20px 0px;
+}
+
+.chat-contant-user {
+    background-color: #fff;
+    color: #669bbc;
+    height: auto;
+    word-wrap: break-word;
+    width: fit-content;
+    max-width: 100%;
+    border-radius: 20px 20px 0 20px;
+    padding: 10px;
+}

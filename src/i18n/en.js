@@ -46,7 +46,10 @@ const en = {
     notFound: "Page Not Found",
     goback: "Go To Home",
     Size: "Size",
-    orderonline:"Order Online"
+    welcometo: "Welcome To",
+    chatbot: "Chatbot",
+    message:"message",
+    orderonline: "Order Online"
 }
 
 export default en

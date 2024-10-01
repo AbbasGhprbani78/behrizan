@@ -45,6 +45,9 @@ const fa = {
     notFound: "صفحه مورد نظر یافت نشد",
     goback: "بازگشت به خانه",
     Size: "اندازه",
+    welcometo: "خوش آمدید به",
+    chatbot: "ربات گفتگو",
+    message: "'پیام",
     orderonline: "سفارش آنلاین"
 }
 

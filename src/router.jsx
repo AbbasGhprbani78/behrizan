@@ -4,6 +4,7 @@ import MainMenu from './Pages/MainMenu/MainMenu'
 import Product from './Pages/Product/Product'
 import Cart from './Pages/Cart/Cart'
 import Story from './Pages/Story/Story'
+import Test from './Pages/Test/Test'
 import NotFound from './Pages/NotFound/NotFound'
 
 const routes = [
@@ -13,7 +14,8 @@ const routes = [
     { path: "/product/:productname/:id", element: < Product /> },
     { path: "/cart", element: <Cart /> },
     { path: "/aboutus", element: <Story /> },
-    { path: "/*", element: <NotFound /> }
+    { path: "/*", element: <NotFound /> },
+    { path: "/test", element: <Test /> }
 
 ]
 export default routes
