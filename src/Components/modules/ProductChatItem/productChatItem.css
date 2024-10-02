@@ -1,0 +1,38 @@
+.productchat {
+    all: unset;
+    cursor: pointer;
+    display: flex;
+    align-items: start;
+    margin-bottom: 20px;
+}
+
+.img-chat-wrapp {
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    background-color: var(--color-2);
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-chat-wrapp>img {
+    width: 80%;
+    height: 80%;
+}
+
+.chat-product-info {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 10px;
+    color: #fff;
+}
+
+.product-chat-name {}
+
+.product-chat-price {}

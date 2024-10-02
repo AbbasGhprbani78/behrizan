@@ -1,19 +1,11 @@
-.test_container {
-    width: 90%;
-    margin: 0 auto;
-    height: 100vh;
-    background-color: red;
-    position: relative;
-}
-
 .chatbot-container {
     position: fixed;
-    width: 30vw;
-    height: 75vh;
+    width: 0;
+    height: 0;
     bottom: 12%;
     right: 7%;
     z-index: 3;
-    background: yellow;
+    background: url('/images/chatbotback.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -25,16 +17,26 @@
     opacity: 0;
     visibility: hidden;
     transition: all .3s ease;
+    z-index: 999999999999999999;
 }
 
-.active {
+.chatbot-container-right {
+    right: auto;
+    left: 7%;
+}
+
+.chabot_dir {
+    direction: rtl;
+}
+
+.active-chatbot {
     opacity: 1;
     visibility: visible;
+    width: 30vw;
+    height: 75vh;
 }
 
-.chatbot-header {
-    backdrop-filter: blur(5px);
-}
+.chatbot-header {}
 
 .chatbot-body {
     position: relative;
@@ -100,10 +102,33 @@
     overflow: hidden;
     background-color: #cee3f4;
     cursor: pointer;
-    position: absolute;
-    right: 0;
+    position: fixed;
+    right: 4.5%;
     bottom: 20px;
+    z-index: 9999;
 }
+
+.chat-icon-wrapper-right {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #cee3f4;
+    cursor: pointer;
+    position: fixed;
+    left: 4.5%;
+    bottom: 20px;
+    z-index: 9999;
+}
+
+.chat-icon-wrapper-right>img {
+    width: 50%;
+    height: 50%;
+}
+
 
 .chat-icon-wrapper>img {
     width: 50%;
@@ -145,10 +170,60 @@
 .send-icon {
     color: #669bbc;
     font-size: 1.5rem;
+    cursor: pointer;
 }
 
 .text-bottom {
     color: #f9f9f9;
     text-align: center;
     margin: 10px 0;
+    font-size: .9rem;
+    font-weight: bold;
+}
+
+.send-icon-right {
+    transform: rotate(180deg);
+}
+
+.disable-input-chat {
+    cursor: not-allowed;
+}
+
+@media (max-width:1743px) {
+    .chatbot-container {
+        width: 35vw;
+    }
+
+}
+
+
+@media (max-width:1464px) {
+    .chatbot-container {
+        width: 40vw;
+    }
+}
+
+
+@media (max-width:1248px) {
+    .chatbot-container {
+        width: 47vw;
+    }
+}
+
+@media (max-width:1042px) {
+    .chatbot-container {
+        width: 57vw;
+    }
+}
+
+@media (max-width:1025px) {
+    .chatbot-container {
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 0;
+    }
 }
