@@ -48,7 +48,8 @@ const en = {
     Size: "Size",
     welcometo: "Welcome To",
     chatbot: "Chatbot",
-    message:"message",
+    message: "message",
+    Anerroroccurredtryagain: "An Error Occurred, Try Again",
     orderonline: "Order Online"
 }
 

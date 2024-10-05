@@ -48,6 +48,7 @@ const fa = {
     welcometo: "خوش آمدید به",
     chatbot: "ربات گفتگو",
     message: "پیام",
+    Anerroroccurredtryagain: "خطایی پیش آمده دوباره امتحان کنید",
     orderonline: "سفارش آنلاین"
 }
 

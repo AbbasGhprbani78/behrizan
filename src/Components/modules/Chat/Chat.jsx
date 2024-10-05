@@ -7,19 +7,22 @@ import { useTranslation } from 'react-i18next';
 import CloseIcon from '@mui/icons-material/Close';
 import { useMyContext } from '../../../context/langugaeContext';
 import axios from 'axios';
-// import { IP } from '../../../App';
 
 export default function Chat() {
     const { t } = useTranslation();
     const [showChat, setShowChat] = useState(false);
-    const { language } = useMyContext()
-    const [message, setMessage] = useState("")
-    const [messages, setMessages] = useState([])
-    const [sessioId, setSessionId] = useState("")
-    const [disableInput, setDisableInput] = useState(false)
+    const { language } = useMyContext();
+    const [message, setMessage] = useState("");
+    const [messages, setMessages] = useState([]);
+    const [sessioId, setSessionId] = useState("");
+    const [disableInput, setDisableInput] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
+
     const messageEndRef = useRef(null);
 
     const sendMessage = async () => {
+        if (message.trim() === "") return; // Prevent sending empty messages
 
         const newMessage = {
             id: messages.length + 1,
@@ -27,8 +30,9 @@ export default function Chat() {
             text: message
         }
         setMessages((prevMessages) => [...prevMessages, newMessage])
-        setMessage("")
-        setDisableInput(true)
+        setMessage("");
+        setDisableInput(true);
+        setLoading(true); // Start loading
 
         try {
             const body = {
@@ -37,7 +41,9 @@ export default function Chat() {
             }
             const res = await axios.post(`https://recomchat.ariisco.com/recomchatbothistory/`, body)
             if (res.status === 201 || res.status === 200) {
-                setDisableInput(false)
+                setDisableInput(false);
+                setLoading(false); // Stop loading
+
                 if (res.data.session_id) {
                     setSessionId(res.data.session_id)
                 }
@@ -47,12 +53,13 @@ export default function Chat() {
                     text: res.data.ai_assistant
                 }
                 setMessages((prevMessages) => [...prevMessages, messageAi])
-
+                setErrorMessage("");
             }
         } catch (error) {
-            console.log(error)
+            setLoading(false);
+            setDisableInput(false);
+            setErrorMessage(t("An error occurred. Please try again."));
         }
-
     }
 
     const handleKeyDown = (event) => {
@@ -61,12 +68,9 @@ export default function Chat() {
         }
     };
 
-
-
     useEffect(() => {
         messageEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     }, [messages]);
-
 
     return (
         <>
@@ -87,6 +91,22 @@ export default function Chat() {
                             messages.map((message) => (
                                 <Message key={message.id} message={message} />
                             ))
+                        }
+                        {
+                            loading && (
+                                <div className="loading-chat">
+                                    <div className="dot"></div>
+                                    <div className="dot"></div>
+                                    <div className="dot"></div>
+                                </div>
+                            )
+                        }
+                        {errorMessage &&
+                            <div className='message_wrapper_ai '>
+                                <p className='chat-contant-ai error-color'>
+                                    {t("An error occurred, try again")}
+                                </p>
+                            </div>
                         }
                         <div ref={messageEndRef}></div>
                     </div>
