@@ -35,10 +35,6 @@
     font-family: 'Inter', sans-serif !important;
 }
 
-/* .rtl-font {
-    font-family: "iranyekan", sans-serif !important;
-} */
-
 .rtl {
     direction: rtl;
     font-family: "iranyekan", sans-serif !important;
@@ -61,6 +57,10 @@
 
 .main-content {
     flex: 1;
+}
+
+.hiddenback {
+    display: none;
 }
 
 /* Mobile */

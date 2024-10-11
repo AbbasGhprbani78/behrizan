@@ -23,6 +23,7 @@
 .chatbot-container-right {
     right: auto;
     left: 7%;
+    font-family: "iranyekan", sans-serif !important;
 }
 
 .chabot_dir {
@@ -35,6 +36,7 @@
     width: 30vw;
     height: 75vh;
 }
+
 
 .chatbot-header {}
 
@@ -77,7 +79,7 @@
     border-radius: 50px;
     display: flex;
     align-items: center;
-    padding: 10px;
+    padding: 9px 10px;
     box-shadow: 0px 0px 4px 0px #00000040;
     width: 92%;
     margin: 0 auto;
@@ -137,13 +139,17 @@
 
 
 .chatbot-header {
+    z-index: 1;
     color: #fff;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 17px 0;
     border-bottom: 1px solid #d9d9d9;
+    transition: all 0.3s ease;
 }
+
+
 
 .info-chat,
 .close-chat {
@@ -153,6 +159,11 @@
 
 .title-chat {
     font-weight: bold;
+}
+
+.title-chat-fa {
+    font-weight: bold;
+    font-size: .95rem;
 }
 
 .icon-chatbot {
@@ -219,10 +230,29 @@
     animation-delay: 0.6s;
 }
 
-.error-color {
-    background-color: #fcd3d8 !important;
-    color: #d90429 !important;
+.maxlenght-texts {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
+
+.maxlenght-text {
+    color: #5f95bb;
+    text-align: center;
+    font-weight: bold;
+}
+
+.btn-maxlenght {
+    border: none;
+    outline: none;
+    color: #fff;
+    background-color: #5f95bb;
+    padding: 10px 35px;
+    border-radius: var(--border-radius-1);
+}
+
 
 @keyframes blink {
 
@@ -255,32 +285,30 @@
 
 @media (max-width:1743px) {
     .chatbot-container {
-        width: 35vw;
+        width: 30vw;
     }
 
 }
-
-
-@media (max-width:1464px) {
-    .chatbot-container {
-        width: 40vw;
-    }
-}
-
 
 @media (max-width:1248px) {
     .chatbot-container {
-        width: 47vw;
+        width: 35vw;
     }
 }
 
-@media (max-width:1042px) {
-    .chatbot-container {
-        width: 57vw;
+
+
+@media (min-width:1025px) {
+    .mobile-chat {
+        display: none;
     }
 }
 
 @media (max-width:1025px) {
+    .desk-chat {
+        display: none;
+    }
+
     .chatbot-container {
         width: 100%;
         min-height: 100dvh;

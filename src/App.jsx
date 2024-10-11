@@ -4,7 +4,7 @@ import routes from './router';
 import Header from './Components/modules/Header/Header'
 import i18n from './i18n';
 import { useMyContext } from './context/langugaeContext';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import Chat from './Components/modules/Chat/Chat';
 
@@ -14,12 +14,12 @@ function App() {
   const router = useRoutes(routes);
   const { language, setLanguage } = useMyContext();
   const location = useLocation();
-
+  const [activeChat, setActiveChat] = useState(false)
 
   const validRoutes = routes.map((route) => route.path);
 
   useEffect(() => {
-    
+
     const mainLanguage = localStorage.getItem("language");
     if (mainLanguage) {
       i18n.changeLanguage(mainLanguage);
@@ -27,12 +27,17 @@ function App() {
     }
   }, [language]);
 
+
+
+
   return (
     <>
-      <div className={`conatainer-project ${language === "en" ? "ltr-font" : "rtl-font"}`}>
+      <div className={`${language === "en" ? "ltr-font" : "rtl-font"}
+          ${activeChat ? "hiddenback" : "conatainer-project"}`}
+      >
         {router}
       </div>
-      {validRoutes.includes(location.pathname) && <Chat />}
+      {validRoutes.includes(location.pathname) && <Chat setActiveChat={setActiveChat} />}
     </>
   );
 }

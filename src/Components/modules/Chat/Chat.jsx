@@ -1,14 +1,14 @@
-import React, { useState, useRef, useEffect } from 'react'
-import './Chat.css'
-import Message from '../Message/Message'
-import { IoMdInformationCircleOutline } from "react-icons/io";
-import { BiSolidSend } from "react-icons/bi";
+import React, { useState, useRef, useEffect } from 'react';
+import './Chat.css';
+import Message from '../Message/Message';
+import { IoMdInformationCircleOutline } from 'react-icons/io';
+import { BiSolidSend } from 'react-icons/bi';
 import { useTranslation } from 'react-i18next';
 import CloseIcon from '@mui/icons-material/Close';
 import { useMyContext } from '../../../context/langugaeContext';
 import axios from 'axios';
 
-export default function Chat() {
+export default function Chat({ setActiveChat }) {
     const { t } = useTranslation();
     const [showChat, setShowChat] = useState(false);
     const { language } = useMyContext();
@@ -17,50 +17,73 @@ export default function Chat() {
     const [sessioId, setSessionId] = useState("");
     const [disableInput, setDisableInput] = useState(false);
     const [loading, setLoading] = useState(false);
-    const [errorMessage, setErrorMessage] = useState("");
+    const chatContentRef = useRef(null);
+    const inputRef = useRef(null);
+    const [maxLengthChat, setMaxLengthChat] = useState(false)
+    const [windowWidth, setWindowWidth] = useState()
 
-    const messageEndRef = useRef(null);
+    const showChatHandler = () => {
+        setShowChat((prev) => {
+            const newValue = !prev;
+            setActiveChat(newValue);
+            return newValue;
+        });
+    };
 
     const sendMessage = async () => {
-        if (message.trim() === "") return; // Prevent sending empty messages
 
-        const newMessage = {
-            id: messages.length + 1,
-            isai: false,
-            text: message
-        }
-        setMessages((prevMessages) => [...prevMessages, newMessage])
-        setMessage("");
-        setDisableInput(true);
-        setLoading(true); // Start loading
+        if (message.trim() === "") return;
+        if (messages.length === 10) {
+            setMaxLengthChat(true)
+        } else {
+            const newMessage = {
+                id: messages.length + 1,
+                isai: false,
+                text: message
+            };
+            setMessages((prevMessages) => [...prevMessages, newMessage]);
+            setMessage("");
+            setDisableInput(true);
+            setLoading(true);
+            try {
+                const body = {
+                    query: message,
+                    ...(sessioId && { session_id: sessioId })
+                };
+                const res = await axios.post(
+                    `https://recomchat.ariisco.com/recomchatbothistory/`,
+                    body
+                );
+                if (res.status === 201 || res.status === 200) {
+                    setDisableInput(false);
+                    setLoading(false);
 
-        try {
-            const body = {
-                query: message,
-                ...(sessioId && { session_id: sessioId })
-            }
-            const res = await axios.post(`https://recomchat.ariisco.com/recomchatbothistory/`, body)
-            if (res.status === 201 || res.status === 200) {
-                setDisableInput(false);
-                setLoading(false); // Stop loading
+                    if (res.data.session_id) {
+                        setSessionId(res.data.session_id);
+                    }
 
-                if (res.data.session_id) {
-                    setSessionId(res.data.session_id)
+                    const messageAi = {
+                        id: messages.length + 1,
+                        isai: true,
+                        text: res.data.ai_assistant
+                    };
+                    setMessages((prevMessages) => [...prevMessages, messageAi]);
                 }
-                const messageAi = {
+            } catch (error) {
+                setLoading(false);
+                setDisableInput(false);
+                const errorMessage = {
                     id: messages.length + 1,
                     isai: true,
-                    text: res.data.ai_assistant
-                }
-                setMessages((prevMessages) => [...prevMessages, messageAi])
-                setErrorMessage("");
+                    text: t('errorchat'),
+                    isError: true
+                };
+                setMessages((prevMessages) => [...prevMessages, errorMessage]);
             }
-        } catch (error) {
-            setLoading(false);
-            setDisableInput(false);
-            setErrorMessage(t("An error occurred. Please try again."));
         }
-    }
+
+    };
+
 
     const handleKeyDown = (event) => {
         if (event.key === 'Enter') {
@@ -68,69 +91,257 @@ export default function Chat() {
         }
     };
 
+    const refreshChat = () => {
+        setMessage("")
+        setMessages("")
+        setSessionId("")
+        setMaxLengthChat(false)
+    }
+
+
     useEffect(() => {
-        messageEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-    }, [messages]);
+        if (!loading && !disableInput) {
+            inputRef.current?.focus();
+        }
+    }, [messages, loading, disableInput]);
+
+
+    useEffect(() => {
+        const chatContentElement = chatContentRef.current;
+
+        if (chatContentElement) {
+            const isContentOverflowing =
+                chatContentElement.scrollHeight > chatContentElement.clientHeight;
+
+            if (isContentOverflowing) {
+                chatContentElement.scrollTo({
+                    top: chatContentElement.scrollHeight,
+                    behavior: 'smooth',
+                });
+            }
+        }
+    }, [messages, maxLengthChat]);
+
+    useEffect(() => {
+
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+
+        handleResize();
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+
+    }, []);
 
     return (
         <>
-            <div className={`chatbot-container ${showChat && "active-chatbot"} ${language === "fa" && "chatbot-container-right"}`}>
-                <div className={`chatbot-header ${language === "fa" && "chabot_dir"}`}>
-                    <div className='d-flex align-items-center'>
-                        <IoMdInformationCircleOutline className='info-chat' />
-                        <span className='title-chat'>{t("welcometo")}</span>
-                        <img className='icon-chatbot' src="/images/logo.svg" alt="logo" />
-                        <span className='title-chat'>{t("chatbot")}</span>
-                    </div>
-                    <CloseIcon className='close-chat' onClick={() => setShowChat(false)} />
-                </div>
-                <div className="chatbot-body">
-                    <div className="chat-content">
-                        {
-                            messages.length > 0 &&
-                            messages.map((message) => (
-                                <Message key={message.id} message={message} />
-                            ))
-                        }
-                        {
-                            loading && (
-                                <div className="loading-chat">
-                                    <div className="dot"></div>
-                                    <div className="dot"></div>
-                                    <div className="dot"></div>
+            {
+                windowWidth > 1025 ?
+                    <div className='desk-chat'>
+                        <div
+                            className={`chatbot-container ${showChat && 'active-chatbot'} ${language === 'fa' && 'chatbot-container-right'
+                                }`}
+                        >
+                            <div
+                                className={`chatbot-header ${language === 'fa' && 'chabot_dir'}`}
+                            >
+                                <div className='d-flex align-items-center'>
+                                    <IoMdInformationCircleOutline className='info-chat' />
+                                    {language === 'fa' ? (
+                                        <>
+                                            <span className='title-chat-fa'>
+                                                خوش آمدید به ربات گفتگو
+                                            </span>
+                                            <img
+                                                className='icon-chatbot'
+                                                src='/images/logo.svg'
+                                                alt='logo'
+                                            />
+                                        </>
+                                    ) : (
+                                        <>
+                                            <span className='title-chat'>
+                                                {t('welcometo')}
+                                            </span>
+                                            <img
+                                                className='icon-chatbot'
+                                                src='/images/logo.svg'
+                                                alt='logo'
+                                            />
+                                            <span className='title-chat'>
+                                                {t('chatbot')}
+                                            </span>
+                                        </>
+                                    )}
                                 </div>
-                            )
-                        }
-                        {errorMessage &&
-                            <div className='message_wrapper_ai '>
-                                <p className='chat-contant-ai error-color'>
-                                    {t("An error occurred, try again")}
-                                </p>
+                                <CloseIcon className='close-chat' onClick={() => setShowChat(prev => !prev)} />
                             </div>
-                        }
-                        <div ref={messageEndRef}></div>
+                            <div className='chatbot-body'>
+                                <div className='chat-content' ref={chatContentRef}>
+                                    {messages.length > 0 &&
+                                        messages.map((message) => (
+                                            <Message
+                                                key={message.id}
+                                                message={message}
+                                            />
+                                        ))}
+                                    {loading && (
+                                        <div className='loading-chat'>
+                                            <div className='dot'></div>
+                                            <div className='dot'></div>
+                                            <div className='dot'></div>
+                                        </div>
+                                    )}
+                                    {
+                                        maxLengthChat &&
+                                        <div className='maxlenght-texts'>
+                                            <p className='maxlenght-text'>{t("textmaxchat")}</p>
+                                            <button className='btn-maxlenght' onClick={refreshChat}>{t("newChat")}</button>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                            <div className={`chat-bottom ${language === 'fa' && 'chabot_dir'}`}>
+                                <div className='chatbot-actions'>
+                                    <input
+                                        type='text'
+                                        value={message}
+                                        onChange={(e) => setMessage(e.target.value)}
+                                        className={`input-chat ${disableInput && 'disable-input-chat'} 
+                                        ${language === 'fa' && 'rtl'}`}
+                                        autoComplete='false'
+                                        placeholder={t('message')}
+                                        onKeyDown={handleKeyDown}
+                                        disabled={disableInput || maxLengthChat}
+                                        maxLength={80}
+                                        ref={inputRef}
+                                    />
+                                    <BiSolidSend
+                                        className={`send-icon ${language === 'fa' && 'send-icon-right'}`}
+                                        onClick={sendMessage}
+                                    />
+                                </div>
+                                <p className='text-bottom'>Powered By ARIISCO</p>
+                            </div>
+                        </div>
+                        <div
+                            className={`${language === 'fa'
+                                ? 'chat-icon-wrapper-right'
+                                : 'chat-icon-wrapper'
+                                }`}
+                            onClick={() => setShowChat(prev => !prev)}
+                        >
+                            <img src='/images/iconchat.png' alt='icon_chat' />
+                        </div>
+                    </div> :
+                    <div className='mobile-chat'>
+                        <div
+                            className={`chatbot-container ${showChat && 'active-chatbot'} ${language === 'fa' && 'chatbot-container-right'
+                                }`}
+                        >
+                            <div
+                                className={`chatbot-header ${language === 'fa' && 'chabot_dir'}`}
+                            >
+                                <div className='d-flex align-items-center'>
+                                    <IoMdInformationCircleOutline className='info-chat' />
+                                    {language === 'fa' ? (
+                                        <>
+                                            <span className='title-chat-fa'>
+                                                خوش آمدید به ربات گفتگو
+                                            </span>
+                                            <img
+                                                className='icon-chatbot'
+                                                src='/images/logo.svg'
+                                                alt='logo'
+                                            />
+                                        </>
+                                    ) : (
+                                        <>
+                                            <span className='title-chat'>
+                                                {t('welcometo')}
+                                            </span>
+                                            <img
+                                                className='icon-chatbot'
+                                                src='/images/logo.svg'
+                                                alt='logo'
+                                            />
+                                            <span className='title-chat'>
+                                                {t('chatbot')}
+                                            </span>
+                                        </>
+                                    )}
+                                </div>
+                                <CloseIcon className='close-chat' onClick={showChatHandler} />
+                            </div>
+                            <div className='chatbot-body'>
+                                <div className='chat-content' ref={chatContentRef}>
+                                    {messages.length > 0 &&
+                                        messages.map((message) => (
+                                            <Message
+                                                key={message.id}
+                                                message={message}
+                                            />
+                                        ))}
+                                    {loading && (
+                                        <div className='loading-chat'>
+                                            <div className='dot'></div>
+                                            <div className='dot'></div>
+                                            <div className='dot'></div>
+                                        </div>
+                                    )}
+                                    {
+                                        maxLengthChat &&
+                                        <div className='maxlenght-texts'>
+                                            <p className='maxlenght-text'>{t("textmaxchat")}</p>
+                                            <button className='btn-maxlenght' onClick={refreshChat}>{t("newChat")}</button>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                            <div className={`chat-bottom ${language === 'fa' && 'chabot_dir'}`}>
+                                <div className='chatbot-actions'>
+                                    <input
+                                        type='text'
+                                        value={message}
+                                        onChange={(e) => setMessage(e.target.value)}
+                                        className={`input-chat ${disableInput && 'disable-input-chat'} ${language === 'fa' && 'rtl'
+                                            }`}
+                                        autoComplete='false'
+                                        placeholder={t('message')}
+                                        onKeyDown={handleKeyDown}
+                                        disabled={disableInput}
+                                        maxLength={80}
+                                        ref={inputRef}
+                                    />
+                                    <BiSolidSend
+                                        className={`send-icon ${language === 'fa' && 'send-icon-right'}`}
+                                        onClick={sendMessage}
+                                    />
+                                </div>
+                                <p className='text-bottom'>Powered By ARIISCO</p>
+                            </div>
+                        </div>
+                        <div
+                            className={`${language === 'fa'
+                                ? 'chat-icon-wrapper-right'
+                                : 'chat-icon-wrapper'
+                                }`}
+                            onClick={showChatHandler}
+                        >
+                            <img src='/images/iconchat.png' alt='icon_chat' />
+                        </div>
                     </div>
-                </div>
-                <div className={`'chat-bottom' ${language === "fa" && "chabot_dir"}`}>
-                    <div className='chatbot-actions'>
-                        <input
-                            type="text"
-                            value={message}
-                            onChange={e => setMessage(e.target.value)}
-                            className={`input-chat ${disableInput && "disable-input-chat"}`}
-                            autoComplete='false'
-                            placeholder={t("message")}
-                            onKeyDown={handleKeyDown}
-                            disabled={disableInput}
-                        />
-                        <BiSolidSend className={`send-icon ${language === "fa" && "send-icon-right"}`} onClick={sendMessage} />
-                    </div>
-                    <p className='text-bottom'>Powered By ARIISCO</p>
-                </div>
-            </div>
-            <div className={`${language === "fa" ? 'chat-icon-wrapper-right' : "chat-icon-wrapper"}`} onClick={() => setShowChat(prev => !prev)}>
-                <img src="/images/iconchat.png" alt="icon_chat" />
-            </div>
+            }
+
         </>
-    )
+    );
 }
+
+
+
+
+

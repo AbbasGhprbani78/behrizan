@@ -49,8 +49,10 @@ const en = {
     welcometo: "Welcome To",
     chatbot: "Chatbot",
     message: "message",
-    Anerroroccurredtryagain: "An Error Occurred, Try Again",
-    orderonline: "Order Online"
+    errorchat: "An issue has occurred, we will be back soon.",
+    orderonline: "Order Online",
+    textmaxchat: "The length of the chat cannot be greater than 20 the message",
+    newChat: "New Chat"
 }
 
 export default en

@@ -48,8 +48,10 @@ const fa = {
     welcometo: "خوش آمدید به",
     chatbot: "ربات گفتگو",
     message: "پیام",
-    Anerroroccurredtryagain: "خطایی پیش آمده دوباره امتحان کنید",
-    orderonline: "سفارش آنلاین"
+    errorchat: "مشکلی پیش آمده بزودی برمیگردیم",
+    orderonline: "سفارش آنلاین",
+    textmaxchat: "طول چت نمیتواند بیشتر از۲۰ پیام باشد",
+    newChat: "چت جدید"
 }
 
 export default fa
