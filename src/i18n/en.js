@@ -51,7 +51,7 @@ const en = {
     message: "message",
     errorchat: "An issue has occurred, we will be back soon.",
     orderonline: "Order Online",
-    textmaxchat: "The length of the chat cannot be greater than 20 the message",
+    textmaxchat: "I enjoyed talking with you! To help improve the service and provide further guidance, our chat is limited to 10 questions. If you need more information, you can start a new chat. I'd be happy to assist you again",
     newChat: "New Chat"
 }
 

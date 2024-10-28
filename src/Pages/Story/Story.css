@@ -80,6 +80,11 @@
     unicode-bidi: bidi-override;
 }
 
+.media-item-text-address {
+    margin-left: 15px;
+    unicode-bidi: bidi-override;
+}
+
 .rtl .media-item-text {
     margin-left: 0;
     margin-right: 15px;

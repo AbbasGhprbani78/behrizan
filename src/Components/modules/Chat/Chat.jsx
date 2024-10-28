@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 import CloseIcon from '@mui/icons-material/Close';
 import { useMyContext } from '../../../context/langugaeContext';
 import axios from 'axios';
+import ProductChatItem from '../ProductChatItem/ProductChatItem';
 
 export default function Chat({ setActiveChat }) {
     const { t } = useTranslation();
@@ -31,43 +32,54 @@ export default function Chat({ setActiveChat }) {
     };
 
     const sendMessage = async () => {
-
         if (message.trim() === "") return;
-        if (messages.length === 10) {
+        if (messages.length === 20) {
             setMaxLengthChat(true)
         } else {
             const newMessage = {
                 id: messages.length + 1,
-                isai: false,
+                isai: true,
                 text: message
             };
             setMessages((prevMessages) => [...prevMessages, newMessage]);
             setMessage("");
             setDisableInput(true);
             setLoading(true);
+
+            const headers = {
+                'X-Language': "fa"
+            };
+
             try {
                 const body = {
                     query: message,
                     ...(sessioId && { session_id: sessioId })
                 };
-                const res = await axios.post(
-                    `https://recomchat.ariisco.com/recomchatbothistory/`,
-                    body
-                );
+                const res = await axios.post(`https://recomchat.ariisco.com/product/productinfochatIP/`, body, {
+                    headers
+                })
                 if (res.status === 201 || res.status === 200) {
                     setDisableInput(false);
                     setLoading(false);
-
                     if (res.data.session_id) {
                         setSessionId(res.data.session_id);
                     }
-
                     const messageAi = {
                         id: messages.length + 1,
                         isai: true,
                         text: res.data.ai_assistant
                     };
                     setMessages((prevMessages) => [...prevMessages, messageAi]);
+
+                    if (res.data.seggestion_list) {
+                        const messageAi = {
+                            id: messages.length + 1,
+                            isai: true,
+                            images: res.data.seggestion_list
+                        };
+                        setMessages((prevMessages) => [...prevMessages, messageAi]);
+                    }
+
                 }
             } catch (error) {
                 setLoading(false);
@@ -83,7 +95,6 @@ export default function Chat({ setActiveChat }) {
         }
 
     };
-
 
     const handleKeyDown = (event) => {
         if (event.key === 'Enter') {
@@ -146,8 +157,7 @@ export default function Chat({ setActiveChat }) {
                             className={`chatbot-container ${showChat && 'active-chatbot'} ${language === 'fa' && 'chatbot-container-right'
                                 }`}
                         >
-                            <div
-                                className={`chatbot-header ${language === 'fa' && 'chabot_dir'}`}
+                            <div className={`chatbot-header ${language === 'fa' && 'chabot_dir'}`}
                             >
                                 <div className='d-flex align-items-center'>
                                     <IoMdInformationCircleOutline className='info-chat' />
@@ -189,6 +199,7 @@ export default function Chat({ setActiveChat }) {
                                                 message={message}
                                             />
                                         ))}
+
                                     {loading && (
                                         <div className='loading-chat'>
                                             <div className='dot'></div>
@@ -198,10 +209,17 @@ export default function Chat({ setActiveChat }) {
                                     )}
                                     {
                                         maxLengthChat &&
-                                        <div className='maxlenght-texts'>
-                                            <p className='maxlenght-text'>{t("textmaxchat")}</p>
-                                            <button className='btn-maxlenght' onClick={refreshChat}>{t("newChat")}</button>
-                                        </div>
+                                        <>
+                                            <div className={`message_wrapper_ai`} >
+                                                <p className={`chat-contant-ai ${language === "fa" && "rtlmessage"}`}>
+                                                    {t("textmaxchat")}
+                                                </p>
+                                            </div>
+                                            <div className='d-flex justify-content-center mt-5'>
+                                                <button className='btn-maxlenght' onClick={refreshChat}>{t("newChat")}</button>
+                                            </div>
+
+                                        </>
                                     }
                                 </div>
                             </div>
@@ -238,6 +256,7 @@ export default function Chat({ setActiveChat }) {
                             <img src='/images/iconchat.png' alt='icon_chat' />
                         </div>
                     </div> :
+                    
                     <div className='mobile-chat'>
                         <div
                             className={`chatbot-container ${showChat && 'active-chatbot'} ${language === 'fa' && 'chatbot-container-right'
@@ -286,6 +305,21 @@ export default function Chat({ setActiveChat }) {
                                                 message={message}
                                             />
                                         ))}
+                                    
+                                    {
+                                        maxLengthChat &&
+                                        <>
+                                            <div className={`message_wrapper_ai`} >
+                                                <p className={`chat-contant-ai ${language === "fa" && "rtlmessage"}`}>
+                                                    {t("textmaxchat")}
+                                                </p>
+                                            </div>
+                                            <div className='d-flex justify-content-center mt-5'>
+                                                <button className='btn-maxlenght' onClick={refreshChat}>{t("newChat")}</button>
+                                            </div>
+                                        </>
+                                    }
+
                                     {loading && (
                                         <div className='loading-chat'>
                                             <div className='dot'></div>
@@ -293,13 +327,6 @@ export default function Chat({ setActiveChat }) {
                                             <div className='dot'></div>
                                         </div>
                                     )}
-                                    {
-                                        maxLengthChat &&
-                                        <div className='maxlenght-texts'>
-                                            <p className='maxlenght-text'>{t("textmaxchat")}</p>
-                                            <button className='btn-maxlenght' onClick={refreshChat}>{t("newChat")}</button>
-                                        </div>
-                                    }
                                 </div>
                             </div>
                             <div className={`chat-bottom ${language === 'fa' && 'chabot_dir'}`}>
@@ -345,3 +372,12 @@ export default function Chat({ setActiveChat }) {
 
 
 
+{/* <div className='message_wrapper_ai'>
+                                        <div className='chat-contant-ai'>
+                                            {
+                                                Array(4).fill(0).map(item => (
+                                                    <ProductChatItem key={item.name} item={item} />
+                                                ))
+                                            }
+                                        </div>
+                                    </div> */}

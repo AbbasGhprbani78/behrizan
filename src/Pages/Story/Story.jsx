@@ -92,7 +92,7 @@ export default function Story() {
                                             <FmdGoodOutlinedIcon style={{ color: "#274c77" }} />
                                             {
                                                 language === "fa" ?
-                                                    <p className='media-item-text'>{socaial?.address_farsi}</p> :
+                                                    <p className='media-item-text-address'>{socaial?.address_farsi}</p> :
                                                     <p className='media-item-text'>{socaial?.address}</p>
                                             }
 
