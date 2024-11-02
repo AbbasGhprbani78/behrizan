@@ -43,6 +43,7 @@ export default function Header() {
         };
     }, []);
 
+
     useEffect(() => {
         const handleScroll = () => {
             setScrollY(window.scrollY);
@@ -72,15 +73,14 @@ export default function Header() {
     }
 
     useEffect(() => {
-        const langweb = localStorage.getItem("language")
-        if (langweb === "fa") {
+        if (language === "fa") {
             setIsEn(false)
             setIsFa(true)
         } else {
             setIsEn(true)
             setIsFa(false)
         }
-    }, [])
+    }, [language])
 
 
 

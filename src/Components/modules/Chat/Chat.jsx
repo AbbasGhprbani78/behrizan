@@ -7,7 +7,6 @@ import { useTranslation } from 'react-i18next';
 import CloseIcon from '@mui/icons-material/Close';
 import { useMyContext } from '../../../context/langugaeContext';
 import axios from 'axios';
-import ProductChatItem from '../ProductChatItem/ProductChatItem';
 
 export default function Chat({ setActiveChat }) {
     const { t } = useTranslation();
@@ -33,12 +32,16 @@ export default function Chat({ setActiveChat }) {
 
     const sendMessage = async () => {
         if (message.trim() === "") return;
-        if (messages.length === 20) {
-            setMaxLengthChat(true)
-        } else {
+        const aiResponsesCount = messages.filter(msg => msg.isai).length;
+
+        if (aiResponsesCount >= 10) {
+            setMaxLengthChat(true);
+            return;
+        }
+        else {
             const newMessage = {
                 id: messages.length + 1,
-                isai: true,
+                isai: false,
                 text: message
             };
             setMessages((prevMessages) => [...prevMessages, newMessage]);
@@ -47,7 +50,7 @@ export default function Chat({ setActiveChat }) {
             setLoading(true);
 
             const headers = {
-                'X-Language': "fa"
+                'X-Language': language
             };
 
             try {
@@ -107,6 +110,15 @@ export default function Chat({ setActiveChat }) {
         setMessages("")
         setSessionId("")
         setMaxLengthChat(false)
+    }
+
+    const handleChange = (e) => {
+        const inputValue = e.target.value;
+        const persianRegex = /^[آ-ی۰-۹\s]*$/;
+
+        if (persianRegex.test(inputValue)) {
+            setMessage(inputValue);
+        }
     }
 
 
@@ -197,6 +209,7 @@ export default function Chat({ setActiveChat }) {
                                             <Message
                                                 key={message.id}
                                                 message={message}
+                                                showChatHandler={showChatHandler}
                                             />
                                         ))}
 
@@ -228,7 +241,7 @@ export default function Chat({ setActiveChat }) {
                                     <input
                                         type='text'
                                         value={message}
-                                        onChange={(e) => setMessage(e.target.value)}
+                                        onChange={handleChange}
                                         className={`input-chat ${disableInput && 'disable-input-chat'} 
                                         ${language === 'fa' && 'rtl'}`}
                                         autoComplete='false'
@@ -256,7 +269,6 @@ export default function Chat({ setActiveChat }) {
                             <img src='/images/iconchat.png' alt='icon_chat' />
                         </div>
                     </div> :
-                    
                     <div className='mobile-chat'>
                         <div
                             className={`chatbot-container ${showChat && 'active-chatbot'} ${language === 'fa' && 'chatbot-container-right'
@@ -303,9 +315,10 @@ export default function Chat({ setActiveChat }) {
                                             <Message
                                                 key={message.id}
                                                 message={message}
+                                                showChatHandler={showChatHandler}
                                             />
                                         ))}
-                                    
+
                                     {
                                         maxLengthChat &&
                                         <>
@@ -334,7 +347,7 @@ export default function Chat({ setActiveChat }) {
                                     <input
                                         type='text'
                                         value={message}
-                                        onChange={(e) => setMessage(e.target.value)}
+                                        onChange={handleChange}
                                         className={`input-chat ${disableInput && 'disable-input-chat'} ${language === 'fa' && 'rtl'
                                             }`}
                                         autoComplete='false'
@@ -363,7 +376,6 @@ export default function Chat({ setActiveChat }) {
                         </div>
                     </div>
             }
-
         </>
     );
 }
@@ -371,13 +383,3 @@ export default function Chat({ setActiveChat }) {
 
 
 
-
-{/* <div className='message_wrapper_ai'>
-                                        <div className='chat-contant-ai'>
-                                            {
-                                                Array(4).fill(0).map(item => (
-                                                    <ProductChatItem key={item.name} item={item} />
-                                                ))
-                                            }
-                                        </div>
-                                    </div> */}

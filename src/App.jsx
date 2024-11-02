@@ -19,7 +19,6 @@ function App() {
   const validRoutes = routes.map((route) => route.path);
 
   useEffect(() => {
-
     const mainLanguage = localStorage.getItem("language");
     if (mainLanguage) {
       i18n.changeLanguage(mainLanguage);
@@ -37,7 +36,7 @@ function App() {
       >
         {router}
       </div>
-      {validRoutes.includes(location.pathname) && <Chat setActiveChat={setActiveChat} />}
+       <Chat setActiveChat={setActiveChat} />
     </>
   );
 }

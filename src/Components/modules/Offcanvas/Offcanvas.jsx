@@ -34,16 +34,14 @@ export default function OffcanvasSideBar({ show, onHide }) {
     }
 
     useEffect(() => {
-
-        const langweb = localStorage.getItem("language")
-        if (langweb === "fa") {
+        if (language === "fa") {
             setIsEn(false)
             setIsFa(true)
         } else {
             setIsEn(true)
             setIsFa(false)
         }
-    }, [])
+    }, [language])
 
     const persianNumbers = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
 

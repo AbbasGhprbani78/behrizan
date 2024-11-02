@@ -6,7 +6,7 @@ const ChangeLanContext = createContext()
 
 export const LanguageProvider = ({ children }) => {
 
-    const [language, setLanguage] = useState("en")
+    const [language, setLanguage] = useState("fa")
     const [socaial, setSocaial] = useState("");
 
     useEffect(() => {

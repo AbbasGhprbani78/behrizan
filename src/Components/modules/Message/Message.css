@@ -3,17 +3,16 @@
     margin-top: 1.2rem;
 }
 
-
 .message_wrapper_ai {
     align-self: flex-start;
-    max-width: 70%;
+    max-width: 80%;
     padding: 0 15px;
     margin-top: 1.2rem;
 }
 
 .message_wrapper_user {
     align-self: flex-end;
-    max-width: 70%;
+    max-width: 80%;
     padding: 0 15px;
     margin-top: 1.2rem;
 }
@@ -23,7 +22,6 @@
     color: #fff;
     height: auto;
     word-wrap: break-word;
-    width: fit-content;
     max-width: 100%;
     padding: 10px 15px;
     overflow: hidden;
@@ -47,9 +45,24 @@
     direction: rtl;
 }
 
-
-
 .error-color {
     background-color: #fcd3d8 !important;
     color: #d90429 !important;
+}
+
+.images-wrap {
+    min-width: 80% !important;
+}
+
+
+@media (max-width:400px) {
+
+    .message_wrapper_ai,
+    .message_wrapper_user {
+        max-width: 90%;
+    }
+
+    .images-wrap {
+        min-width: 90% !important;
+    }
 }

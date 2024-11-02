@@ -8,6 +8,6 @@ export default defineConfig({
     host: '0.0.0.0',
   },
   server: {
-    port: 4000,
+    port: 3000,
   },
 })
