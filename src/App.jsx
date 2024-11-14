@@ -1,7 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useLocation, useRoutes } from 'react-router-dom';
+import { useRoutes } from 'react-router-dom';
 import routes from './router';
-import Header from './Components/modules/Header/Header'
 import i18n from './i18n';
 import { useMyContext } from './context/langugaeContext';
 import { useEffect, useState } from 'react';
@@ -13,10 +12,8 @@ export const IP = "https://apiqmancafe.ariisco.com";
 function App() {
   const router = useRoutes(routes);
   const { language, setLanguage } = useMyContext();
-  const location = useLocation();
   const [activeChat, setActiveChat] = useState(false)
 
-  const validRoutes = routes.map((route) => route.path);
 
   useEffect(() => {
     const mainLanguage = localStorage.getItem("language");
@@ -26,9 +23,7 @@ function App() {
     }
   }, [language]);
 
-
-
-
+  
   return (
     <>
       <div className={`${language === "en" ? "ltr-font" : "rtl-font"}

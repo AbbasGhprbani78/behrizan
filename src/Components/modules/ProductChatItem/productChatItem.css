@@ -3,7 +3,7 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    margin:15px 0px;
     justify-content: space-between;
     gap: 10px;
 }

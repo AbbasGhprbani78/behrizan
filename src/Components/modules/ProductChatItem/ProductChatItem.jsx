@@ -11,7 +11,7 @@ export default function ProductChatItem({ item, showChatHandler }) {
     const relativePath = url.pathname;
 
     const goToProductHandler = () => {
-        
+
         showChatHandler()
         navigate(relativePath)
     }
@@ -24,7 +24,7 @@ export default function ProductChatItem({ item, showChatHandler }) {
                 </div>
                 <span className='product-chat-name'>{item.name}</span>
             </div>
-            <span className='product-chat-price'>{item?.price}</span>
+            <span className='product-chat-price'>{item?.price}{t("t")}</span>
         </div>
     )
 }

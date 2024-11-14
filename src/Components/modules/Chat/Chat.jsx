@@ -19,6 +19,8 @@ export default function Chat({ setActiveChat }) {
     const [loading, setLoading] = useState(false);
     const chatContentRef = useRef(null);
     const inputRef = useRef(null);
+    const [responseCount, setResponseCount] = useState(0);
+    const [maxMessage, setMaxMessage] = useState(70)
     const [maxLengthChat, setMaxLengthChat] = useState(false)
     const [windowWidth, setWindowWidth] = useState()
 
@@ -32,15 +34,15 @@ export default function Chat({ setActiveChat }) {
 
     const sendMessage = async () => {
         if (message.trim() === "") return;
-        const aiResponsesCount = messages.filter(msg => msg.isai).length;
-
-        if (aiResponsesCount >= 10) {
+    
+        if (responseCount === maxMessage) {
             setMaxLengthChat(true);
             return;
         }
+
         else {
             const newMessage = {
-                id: messages.length + 1,
+                id: crypto.randomUUID(),
                 isai: false,
                 text: message
             };
@@ -67,16 +69,24 @@ export default function Chat({ setActiveChat }) {
                     if (res.data.session_id) {
                         setSessionId(res.data.session_id);
                     }
+
+                    if (res.data.request_limit) {
+                        setMaxMessage(res.data.request_limit);
+                    }
+
                     const messageAi = {
-                        id: messages.length + 1,
+                        id: crypto.randomUUID(),
                         isai: true,
                         text: res.data.ai_assistant
                     };
+
                     setMessages((prevMessages) => [...prevMessages, messageAi]);
+
+                    setResponseCount((prevCount) => prevCount + 1);
 
                     if (res.data.seggestion_list) {
                         const messageAi = {
-                            id: messages.length + 1,
+                            id: crypto.randomUUID(),
                             isai: true,
                             images: res.data.seggestion_list
                         };
@@ -88,7 +98,7 @@ export default function Chat({ setActiveChat }) {
                 setLoading(false);
                 setDisableInput(false);
                 const errorMessage = {
-                    id: messages.length + 1,
+                    id: crypto.randomUUID(),
                     isai: true,
                     text: t('errorchat'),
                     isError: true
@@ -99,27 +109,36 @@ export default function Chat({ setActiveChat }) {
 
     };
 
-    const handleKeyDown = (event) => {
-        if (event.key === 'Enter') {
-            sendMessage();
-        }
-    };
 
     const refreshChat = () => {
         setMessage("")
         setMessages("")
         setSessionId("")
         setMaxLengthChat(false)
+        setMaxMessage(70)
     }
+
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            sendMessage();
+        }
+    };
 
     const handleChange = (e) => {
         const inputValue = e.target.value;
-        const persianRegex = /^[آ-ی۰-۹\s]*$/;
 
-        if (persianRegex.test(inputValue)) {
-            setMessage(inputValue);
+        if (language === 'fa') {
+            const persianRegex = /^[آ-ی۰-۹\s]*$/;
+            if (persianRegex.test(inputValue)) {
+                setMessage(inputValue);
+            }
+        } else if (language === 'en') {
+            const englishRegex = /^[A-Za-z0-9\s]*$/;
+            if (englishRegex.test(inputValue)) {
+                setMessage(inputValue);
+            }
         }
-    }
+    };
 
 
     useEffect(() => {
@@ -163,7 +182,7 @@ export default function Chat({ setActiveChat }) {
     return (
         <>
             {
-                windowWidth > 1025 ?
+                windowWidth > 767 ?
                     <div className='desk-chat'>
                         <div
                             className={`chatbot-container ${showChat && 'active-chatbot'} ${language === 'fa' && 'chatbot-container-right'
@@ -248,7 +267,7 @@ export default function Chat({ setActiveChat }) {
                                         placeholder={t('message')}
                                         onKeyDown={handleKeyDown}
                                         disabled={disableInput || maxLengthChat}
-                                        maxLength={80}
+                                        maxLength={200}
                                         ref={inputRef}
                                     />
                                     <BiSolidSend
@@ -354,7 +373,7 @@ export default function Chat({ setActiveChat }) {
                                         placeholder={t('message')}
                                         onKeyDown={handleKeyDown}
                                         disabled={disableInput}
-                                        maxLength={80}
+                                        maxLength={200}
                                         ref={inputRef}
                                     />
                                     <BiSolidSend

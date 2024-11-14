@@ -6,7 +6,7 @@ const fa = {
     joinnow: "عضویت",
     REST: "استراحت کن",
     DRINK: "بنوش",
-    ANDDOMORE: "بیشتر انجام بده",
+    ANDDOMORE: "بیشتر کار کن",
     Cold: "سرد",
     Drink: "نوشیدنی",
     firstsec: "تابستان هست اینجا",
