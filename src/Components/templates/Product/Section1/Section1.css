@@ -1,11 +1,18 @@
 @import url('../../../../Styles/Main.css');
 
 .section1-product-wrapper {
-    background: var(--LinearGradient-1);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     padding: 2rem;
+}
+
+.back_en {
+    background: linear-gradient(90deg, #EDF6F9 0%, #669BBC 100%);
+}
+
+.back_fa {
+    background: linear-gradient(90deg, #669BBC 0%, #EDF6F9 100%);
 }
 
 .section1-product-container {
@@ -32,8 +39,8 @@
 }
 
 .swiper-slide>img {
-    width: 70%;
     height: 100%;
+    object-fit: cover;
 }
 
 
@@ -77,7 +84,7 @@
 }
 
 .activeIcon {
-    color: #fff;
+    /* color: #fff; */
 }
 
 .icon-size-order {
@@ -98,7 +105,7 @@
     margin-top: 10px;
     font-size: .8rem;
     font-weight: bold;
-    color: var(--color-3);
+    color: #fff;
 }
 
 
@@ -115,7 +122,19 @@
 }
 
 .active-size {
-    background-color: var(--color-3);
+    background-color: #fff;
+    color: var(--color-3);
+}
+
+.dissize {
+    cursor: not-allowed;
+    background-color: transparent;
+    pointer-events: none;
+    color: var(--color-12)
+}
+
+.distext {
+    color:var(--color-12)
 }
 
 .icon-size-order>span {
@@ -123,7 +142,7 @@
 }
 
 .icon-order-container:hover {
-    background-color: var(--color-3);
+    background-color: #fff;
 }
 
 .icon-order {
@@ -131,7 +150,7 @@
 }
 
 .icon-order-container:hover .icon-order {
-    color: #fff;
+    color: var(--color-3);
 }
 
 .css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root {
@@ -150,6 +169,7 @@
 
 .drop-product {
     width: 100% !important;
+    font-family: "iranyekan";
 }
 
 
@@ -186,6 +206,39 @@
 
 .image-main-product {}
 
+.wrap-info-product {
+    width: 100%;
+}
+
+.wrap-size-order-text {
+    margin: 0 .5rem 0 .6rem;
+}
+
+.radios-container {
+    margin-top: 1.2rem;
+}
+
+.radio-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+
+.muirtl-kk1bwy-MuiButtonBase-root-MuiMenuItem-root,.muirtl-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
+    font-family: "iranyekan" !important;
+    font-size: .9rem !important;
+}
+
+.wrap-option{
+    width: 70%;
+}
+
+
+/* .no-margin {
+    margin: 0 !important;
+} */
+
 @media (max-width:1025px) {
     .section1-product-container {
         width: 100%;
@@ -199,7 +252,7 @@
     }
 
     .small-dropdown-product {
-        width: 90%;
+        width: 100%;
     }
 
     .main-product-text {
@@ -207,7 +260,18 @@
     }
 
     .section1-product-wrapper {
-
         background: linear-gradient(90deg, #EDF6F9 0%, #669BBC 100%);
     }
+
+    .size-order-text {
+        color: var(--color-3);
+    }
+
+    .distext {
+    color:var(--color-12)
+    }
+
+        .wrap-option {
+            width: 60%;
+        }
 }

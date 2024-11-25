@@ -19,7 +19,6 @@ export default function MainMenu() {
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
-
         const getProducts = async () => {
             const headers = {
                 'Accept-Language': language
@@ -46,49 +45,46 @@ export default function MainMenu() {
 
 
     return (
-        <>
-            {
-                loading ?
-                    <Lodaing /> :
-                    <>
-                        <Header />
-                        <div className="main-content">
-                            <div className={`menu-container ${language === "fa" && "rtl"}`}>
-                                <MenuHeader
-                                    isborder={true}
-                                />
-                                <Link className='link' to={'/categorymenus'}>
-                                    <div className='main-menu-title-wrapper'>
-                                        {
-                                            language === "fa" ?
-                                                <KeyboardReturnIcon className='backIconfa' />
-                                                :
-                                                <KeyboardReturnIcon />
-                                        }
+      <>
+        {loading ? (
+          <Lodaing />
+        ) : (
+          <>
+            <Header />
+            <div className="main-content">
+              <div className={`menu-container ${language === "fa" && "rtl"}`}>
+                <MenuHeader isborder={true} />
+                <Link className="link" to={"/categorymenus"}>
+                  <div className="main-menu-title-wrapper">
+                    {language === "fa" ? (
+                      <KeyboardReturnIcon className="backIconfa" />
+                    ) : (
+                      <KeyboardReturnIcon />
+                    )}
 
-                                        <p className="main-menu-title">{Products[0]?.category?.name}</p>
-                                    </div>
-                                </Link>
-                                <div className="main-products-wrapper">
-                                    {
-                                        Products.length > 0 && Products?.map((product) => (
-                                            <MainMenuProduct
-                                                key={product.id}
-                                                image={product.image}
-                                                dec={product.descriptions}
-                                                name={product.name}
-                                                price={product.small_glass_price}
-                                                id={product.id}
-                                            />
-                                        ))
-                                    }
-                                </div>
-                            </div>
-                        </div>
-                        <Footer />
-                    </>
-            }
-
-        </>
-    )
+                    <p className="main-menu-title">
+                      {Products[0]?.category?.name}
+                    </p>
+                  </div>
+                </Link>
+                <div className="main-products-wrapper">
+                  {Products.length > 0 &&
+                    Products?.map((product) => (
+                      <MainMenuProduct
+                        key={product.id}
+                        image={product.image}
+                        dec={product.descriptions}
+                        name={product.name}
+                        price={product.big_glass_price}
+                        id={product.id}
+                      />
+                    ))}
+                </div>
+              </div>
+            </div>
+            <Footer />
+          </>
+        )}
+      </>
+    );
 }

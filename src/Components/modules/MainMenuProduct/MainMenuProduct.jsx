@@ -26,6 +26,7 @@ export default function MainMenuProduct({ image,
         };
     }, []);
 
+  
 
     return (
         <>

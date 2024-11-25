@@ -19,6 +19,7 @@
     transition: all .3s ease;
     border-radius: 50%;
     overflow: hidden;
+    object-fit: cover;
 }
 
 .productItem2-wrapper:hover.productItem2-wrapper>img {

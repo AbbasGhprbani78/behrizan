@@ -18,7 +18,6 @@ import Footer from '../../Components/modules/Footer/Footer'
 export default function Product() {
     const { language } = useMyContext()
     const [loading, setLoading] = useState(false)
-    const [openModal, setOpenModal] = useState(false)
     const { id } = useParams()
     const { pathname } = useLocation();
     const navigate = useNavigate()
@@ -50,6 +49,8 @@ export default function Product() {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [pathname]);
+
+
 
     return (
         <>

@@ -25,6 +25,7 @@
     width: calc(110px + .1vw);
     height: calc(110px + .1vh);
     border-radius: 50%;
+    object-fit: cover;
 }
 
 .product-img-wrapper {
