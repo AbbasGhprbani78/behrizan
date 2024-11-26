@@ -251,12 +251,16 @@ input.check-toggle-round-flat:checked+label:after {
     background-color: var(--color-17);
     transition: all .3s ease;
     padding: 4px 18px 5px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
-.join-now:hover {
+/* .join-now:hover {
     background-color: var(--color-btn-hover);
 
-}
+} */
 
 .signin {
     border: 1px solid var(--color-17);

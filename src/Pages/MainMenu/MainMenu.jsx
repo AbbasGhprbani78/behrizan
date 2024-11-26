@@ -30,7 +30,6 @@ export default function MainMenu() {
                 })
 
                 if (response.status === 200) {
-                    console.log(response.data)
                     setProducts(response.data.products)
                     setLoading(false)
                 }

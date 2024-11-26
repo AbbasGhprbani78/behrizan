@@ -182,7 +182,7 @@ export default function Chat({ setActiveChat }) {
     return (
         <>
             {
-                windowWidth > 767 ?
+                windowWidth >= 767 ?
                     <div className='desk-chat'>
                         <div
                             className={`chatbot-container ${showChat && 'active-chatbot'} ${language === 'fa' && 'chatbot-container-right'
@@ -275,7 +275,7 @@ export default function Chat({ setActiveChat }) {
                                         onClick={sendMessage}
                                     />
                                 </div>
-                                <p className='text-bottom'>Powered By ARIISCO</p>
+                                <p className='text-bottom'>Powered By NOBINCO</p>
                             </div>
                         </div>
                         <div
@@ -381,7 +381,7 @@ export default function Chat({ setActiveChat }) {
                                         onClick={sendMessage}
                                     />
                                 </div>
-                                <p className='text-bottom'>Powered By ARIISCO</p>
+                                <p className='text-bottom'>Powered By NOBINCO</p>
                             </div>
                         </div>
                         <div

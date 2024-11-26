@@ -51,6 +51,7 @@ export default function Product() {
     }, [pathname]);
 
 
+    console.log(mainProduct)
 
     return (
         <>

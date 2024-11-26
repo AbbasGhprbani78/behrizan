@@ -8,8 +8,6 @@ const en = {
     REST: "REST",
     DRINK: "DRINK",
     ANDDOMORE: "AND DO MORE",
-    Cold: "Cold",
-    Drink: "Drink",
     firstsec: "SUMMER IS HERE",
     twosec: "BEST OFFER",
     Order: "Order",
@@ -52,7 +50,9 @@ const en = {
     errorchat: "An issue has occurred, we will be back soon.",
     orderonline: "Order Online",
     textmaxchat: "I enjoyed talking with you! To help improve the service and provide further guidance, our chat is limited to 10 questions. If you need more information, you can start a new chat. I'd be happy to assist you again",
-    newChat: "New Chat"
+    newChat: "New Chat",
+    offer:"offer",
+    day:"day"
 }
 
 export default en

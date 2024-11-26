@@ -44,7 +44,7 @@ export default function Footer() {
                         c
                         2024
                         Qmancafe All Rights Reserved</p>
-                    <p className="footer-text-2">Powered By Ariisco</p>
+                    <p className="footer-text-2">Powered By NOBINCO</p>
                 </Col>
             </footer>
         </>
