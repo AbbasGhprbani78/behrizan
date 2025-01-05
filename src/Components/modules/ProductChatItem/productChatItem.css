@@ -3,7 +3,7 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    margin:15px 0px;
+    margin: 15px 0px;
     justify-content: space-between;
     gap: 10px;
 }
@@ -23,8 +23,9 @@
 }
 
 .img-chat-wrapp>img {
-    width: 85%;
     height: 85%;
+    width: 85%;
+    object-fit: cover;
 }
 
 .chat-product-info {

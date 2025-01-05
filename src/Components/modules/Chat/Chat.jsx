@@ -60,9 +60,13 @@ export default function Chat({ setActiveChat }) {
                     query: message,
                     ...(sessioId && { session_id: sessioId })
                 };
-                const res = await axios.post(`https://recomchat.ariisco.com/product/productinfochatIP/`, body, {
-                    headers
-                })
+                const res = await axios.post(
+                  `https://api.nobinco.com/chat/product/productinfochatIP/`,
+                  body,
+                  {
+                    headers,
+                  }
+                );
                 if (res.status === 201 || res.status === 200) {
                     setDisableInput(false);
                     setLoading(false);

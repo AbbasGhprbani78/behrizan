@@ -50,8 +50,7 @@ export default function Product() {
         window.scrollTo(0, 0);
     }, [pathname]);
 
-
-    console.log(mainProduct)
+    
 
     return (
         <>

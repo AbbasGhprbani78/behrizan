@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import Chat from './Components/modules/Chat/Chat';
 
-export const IP = "https://apiqmancafe.ariisco.com";
+export const IP = "https://qmancafe.com/api/v1/";
 
 function App() {
   const router = useRoutes(routes);

@@ -44,32 +44,39 @@ export default function Section1({ dataHome }) {
 
 
     return (
-        <>
-            <div className={`section1-wrapper ${language === "fa" && "rtl rtl-back"}`}>
-                <Col xs={12} sm={6} md={5} className="crosan-img-wrapper">
-                    <div className={`fade-wrapper animate__animated animate__fadeInUp animate__delay-1s`}>
-                        <img src={`${IP}${dataHome?.image_one}`} alt="image-1" />
-                    </div>
-                </Col>
-                <Col xs={12} sm={6} md={7} className="right-section1">
-                    <div className="byword-wrapper animate__animated animate__fadeInDown animate__delay-1s">
-                        {formattedHeaderText}
-                    </div>
-                    <div className='time-work-wrapper'>
-                        {
-                            language === "fa" ?
-                                <span className='time-work fw-bold'>{`${startText} تا ${endText}`}</span> :
-                                <span className='time-work fw-bold'>{`${dataHome?.start} - ${dataHome?.end}`}</span>
-                        }
-                    </div>
-                    <div className="link-nav-wrapper mt-4 link-sec-m">
-                        <Link className='link-nav join-now link-nav-sec' to={"https://order.qmancafe.com/order"}>
-                            {t("orderonline")}
-                        </Link>
-                    </div>
-                </Col>
+      <>
+        <div
+          className={`section1-wrapper ${language === "fa" && "rtl rtl-back"}`}
+        >
+          <Col xs={12} sm={6} md={5} className="crosan-img-wrapper">
+            <div
+              className={`fade-wrapper animate__animated animate__fadeInUp animate__delay-1s`}
+            >
+              <img src={`${IP}${dataHome?.image_one}`} alt="image-1" />
             </div>
-        </>
+          </Col>
+          <Col xs={12} sm={6} md={7} className="right-section1">
+            <div className="byword-wrapper animate__animated animate__fadeInDown animate__delay-1s">
+              {formattedHeaderText}
+            </div>
+            <div className="time-work-wrapper">
+              {language === "fa" ? (
+                <span className="time-work fw-bold">{`${startText} تا ${endText}`}</span>
+              ) : (
+                <span className="time-work fw-bold">{`${dataHome?.start} - ${dataHome?.end}`}</span>
+              )}
+            </div>
+            <div className="link-nav-wrapper mt-4 link-sec-m">
+              <Link
+                className="link-nav join-now link-nav-sec"
+                to={"https://order.qmancafe.com/order"}
+              >
+                {t("orderonline")}
+              </Link>
+            </div>
+          </Col>
+        </div>
+      </>
     );
 }
 
